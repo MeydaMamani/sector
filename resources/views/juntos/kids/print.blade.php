@@ -21,7 +21,7 @@
             </tr>
             <tr><td colspan="138"></td></tr>
             <tr>
-                <td colspan="138" style="font-size: 18px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">PADRÓN DE NIÑOS MENORES DE 24 MESES PARA LA ATENCIÓN AL HOGAR Y SEG. NOMINAL - {{ $nameDist }}</td>
+                <td colspan="138" style="font-size: 16px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">PADRÓN DE NIÑOS MENORES DE 24 MESES PARA LA ATENCIÓN AL HOGAR Y SEG. NOMINAL - {{ $nameProv }} / {{ $nameDist }}</td>
             </tr>
             <tr><td colspan="138"></td></tr>
             <tr><td colspan="138"></td></tr>

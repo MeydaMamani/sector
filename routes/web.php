@@ -2,10 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\MainController;
+use App\Http\Controllers\main\DashboardController;
+use App\Http\Controllers\main\MainController;
 use App\Http\Controllers\fed\KidsController;
 use App\Http\Controllers\juntos\jKidsController;
+use App\Http\Controllers\meta4\mKidsController;
 
 // Route::get('/', function () { return view('index'); });
 Route::get('/', [LoginController::class, 'index']) ->name('login');
@@ -29,3 +30,7 @@ Route::post('/juntkids/grafCred', [jKidsController::class, 'forGrafCred']);
 Route::post('/juntkids/tableResumCred', [jKidsController::class, 'tableResumCreds']);
 Route::get('/juntkids/printRn', [jKidsController::class, 'printRn']);
 Route::get('/juntkids/printCredMes', [jKidsController::class, 'printCredMes']);
+
+Route::get('/met4kids', [mKidsController::class, 'indexKids']);
+// Route::get('/met4kids/print', [jKidsController::class, 'printKids']);
+Route::post('/met4kids/list', [mKidsController::class, 'totalData']);

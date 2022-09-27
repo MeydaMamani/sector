@@ -21,7 +21,7 @@
             </tr>
             <tr><td colspan="29"></td></tr>
             <tr>
-                <td colspan="29" style="font-size: 18px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">Reporte Nominal de Creds en Niños Menores de 1 Año - {{ $red }} </td>
+                <td colspan="29" style="font-size: 18px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">Reporte Nominal de Creds en Niños Menores de 1 Año - {{ $anio }}</td>
             </tr>
             <tr><td colspan="29"></td></tr>
             <tr><td colspan="29"></td></tr>
@@ -65,7 +65,7 @@
             </tr>
         </thead>
         <tbody>
-            {{-- @foreach($nominal as $list)
+            @foreach($nominal as $list)
                 <tr style="text-align: center; border: 3px solid #A6A6A6;">
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $list->PROVINCIA_RES }}</td>
@@ -97,7 +97,7 @@
                     <td>{{ $list->CTRL11 }}</td>
                     <td>{{ $list->CUMPLE_HIS }}</td>
                 </tr>
-            @endforeach --}}
+            @endforeach
         </tbody>
     </table>
 </body>

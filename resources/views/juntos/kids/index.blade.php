@@ -305,11 +305,11 @@
                             <div class="col-md-3">
                                 <br><br>
                                 <div class="card" style="border-color: #198754;">
-                                <h5 class="card-header text-white text-center p-1 font-13" style="background: #198754;">Recién Nacidos</h5>
+                                <h5 class="card-header text-white text-center p-1 font-13" style="background: #198754;">Niños menores de 1 año</h5>
                                     <div class="card-body p-2">
                                         <form method="POST" id="formCredMes" @submit.prevent="PrintCredMes">
                                             <div class="mb-2 form-group">
-                                                <select class="form-control select2 show-tick" data-width="100%" v-model="red" name="redCredMes" @change="filtersDistricts" v-select2 required>
+                                                <select class="form-control select2 show-tick" data-width="100%" v-model="red" name="provCredMes" @change="filtersDistricts" v-select2 required>
                                                     <option value="">Seleccione Red</option>
                                                     <option v-for="format in listProvinces" :value="format.Provincia">[[ format.Provincia ]]</option>
                                                 </select>
@@ -357,56 +357,89 @@
                     </div>
                     <div class="modal-body">
                         <div class="row">
-                            <div class="col-md-9" id="table_resume">
-                                <div class="mb-2 col-md-3 filter_fed">
-                                    <select class="form-select" name="anioCred12" id="anioCred12" onchange="tableResumCred12();">
+                            <div class="col-md-9">
+                                <div class="mb-2 col-md-3">
+                                    <select class="form-control" data-width="100%" v-model="anioTableCredMes" @change="tableResumCredMes">
                                         <option value="2020">2020</option>
                                         <option value="2021">2021</option>
                                         <option value="2022">2022</option>
-                                        <option value="TODOS" selected>TODOS</option>
+                                        <option value="TODOS">TODOS</option>
                                     </select>
                                 </div>
-                                <div id="table_resume_cred12"></div>
+                                <div class="table-responsive" id="cred_juntos">
+                                    <table class="table table-hover table-bordered">
+                                        <thead>
+                                            <tr class="font-10 text-center" style="background: #e0eff5;">
+                                                <th class="align-middle">#</th>
+                                                <th class="align-middle">Provincia</th>
+                                                <th class="align-middle">Distrito</th>
+                                                <th class="align-middle">Den</th>
+                                                <th class="align-middle">Num Juntos</th>
+                                                <th class="align-middle">%</th>
+                                                <th class="align-middle">Num His</th>
+                                                <th class="align-middle">%</th>
+                                                <th class="align-middle">Coin</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr v-for="(format, key) in lisTableResumCredMes" class="font-9">
+                                                <td class="align-middle text-center">[[ key+1 ]]</td>
+                                                <td class="align-middle">[[ format.PROVINCIA_RES ]]</td>
+                                                <td class="align-middle">[[ format.DISTRITO_RES ]]</td>
+                                                <td class="align-middle text-center">[[ format.DENOMINADOR ]]</td>
+                                                <td class="align-middle text-center">[[ format.RN_JUNT_NUM ]]</td>
+                                                <td class="align-middle text-center">[[ Math.ceil(format.AVANCE_JUNT) ]]%</td>
+                                                <td class="align-middle text-center">[[ format.RN_HIS_NUM ]]</td>
+                                                <td class="align-middle text-center">[[ Math.ceil(format.AVANCE_HIS) ]]%</td>
+                                                <template v-if="format.AVANCE_JUNT == format.AVANCE_HIS">
+                                                    <td class="align-middle text-center" style="background: #bbedbb;"></td>
+                                                </template>
+                                                <template v-else-if="format.AVANCE_JUNT < format.AVANCE_HIS">
+                                                    <td class="align-middle text-center" style="background: #b5d3fa;"></td>
+                                                </template>
+                                                <template v-else-if="format.AVANCE_JUNT > format.AVANCE_HIS">
+                                                    <td class="align-middle text-center" style="background: #f6c3cf;"></td>
+                                                </template>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
-                            <div class="col-md-3 p-0">
+                            <div class="col-md-3">
                                 <br><br>
                                 <div class="card" style="border-color: #198754;">
-                                    <h5 class="card-header text-white text-center p-1 font-13" style="background: #198754;">1 a 2 años</h5>
+                                <h5 class="card-header text-white text-center p-1 font-13" style="background: #198754;">Niños menores de 1 año</h5>
                                     <div class="card-body p-2">
-                                        <form method="POST" name="f17" action="./junt_print_creds.php">
-                                            <div class="mb-2 filter_fed">
-                                                <select class="form-select" name="red17" id="red17" onchange="cambia_distrito17();" aria-label="Default select example">
-                                                    <option value="0" selected>Seleccione Red</option>
-                                                    <option value="1">DANIEL ALCIDES CARRION</option>
-                                                    <option value="2">OXAPAMPA</option>
-                                                    <option value="3">PASCO</option>
-                                                    <option value="4">TODOS</option>
+                                        <form method="POST" id="formCredMes" @submit.prevent="PrintCredMes">
+                                            <div class="mb-2 form-group">
+                                                <select class="form-control select2 show-tick" data-width="100%" v-model="red" name="provCredMes" @change="filtersDistricts" v-select2 required>
+                                                    <option value="">Seleccione Red</option>
+                                                    <option v-for="format in listProvinces" :value="format.Provincia">[[ format.Provincia ]]</option>
                                                 </select>
                                             </div>
-                                            <div class="mb-2 filter_fed">
-                                                <select class="select_gestante form-select" name="distrito17" id="distrito17">
-                                                    <option value="-" selected>Seleccione Distrito</option>
+                                            <div class="mb-2 form-group">
+                                                <select class="form-control select2 show-tick" data-width="100%" name="distCredMes" v-select2 required>
+                                                    <option value="">Seleccione Distrito</option>
+                                                    <option v-for="format in listDistricts" :value="format.Distrito">[[ format.Distrito ]]</option>
                                                 </select>
                                             </div>
-                                            <div class="mb-2 filter_fed">
-                                                <select class="select_gestante form-select" name="anio17" id="anio17">
-                                                    <option value="-" selected>Seleccione Año</option>
+                                            <div class="mb-2 form-group">
+                                                <select class="form-control select2 show-tick" data-width="100%" name="anioCredMes" v-select2 required>
+                                                    <option value="-">Seleccione Año</option>
                                                     <option value="2020">2020</option>
                                                     <option value="2021">2021</option>
                                                     <option value="2022">2022</option>
                                                     <option value="TODOS">TODOS</option>
                                                 </select>
                                             </div>
-                                            <div class="mb-2 filter_fed">
-                                                <select class="select_gestante form-select" name="type_cred17" id="type_cred17">
-                                                    <option value="-" selected>Seleccione Tipo</option>
-                                                    <option value="nom12">Nominal</option>
-                                                    <option value="cont12">Conteo</option>
+                                            <div class="mb-2 form-group">
+                                                <select class="form-control select2 show-tick" data-width="100%" name="typeCredMes" v-select2 required>
+                                                    <option value="" selected>Seleccione Tipo</option>
+                                                    <option value="nominal">NOMINAL</option>
+                                                    <option value="conteo">CONTEO</option>
                                                 </select>
                                             </div>
-                                            <div class="col-md-12 mt-2">
-                                                <button type="submit" name="dataCred12a" class="btn btn-outline-success mb-2 btn-sm w-100"><i class="mdi mdi-printer"></i> Descargar</button>
-                                            </div>
+                                            <button type="submit" class="btn btn-outline-success btn-block btn-sm mt-1 font-12 w-100"><i class="fa fa-print"></i> Descargar</button>
                                         </form>
                                     </div>
                                 </div>

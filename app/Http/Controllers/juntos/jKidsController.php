@@ -24,8 +24,8 @@ class jKidsController extends Controller
     }
 
     public function printKids(Request $request){
-        $d = $request->distrito; $a = $request->anio;
-        return Excel::download(new ConsolidateExport($d, $a), 'DEIT_PASCO PADRON DE NIÑOS MENORES DE 24 MESES PARA LA ATENCION AL HOGAR.xlsx');
+        $r = $request->red; $d = $request->distrito; $a = $request->anio;
+        return Excel::download(new ConsolidateExport($r, $d, $a), 'DEIT_PASCO PADRON DE NIÑOS MENORES DE 24 MESES PARA LA ATENCION AL HOGAR.xlsx');
     }
 
     public function forGrafCred(Request $request){
@@ -204,7 +204,7 @@ class jKidsController extends Controller
     }
 
     public function printCredMes(Request $request){
-        $red = $request->redCredMes; $dist = $request->distCredMes; $anio = $request->anioCredMes; $type = $request->typeCredMes;
+        $red = $request->provCredMes; $dist = $request->distCredMes; $anio = $request->anioCredMes; $type = $request->typeCredMes;
         return Excel::download(new CredMesExport($red, $dist, $anio, $type), 'DEIT_PASCO REPORTE DE CREDS EN NIÑOS MENORES DE UN AÑO.xlsx');
     }
 }

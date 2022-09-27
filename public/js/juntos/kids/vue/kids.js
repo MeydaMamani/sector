@@ -70,13 +70,9 @@ const appRecienNacidos = new Vue({
         },
 
         listTotal: function() {
-            axios({
-                method: 'POST',
-                url: 'juntkids/list',
-                data: '',
-            })
-            .then(response => {
-                this.total = response.data;
+            axios.post('juntkids/list')
+            .then(respuesta => {
+                this.total = respuesta.data;
 
             }).catch(e => {
                 this.errors.push(e)
@@ -85,14 +81,11 @@ const appRecienNacidos = new Vue({
 
         PrintNominal: function(){
             const formData = $("#formulario").serialize();
-            console.log(formData);
-            console.log(this.red);
-            console.log(this.distrito);
             if (this.red == '') { toastr.error('Seleccione una Red', null, { "closeButton": true, "progressBar": true }); }
             else if (this.distrito == '') { toastr.error('Seleccione un Distrito', null, { "closeButton": true, "progressBar": true }); }
             else if (this.anio == '') { toastr.error('Seleccione un Año', null, { "closeButton": true, "progressBar": true }); }
             else{
-                url_ = window.location.origin + window.location.pathname + '/print?r=' + formData;
+                url_ = window.location.origin + window.location.pathname + '/print?' + formData;
                 window.open(url_,'_blank');
             }
         },
@@ -191,7 +184,6 @@ const appRecienNacidos = new Vue({
         },
 
         tableResumRn: function(){
-            if(this.anioTableRn == '-'){ this.anioTableRn = 'TODOS'; }
             axios({
                 method: 'POST',
                 url: 'juntkids/tableResumCred',
@@ -208,12 +200,11 @@ const appRecienNacidos = new Vue({
 
         PrintRn: function(){
             const formData = $("#formRn").serialize();
-            url_ = window.location.origin + window.location.pathname + '/printRn?r=' + formData;
+            url_ = window.location.origin + window.location.pathname + '/printRn?' + formData;
             window.open(url_,'_blank');
         },
 
         tableResumCredMes: function(){
-            if(this.anioTableCredMes == '-'){ this.anioTableCredMes = 'TODOS'; }
             axios({
                 method: 'POST',
                 url: 'juntkids/tableResumCred',
@@ -230,8 +221,7 @@ const appRecienNacidos = new Vue({
 
         PrintCredMes: function(){
             const formData = $("#formCredMes").serialize();
-            console.log(formData);
-            url_ = window.location.origin + window.location.pathname + '/printCredMes?r=' + formData;
+            url_ = window.location.origin + window.location.pathname + '/printCredMes?' + formData;
             window.open(url_,'_blank');
         },
 
