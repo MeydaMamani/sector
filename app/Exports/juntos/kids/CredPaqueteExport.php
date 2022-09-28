@@ -325,7 +325,7 @@ class CredPaqueteExport implements FromView, ShouldAutoSize
                 }
             }
 
-            return view('juntos.kids.paquete.printConteo', [ 'nominal' => $resCredMes, 'anio' => $anio ]);
+            return view('juntos.kids.credpaquete.printConteo', [ 'nominal' => $resCredMes, 'anio' => $anio ]);
         }
         else if($type == 'nominal'){
             if($red == 'TODOS'){
