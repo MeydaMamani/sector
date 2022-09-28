@@ -32,5 +32,22 @@ Route::get('/juntkids/printRn', [jKidsController::class, 'printRn']);
 Route::get('/juntkids/printCredMes', [jKidsController::class, 'printCredMes']);
 
 Route::get('/met4kids', [mKidsController::class, 'indexKids']);
-// Route::get('/met4kids/print', [jKidsController::class, 'printKids']);
+Route::get('/met4kids/print', [mKidsController::class, 'printKids']);
 Route::post('/met4kids/list', [mKidsController::class, 'totalData']);
+Route::post('/met4kids/grafCred', [mKidsController::class, 'forGrafCred']);
+Route::post('/met4kids/tableResumCred', [mKidsController::class, 'tableResumCreds']);
+Route::get('/met4kids/printRn', [mKidsController::class, 'printRn']);
+Route::get('/met4kids/printCredMes', [mKidsController::class, 'printCredMes']);
+Route::get('/met4kids/printCred12', [mKidsController::class, 'printCred12']);
+
+Route::post('/met4kids/grafSuple', [mKidsController::class, 'forGrafSuple']);
+Route::post('/met4kids/tableResumSuple', [mKidsController::class, 'tableResumSuples']);
+Route::get('/met4kids/printSuple45', [mKidsController::class, 'printSuple45']);
+Route::get('/met4kids/printSuple611', [mKidsController::class, 'printSuple611']);
+Route::get('/met4kids/printSuple12', [mKidsController::class, 'printSuple12']);
+
+Route::post('/met4kids/grafVaccine', [mKidsController::class, 'forGrafVaccine']);
+Route::post('/met4kids/tableResumVac', [mKidsController::class, 'tableResumVac']);
+// Route::get('/met4kids/printSuple45', [mKidsController::class, 'printSuple45']);
+// Route::get('/met4kids/printSuple611', [mKidsController::class, 'printSuple611']);
+// Route::get('/met4kids/printSuple12', [mKidsController::class, 'printSuple12']);
