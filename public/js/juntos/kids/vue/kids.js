@@ -30,6 +30,10 @@ const appRecienNacidos = new Vue({
         lisTableResumRn: [],
         anioTableCredMes: 'TODOS',
         lisTableResumCredMes: [],
+        anioTableCred12: 'TODOS',
+        lisTableResumCred12: [],
+        anioTablePaquete: 'TODOS',
+        lisTableResumPaquete: [],
 
     },
     created: function() {
@@ -225,5 +229,53 @@ const appRecienNacidos = new Vue({
             window.open(url_,'_blank');
         },
 
+        tableResumCred12: function(){
+            console.log(this.anioTableCred12);
+            axios({
+                method: 'POST',
+                url: 'juntkids/tableResumCred',
+                data: { "id": this.anioTableCred12, "type": "cred12" },
+            })
+            .then(response => {
+                console.log(response.data);
+                this.lisTableResumCred12 = response.data[2];
+
+            }).catch(e => {
+                this.errors.push(e)
+            })
+        },
+
+        PrintCred12: function(){
+            const formData = $("#formCred12").serialize();
+            url_ = window.location.origin + window.location.pathname + '/printCred12?' + formData;
+            window.open(url_,'_blank');
+        },
+
+        tableResumPaquete: function(){
+            console.log(this.anioTablePaquete);
+            axios({
+                method: 'POST',
+                url: 'juntkids/tableResumCred',
+                data: { "id": this.anioTablePaquete, "type": "paquete" },
+            })
+            .then(response => {
+                this.lisTableResumPaquete = response.data[3];
+                for(i=0;i<this.lisTableResumPaquete.length;i++){
+                    this.lisTableResumPaquete[i].AVAN_JUNT = ((this.lisTableResumPaquete[i].NUM_JUNTOS / this.lisTableResumPaquete[i].DENOMINADOR)*100).toFixed(1);
+                    this.lisTableResumPaquete[i].AVAN_HIS = ((this.lisTableResumPaquete[i].NUM_HIS / this.lisTableResumPaquete[i].DENOMINADOR)*100).toFixed(1);
+                }
+                console.log(this.lisTableResumPaquete);
+             
+
+            }).catch(e => {
+                this.errors.push(e)
+            })
+        },
+
+        PrintPaquete: function(){
+            const formData = $("#formPaquete").serialize();
+            url_ = window.location.origin + window.location.pathname + '/printPaquete?' + formData;
+            window.open(url_,'_blank');
+        },
     }
 })

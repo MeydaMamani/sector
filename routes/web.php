@@ -30,6 +30,8 @@ Route::post('/juntkids/grafCred', [jKidsController::class, 'forGrafCred']);
 Route::post('/juntkids/tableResumCred', [jKidsController::class, 'tableResumCreds']);
 Route::get('/juntkids/printRn', [jKidsController::class, 'printRn']);
 Route::get('/juntkids/printCredMes', [jKidsController::class, 'printCredMes']);
+Route::get('/juntkids/printCred12', [jKidsController::class, 'printCred12']);
+Route::get('/juntkids/printPaquete', [jKidsController::class, 'printPaquete']);
 
 Route::get('/met4kids', [mKidsController::class, 'indexKids']);
 Route::get('/met4kids/print', [mKidsController::class, 'printKids']);
