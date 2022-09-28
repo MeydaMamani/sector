@@ -18,7 +18,7 @@
                 {{-- @endif --}}
             </div>
             <div class="info">
-                <a href="#" class="d-block text-white"> Hola Meyda</a>
+                <a href="#" class="d-block text-white"> Hola Usuario</a>
             </div>
             {{-- @endforeach --}}
         </div>

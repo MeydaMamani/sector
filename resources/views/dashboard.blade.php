@@ -6,7 +6,7 @@
             <div class="container-fluid">
                 <div class="page-wrapper"><br>
                     <div class="col-md-12 text-center">
-                        <h2 class="title_fed pb-3">Avance Metales Pesados, Metaloides y Otras Sustancias</h2>
+                        <!-- <h2 class="title_fed pb-3">Avance Metales Pesados, Metaloides y Otras Sustancias</h2> -->
                     </div>
                 </div>
             </div>
