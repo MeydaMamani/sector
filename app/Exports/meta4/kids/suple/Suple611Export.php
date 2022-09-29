@@ -33,7 +33,7 @@ class Suple611Export implements FromView, ShouldAutoSize
             if($red == 'TODOS'){
                 if($anio == 'TODOS'){
                     $anio = 'Todos';
-                    $rSuple611 = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $rSuple611 = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', DB::raw("COUNT(DISTRITO) DENOMINADOR"),
                                 DB::raw("SUM(CASE WHEN ([EH-6M] IS NOT NULL AND [EH-7M] IS NOT NULL AND [EH-8M] IS NOT NULL AND
                                 [EH-9M] IS NOT NULL AND [EH-10M] IS NOT NULL AND [EH-11M] IS NOT NULL) THEN 1 ELSE 0 END) AS SUPLE6_11_HIS"),
@@ -43,7 +43,7 @@ class Suple611Export implements FromView, ShouldAutoSize
                                 ->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
 
                 }else{
-                    $rSuple611 = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $rSuple611 = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', DB::raw("COUNT(DISTRITO) DENOMINADOR"),
                                 DB::raw("SUM(CASE WHEN ([EH-6M] IS NOT NULL AND [EH-7M] IS NOT NULL AND [EH-8M] IS NOT NULL AND
                                 [EH-9M] IS NOT NULL AND [EH-10M] IS NOT NULL AND [EH-11M] IS NOT NULL) THEN 1 ELSE 0 END) AS SUPLE6_11_HIS"),
@@ -56,7 +56,7 @@ class Suple611Export implements FromView, ShouldAutoSize
             else if($red != 'TODOS' && $dist == 'TODOS'){
                 if($anio == 'TODOS'){
                     $anio = 'Todos';
-                    $rSuple611 = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $rSuple611 = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', DB::raw("COUNT(DISTRITO) DENOMINADOR"),
                                 DB::raw("SUM(CASE WHEN ([EH-6M] IS NOT NULL AND [EH-7M] IS NOT NULL AND [EH-8M] IS NOT NULL AND
                                 [EH-9M] IS NOT NULL AND [EH-10M] IS NOT NULL AND [EH-11M] IS NOT NULL) THEN 1 ELSE 0 END) AS SUPLE6_11_HIS"),
@@ -66,7 +66,7 @@ class Suple611Export implements FromView, ShouldAutoSize
                                 ->groupBy('DISTRITO') ->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
 
                 }else{
-                    $rSuple611 = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $rSuple611 = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', DB::raw("COUNT(DISTRITO) DENOMINADOR"),
                                 DB::raw("SUM(CASE WHEN ([EH-6M] IS NOT NULL AND [EH-7M] IS NOT NULL AND [EH-8M] IS NOT NULL AND
                                 [EH-9M] IS NOT NULL AND [EH-10M] IS NOT NULL AND [EH-11M] IS NOT NULL) THEN 1 ELSE 0 END) AS SUPLE6_11_HIS"),
@@ -80,7 +80,7 @@ class Suple611Export implements FromView, ShouldAutoSize
             else if($dist != 'TODOS'){
                 if($anio == 'TODOS'){
                     $anio = 'Todos';
-                    $rSuple611 = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $rSuple611 = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', DB::raw("COUNT(DISTRITO) DENOMINADOR"),
                                 DB::raw("SUM(CASE WHEN ([EH-6M] IS NOT NULL AND [EH-7M] IS NOT NULL AND [EH-8M] IS NOT NULL AND
                                 [EH-9M] IS NOT NULL AND [EH-10M] IS NOT NULL AND [EH-11M] IS NOT NULL) THEN 1 ELSE 0 END) AS SUPLE6_11_HIS"),
@@ -90,7 +90,7 @@ class Suple611Export implements FromView, ShouldAutoSize
                                 ->groupBy('DISTRITO') ->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
 
                 }else{
-                    $rSuple611 = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $rSuple611 = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', DB::raw("COUNT(DISTRITO) DENOMINADOR"),
                                 DB::raw("SUM(CASE WHEN ([EH-6M] IS NOT NULL AND [EH-7M] IS NOT NULL AND [EH-8M] IS NOT NULL AND
                                 [EH-9M] IS NOT NULL AND [EH-10M] IS NOT NULL AND [EH-11M] IS NOT NULL) THEN 1 ELSE 0 END) AS SUPLE6_11_HIS"),
@@ -108,7 +108,7 @@ class Suple611Export implements FromView, ShouldAutoSize
             if($red == 'TODOS'){
                 if($anio == 'TODOS'){
                     $anio = 'Todos';
-                    $nomSuple611 = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $nomSuple611 = DB::table('dbo.META4_CONSOLIDADO')
                                     ->select('PROVINCIA', 'DISTRITO', 'NUMERO_DE_DOCUMENTO_DEL_NINO', 'FECHA_DE_NACIMIENTO', 'EH-6M as EH_6M',
                                     'EH-7M as EH_7M', 'EH-8M as EH_8M', 'EH-9M as EH_9M', 'EH-10M as EH_10M', 'EH-11M as EH_11M',
                                     DB::raw("CASE WHEN ([EH-6M] IS NOT NULL AND [EH-7M] IS NOT NULL AND [EH-8M] IS NOT NULL AND [EH-9M]
@@ -116,7 +116,7 @@ class Suple611Export implements FromView, ShouldAutoSize
                                     ->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
                 }
                 else{
-                    $nomSuple611 = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $nomSuple611 = DB::table('dbo.META4_CONSOLIDADO')
                                     ->select('PROVINCIA', 'DISTRITO', 'NUMERO_DE_DOCUMENTO_DEL_NINO', 'FECHA_DE_NACIMIENTO', 'EH-6M as EH_6M',
                                     'EH-7M as EH_7M', 'EH-8M as EH_8M', 'EH-9M as EH_9M', 'EH-10M as EH_10M', 'EH-11M as EH_11M',
                                     DB::raw("CASE WHEN ([EH-6M] IS NOT NULL AND [EH-7M] IS NOT NULL AND [EH-8M] IS NOT NULL AND [EH-9M]
@@ -127,7 +127,7 @@ class Suple611Export implements FromView, ShouldAutoSize
             else if($red != 'TODOS' && $dist == 'TODOS'){
                 if($anio == 'TODOS'){
                     $anio = 'Todos';
-                    $nomSuple611 = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $nomSuple611 = DB::table('dbo.META4_CONSOLIDADO')
                                     ->select('PROVINCIA', 'DISTRITO', 'NUMERO_DE_DOCUMENTO_DEL_NINO', 'FECHA_DE_NACIMIENTO', 'EH-6M as EH_6M',
                                     'EH-7M as EH_7M', 'EH-8M as EH_8M', 'EH-9M as EH_9M', 'EH-10M as EH_10M', 'EH-11M as EH_11M',
                                     DB::raw("CASE WHEN ([EH-6M] IS NOT NULL AND [EH-7M] IS NOT NULL AND [EH-8M] IS NOT NULL AND [EH-9M]
@@ -135,7 +135,7 @@ class Suple611Export implements FromView, ShouldAutoSize
                                     ->where('PROVINCIA', $red) ->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
                 }
                 else{
-                    $nomSuple611 = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $nomSuple611 = DB::table('dbo.META4_CONSOLIDADO')
                                     ->select('PROVINCIA', 'DISTRITO', 'NUMERO_DE_DOCUMENTO_DEL_NINO', 'FECHA_DE_NACIMIENTO', 'EH-6M as EH_6M',
                                     'EH-7M as EH_7M', 'EH-8M as EH_8M', 'EH-9M as EH_9M', 'EH-10M as EH_10M', 'EH-11M as EH_11M',
                                     DB::raw("CASE WHEN ([EH-6M] IS NOT NULL AND [EH-7M] IS NOT NULL AND [EH-8M] IS NOT NULL AND [EH-9M]
@@ -147,7 +147,7 @@ class Suple611Export implements FromView, ShouldAutoSize
             else if($dist != 'TODOS'){
                 if($anio == 'TODOS'){
                     $anio = 'Todos';
-                    $nomSuple611 = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $nomSuple611 = DB::table('dbo.META4_CONSOLIDADO')
                                     ->select('PROVINCIA', 'DISTRITO', 'NUMERO_DE_DOCUMENTO_DEL_NINO', 'FECHA_DE_NACIMIENTO', 'EH-6M as EH_6M',
                                     'EH-7M as EH_7M', 'EH-8M as EH_8M', 'EH-9M as EH_9M', 'EH-10M as EH_10M', 'EH-11M as EH_11M',
                                     DB::raw("CASE WHEN ([EH-6M] IS NOT NULL AND [EH-7M] IS NOT NULL AND [EH-8M] IS NOT NULL AND [EH-9M]
@@ -155,7 +155,7 @@ class Suple611Export implements FromView, ShouldAutoSize
                                     ->where('DISTRITO', $dist) ->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
                 }
                 else{
-                    $nomSuple611 = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $nomSuple611 = DB::table('dbo.META4_CONSOLIDADO')
                                     ->select('PROVINCIA', 'DISTRITO', 'NUMERO_DE_DOCUMENTO_DEL_NINO', 'FECHA_DE_NACIMIENTO', 'EH-6M as EH_6M',
                                     'EH-7M as EH_7M', 'EH-8M as EH_8M', 'EH-9M as EH_9M', 'EH-10M as EH_10M', 'EH-11M as EH_11M',
                                     DB::raw("CASE WHEN ([EH-6M] IS NOT NULL AND [EH-7M] IS NOT NULL AND [EH-8M] IS NOT NULL AND [EH-9M]

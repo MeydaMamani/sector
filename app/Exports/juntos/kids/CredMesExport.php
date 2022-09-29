@@ -33,7 +33,7 @@ class CredMesExport implements FromView, ShouldAutoSize
             if($red == 'TODOS'){
                 if($anio == 'TODOS'){
                     $anio = 'Todos';
-                    $resCredMes = DB::connection('BD_JUNTOS') ->table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
+                    $resCredMes = DB::table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
                                 ->select('PROVINCIA_RES', 'DISTRITO_RES', DB::raw("COUNT(DISTRITO_RES) DENOMINADOR"), DB::raw("SUM(CASE WHEN (_CRED_1_mes
                                     IS NOT NULL AND _CRED_2_mes IS NOT NULL AND _CRED_4_mes IS NOT NULL AND _CRED_6_mes IS NOT NULL AND _CRED_9_mes
                                     IS NOT NULL) THEN 1 ELSE 0 END) AS RN_JUNT_NUM"), DB::raw("round((cast(SUM(CASE WHEN (_CRED_1_mes IS NOT NULL AND
@@ -46,7 +46,7 @@ class CredMesExport implements FromView, ShouldAutoSize
                                 ->groupBy('PROVINCIA_RES') ->groupBy('DISTRITO_RES') ->orderBy('PROVINCIA_RES') ->orderBy('DISTRITO_RES') ->get();
 
                 }else{
-                    $resCredMes = DB::connection('BD_JUNTOS') ->table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
+                    $resCredMes = DB::table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
                                 ->select('PROVINCIA_RES', 'DISTRITO_RES', DB::raw("COUNT(DISTRITO_RES) DENOMINADOR"), DB::raw("SUM(CASE WHEN (_CRED_1_mes
                                     IS NOT NULL AND _CRED_2_mes IS NOT NULL AND _CRED_4_mes IS NOT NULL AND _CRED_6_mes IS NOT NULL AND _CRED_9_mes
                                     IS NOT NULL) THEN 1 ELSE 0 END) AS RN_JUNT_NUM"), DB::raw("round((cast(SUM(CASE WHEN (_CRED_1_mes IS NOT NULL AND
@@ -62,7 +62,7 @@ class CredMesExport implements FromView, ShouldAutoSize
             else if($red != 'TODOS' && $dist == 'TODOS'){
                 if($anio == 'TODOS'){
                     $anio = 'Todos';
-                    $resCredMes = DB::connection('BD_JUNTOS') ->table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
+                    $resCredMes = DB::table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
                                 ->select('PROVINCIA_RES', 'DISTRITO_RES', DB::raw("COUNT(DISTRITO_RES) DENOMINADOR"), DB::raw("SUM(CASE WHEN (_CRED_1_mes
                                     IS NOT NULL AND _CRED_2_mes IS NOT NULL AND _CRED_4_mes IS NOT NULL AND _CRED_6_mes IS NOT NULL AND _CRED_9_mes
                                     IS NOT NULL) THEN 1 ELSE 0 END) AS RN_JUNT_NUM"), DB::raw("round((cast(SUM(CASE WHEN (_CRED_1_mes IS NOT NULL AND
@@ -75,7 +75,7 @@ class CredMesExport implements FromView, ShouldAutoSize
                                 ->groupBy('PROVINCIA_RES') ->groupBy('DISTRITO_RES') ->orderBy('PROVINCIA_RES') ->orderBy('DISTRITO_RES') ->get();
 
                 }else{
-                    $resCredMes = DB::connection('BD_JUNTOS') ->table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
+                    $resCredMes = DB::table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
                                 ->select('PROVINCIA_RES', 'DISTRITO_RES', DB::raw("COUNT(DISTRITO_RES) DENOMINADOR"), DB::raw("SUM(CASE WHEN (_CRED_1_mes
                                     IS NOT NULL AND _CRED_2_mes IS NOT NULL AND _CRED_4_mes IS NOT NULL AND _CRED_6_mes IS NOT NULL AND _CRED_9_mes
                                     IS NOT NULL) THEN 1 ELSE 0 END) AS RN_JUNT_NUM"), DB::raw("round((cast(SUM(CASE WHEN (_CRED_1_mes IS NOT NULL AND
@@ -92,7 +92,7 @@ class CredMesExport implements FromView, ShouldAutoSize
             else if($dist != 'TODOS'){
                 if($anio == 'TODOS'){
                     $anio = 'Todos';
-                    $resCredMes = DB::connection('BD_JUNTOS') ->table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
+                    $resCredMes = DB::table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
                                 ->select('PROVINCIA_RES', 'DISTRITO_RES', DB::raw("COUNT(DISTRITO_RES) DENOMINADOR"), DB::raw("SUM(CASE WHEN (_CRED_1_mes
                                     IS NOT NULL AND _CRED_2_mes IS NOT NULL AND _CRED_4_mes IS NOT NULL AND _CRED_6_mes IS NOT NULL AND _CRED_9_mes
                                     IS NOT NULL) THEN 1 ELSE 0 END) AS RN_JUNT_NUM"), DB::raw("round((cast(SUM(CASE WHEN (_CRED_1_mes IS NOT NULL AND
@@ -105,7 +105,7 @@ class CredMesExport implements FromView, ShouldAutoSize
                                 ->groupBy('PROVINCIA_RES') ->groupBy('DISTRITO_RES') ->orderBy('PROVINCIA_RES') ->orderBy('DISTRITO_RES') ->get();
 
                 }else{
-                    $resCredMes = DB::connection('BD_JUNTOS') ->table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
+                    $resCredMes = DB::table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
                                 ->select('PROVINCIA_RES', 'DISTRITO_RES', DB::raw("COUNT(DISTRITO_RES) DENOMINADOR"), DB::raw("SUM(CASE WHEN (_CRED_1_mes
                                     IS NOT NULL AND _CRED_2_mes IS NOT NULL AND _CRED_4_mes IS NOT NULL AND _CRED_6_mes IS NOT NULL AND _CRED_9_mes
                                     IS NOT NULL) THEN 1 ELSE 0 END) AS RN_JUNT_NUM"), DB::raw("round((cast(SUM(CASE WHEN (_CRED_1_mes IS NOT NULL AND
@@ -126,7 +126,7 @@ class CredMesExport implements FromView, ShouldAutoSize
             if($red == 'TODOS'){
                 if($anio == 'TODOS'){
                     $anio = 'Todos';
-                    $nominalCred = DB::connection('BD_JUNTOS') ->table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
+                    $nominalCred = DB::table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
                                 ->select('PROVINCIA_RES', 'DISTRITO_RES', 'DNI_MO', 'FECHA_DE_NAC_MO', '_CRED_1_mes', '_CRED_2_mes', '_CRED_3_mes',
                                 '_CRED_4_mes', '_CRED_5_mes', '_CRED_6_mes', '_CRED_7_mes', '_CRED_8_mes', '_CRED_9_mes', '_CRED_10_mes', '_CRED_11_mes',
                                 DB::raw("CASE WHEN (_CRED_1_mes IS NOT NULL AND _CRED_2_mes IS NOT NULL AND _CRED_4_mes IS NOT NULL AND _CRED_6_mes
@@ -137,7 +137,7 @@ class CredMesExport implements FromView, ShouldAutoSize
                                 END 'CUMPLE_HIS'")) ->orderBy('PROVINCIA_RES') ->orderBy('DISTRITO_RES') ->get();
                 }
                 else{
-                    $nominalCred = DB::connection('BD_JUNTOS') ->table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
+                    $nominalCred = DB::table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
                                 ->select('PROVINCIA_RES', 'DISTRITO_RES', 'DNI_MO', 'FECHA_DE_NAC_MO', '_CRED_1_mes', '_CRED_2_mes', '_CRED_3_mes',
                                 '_CRED_4_mes', '_CRED_5_mes', '_CRED_6_mes', '_CRED_7_mes', '_CRED_8_mes', '_CRED_9_mes', '_CRED_10_mes', '_CRED_11_mes',
                                 DB::raw("CASE WHEN (_CRED_1_mes IS NOT NULL AND _CRED_2_mes IS NOT NULL AND _CRED_4_mes IS NOT NULL AND _CRED_6_mes
@@ -151,7 +151,7 @@ class CredMesExport implements FromView, ShouldAutoSize
             else if($red != 'TODOS' && $dist == 'TODOS'){
                 if($anio == 'TODOS'){
                     $anio = 'Todos';
-                    $nominalCred = DB::connection('BD_JUNTOS') ->table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
+                    $nominalCred = DB::table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
                                 ->select('PROVINCIA_RES', 'DISTRITO_RES', 'DNI_MO', 'FECHA_DE_NAC_MO', '_CRED_1_mes', '_CRED_2_mes', '_CRED_3_mes',
                                 '_CRED_4_mes', '_CRED_5_mes', '_CRED_6_mes', '_CRED_7_mes', '_CRED_8_mes', '_CRED_9_mes', '_CRED_10_mes', '_CRED_11_mes',
                                 DB::raw("CASE WHEN (_CRED_1_mes IS NOT NULL AND _CRED_2_mes IS NOT NULL AND _CRED_4_mes IS NOT NULL AND _CRED_6_mes
@@ -162,7 +162,7 @@ class CredMesExport implements FromView, ShouldAutoSize
                                 END 'CUMPLE_HIS'")) ->where('PROVINCIA_RES', $red) ->orderBy('DISTRITO_RES') ->get();
                 }
                 else{
-                    $nominalCred = DB::connection('BD_JUNTOS') ->table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
+                    $nominalCred = DB::table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
                                 ->select('PROVINCIA_RES', 'DISTRITO_RES', 'DNI_MO', 'FECHA_DE_NAC_MO', '_CRED_1_mes', '_CRED_2_mes', '_CRED_3_mes',
                                 '_CRED_4_mes', '_CRED_5_mes', '_CRED_6_mes', '_CRED_7_mes', '_CRED_8_mes', '_CRED_9_mes', '_CRED_10_mes', '_CRED_11_mes',
                                 DB::raw("CASE WHEN (_CRED_1_mes IS NOT NULL AND _CRED_2_mes IS NOT NULL AND _CRED_4_mes IS NOT NULL AND _CRED_6_mes
@@ -176,7 +176,7 @@ class CredMesExport implements FromView, ShouldAutoSize
             else if($dist != 'TODOS'){
                 if($anio == 'TODOS'){
                     $anio = 'Todos';
-                    $nominalCred = DB::connection('BD_JUNTOS') ->table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
+                    $nominalCred = DB::table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
                                 ->select('PROVINCIA_RES', 'DISTRITO_RES', 'DNI_MO', 'FECHA_DE_NAC_MO', '_CRED_1_mes', '_CRED_2_mes', '_CRED_3_mes',
                                 '_CRED_4_mes', '_CRED_5_mes', '_CRED_6_mes', '_CRED_7_mes', '_CRED_8_mes', '_CRED_9_mes', '_CRED_10_mes', '_CRED_11_mes',
                                 DB::raw("CASE WHEN (_CRED_1_mes IS NOT NULL AND _CRED_2_mes IS NOT NULL AND _CRED_4_mes IS NOT NULL AND _CRED_6_mes
@@ -187,7 +187,7 @@ class CredMesExport implements FromView, ShouldAutoSize
                                 END 'CUMPLE_HIS'")) ->where('DISTRITO_RES', $dist) ->orderBy('DISTRITO_RES') ->get();
                 }
                 else{
-                    $nominalCred = DB::connection('BD_JUNTOS') ->table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
+                    $nominalCred = DB::table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
                                 ->select('PROVINCIA_RES', 'DISTRITO_RES', 'DNI_MO', 'FECHA_DE_NAC_MO', '_CRED_1_mes', '_CRED_2_mes', '_CRED_3_mes',
                                 '_CRED_4_mes', '_CRED_5_mes', '_CRED_6_mes', '_CRED_7_mes', '_CRED_8_mes', '_CRED_9_mes', '_CRED_10_mes', '_CRED_11_mes',
                                 DB::raw("CASE WHEN (_CRED_1_mes IS NOT NULL AND _CRED_2_mes IS NOT NULL AND _CRED_4_mes IS NOT NULL AND _CRED_6_mes

@@ -32,7 +32,7 @@ class Cred12Export implements FromView, ShouldAutoSize
         if($type == 'conteo'){
             if($red == 'TODOS'){
                 if($anio == 'TODOS'){
-                    $resultCred12 = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $resultCred12 = DB::table('dbo.META4_CONSOLIDADO')
                                     ->select('PROVINCIA', 'DISTRITO', DB::raw("COUNT(DISTRITO) DENOMINADOR"),
                                     DB::raw("SUM(CASE WHEN ([12CTRL] IS NOT NULL AND [14CTRL] IS NOT NULL AND [16CTRL] IS NOT NULL AND [18CTRL] IS NOT NULL
                                     AND [20CTRL] IS NOT NULL AND [22CTRL] IS NOT NULL) THEN 1 ELSE 0 END) AS RN_HIS_NUM"), DB::raw("round((cast(SUM(CASE WHEN
@@ -41,7 +41,7 @@ class Cred12Export implements FromView, ShouldAutoSize
                                     ->groupBy('PROVINCIA') ->groupBy('DISTRITO') ->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
 
                 }else{
-                    $resultCred12 = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $resultCred12 = DB::table('dbo.META4_CONSOLIDADO')
                                     ->select('PROVINCIA', 'DISTRITO', DB::raw("COUNT(DISTRITO) DENOMINADOR"),
                                     DB::raw("SUM(CASE WHEN ([12CTRL] IS NOT NULL AND [14CTRL] IS NOT NULL AND [16CTRL] IS NOT NULL AND [18CTRL] IS NOT NULL
                                     AND [20CTRL] IS NOT NULL AND [22CTRL] IS NOT NULL) THEN 1 ELSE 0 END) AS RN_HIS_NUM"), DB::raw("round((cast(SUM(CASE WHEN
@@ -58,14 +58,14 @@ class Cred12Export implements FromView, ShouldAutoSize
             if($red == 'TODOS'){
                 if($anio == 'TODOS'){
                     $anio = 'Todos';
-                    $nominalCred = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $nominalCred = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', 'NUMERO_DE_DOCUMENTO_DEL_NINO', 'FECHA_DE_NACIMIENTO', '12CTRL as CTRL12', '14CTRL as CTRL14',
                                 '16CTRL as CTRL16', '18CTRL as CTRL18', '20CTRL as CTRL20', '22CTRL as CTRL22', DB::raw("CASE WHEN ([12CTRL] IS NOT NULL AND
                                 [14CTRL] IS NOT NULL AND [16CTRL] IS NOT NULL AND [18CTRL] IS NOT NULL AND [20CTRL] IS NOT NULL
                                 AND [22CTRL] IS NOT NULL) THEN 'Cumple' ELSE 'No Cumple' END 'CUMPLE_HIS'")) ->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
                 }
                 else{
-                    $nominalCred = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $nominalCred = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', 'NUMERO_DE_DOCUMENTO_DEL_NINO', 'FECHA_DE_NACIMIENTO', '12CTRL as CTRL12', '14CTRL as CTRL14',
                                 '16CTRL as CTRL16', '18CTRL as CTRL18', '20CTRL as CTRL20', '22CTRL as CTRL22', DB::raw("CASE WHEN ([12CTRL] IS NOT NULL AND
                                 [14CTRL] IS NOT NULL AND [16CTRL] IS NOT NULL AND [18CTRL] IS NOT NULL AND [20CTRL] IS NOT NULL
@@ -76,7 +76,7 @@ class Cred12Export implements FromView, ShouldAutoSize
             else if($red != 'TODOS' && $dist == 'TODOS'){
                 if($anio == 'TODOS'){
                     $anio = 'Todos';
-                    $nominalCred = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $nominalCred = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', 'NUMERO_DE_DOCUMENTO_DEL_NINO', 'FECHA_DE_NACIMIENTO', '12CTRL as CTRL12', '14CTRL as CTRL14',
                                 '16CTRL as CTRL16', '18CTRL as CTRL18', '20CTRL as CTRL20', '22CTRL as CTRL22', DB::raw("CASE WHEN ([12CTRL] IS NOT NULL AND
                                 [14CTRL] IS NOT NULL AND [16CTRL] IS NOT NULL AND [18CTRL] IS NOT NULL AND [20CTRL] IS NOT NULL
@@ -84,7 +84,7 @@ class Cred12Export implements FromView, ShouldAutoSize
                                  ->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
                 }
                 else{
-                    $nominalCred = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $nominalCred = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', 'NUMERO_DE_DOCUMENTO_DEL_NINO', 'FECHA_DE_NACIMIENTO', '12CTRL as CTRL12', '14CTRL as CTRL14',
                                 '16CTRL as CTRL16', '18CTRL as CTRL18', '20CTRL as CTRL20', '22CTRL as CTRL22', DB::raw("CASE WHEN ([12CTRL] IS NOT NULL AND
                                 [14CTRL] IS NOT NULL AND [16CTRL] IS NOT NULL AND [18CTRL] IS NOT NULL AND [20CTRL] IS NOT NULL
@@ -95,7 +95,7 @@ class Cred12Export implements FromView, ShouldAutoSize
             else if($dist != 'TODOS'){
                 if($anio == 'TODOS'){
                     $anio = 'Todos';
-                    $nominalCred = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $nominalCred = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', 'NUMERO_DE_DOCUMENTO_DEL_NINO', 'FECHA_DE_NACIMIENTO', '12CTRL as CTRL12', '14CTRL as CTRL14',
                                 '16CTRL as CTRL16', '18CTRL as CTRL18', '20CTRL as CTRL20', '22CTRL as CTRL22', DB::raw("CASE WHEN ([12CTRL] IS NOT NULL AND
                                 [14CTRL] IS NOT NULL AND [16CTRL] IS NOT NULL AND [18CTRL] IS NOT NULL AND [20CTRL] IS NOT NULL
@@ -103,7 +103,7 @@ class Cred12Export implements FromView, ShouldAutoSize
                                 ->where('DISTRITO', $dist) ->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
                 }
                 else{
-                    $nominalCred = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $nominalCred = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', 'NUMERO_DE_DOCUMENTO_DEL_NINO', 'FECHA_DE_NACIMIENTO', '12CTRL as CTRL12', '14CTRL as CTRL14',
                                 '16CTRL as CTRL16', '18CTRL as CTRL18', '20CTRL as CTRL20', '22CTRL as CTRL22', DB::raw("CASE WHEN ([12CTRL] IS NOT NULL AND
                                 [14CTRL] IS NOT NULL AND [16CTRL] IS NOT NULL AND [18CTRL] IS NOT NULL AND [20CTRL] IS NOT NULL

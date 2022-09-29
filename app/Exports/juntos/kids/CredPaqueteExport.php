@@ -33,7 +33,7 @@ class CredPaqueteExport implements FromView, ShouldAutoSize
             if($red == 'TODOS'){
                 if($anio == 'TODOS'){
                     $anio = 'Todos';
-                    $resCredMes = DB::connection('BD_JUNTOS') ->table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
+                    $resCredMes = DB::table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
                                 ->select('PROVINCIA_RES', 'DISTRITO_RES', DB::raw("COUNT(DISTRITO_RES) DENOMINADOR"), DB::raw("SUM(CASE
                                     WHEN EDADMESES='0' AND CUMPLECRED_RNHIS IS NOT NULL  THEN 1
                                     WHEN EDADMESES='1' AND CUMPLECRED_RNHIS IS NOT NULL AND  [1CTRL] IS NOT NULL THEN 1
@@ -83,7 +83,7 @@ class CredPaqueteExport implements FromView, ShouldAutoSize
                                 ->groupBy('PROVINCIA_RES') ->groupBy('DISTRITO_RES') ->orderBy('PROVINCIA_RES') ->orderBy('DISTRITO_RES') ->get();
 
                 }else{
-                    $resCredMes = DB::connection('BD_JUNTOS') ->table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
+                    $resCredMes = DB::table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
                                 ->select('PROVINCIA_RES', 'DISTRITO_RES', DB::raw("COUNT(DISTRITO_RES) DENOMINADOR"), DB::raw("SUM(CASE
                                 WHEN EDADMESES='0' AND CUMPLECRED_RNHIS IS NOT NULL  THEN 1
                                 WHEN EDADMESES='1' AND CUMPLECRED_RNHIS IS NOT NULL AND  [1CTRL] IS NOT NULL THEN 1
@@ -133,7 +133,7 @@ class CredPaqueteExport implements FromView, ShouldAutoSize
             else if($red != 'TODOS' && $dist == 'TODOS'){
                 if($anio == 'TODOS'){
                     $anio = 'Todos';
-                    $resCredMes = DB::connection('BD_JUNTOS') ->table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
+                    $resCredMes = DB::table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
                                 ->select('PROVINCIA_RES', 'DISTRITO_RES', DB::raw("COUNT(DISTRITO_RES) DENOMINADOR"), DB::raw("SUM(CASE
                                 WHEN EDADMESES='0' AND CUMPLECRED_RNHIS IS NOT NULL  THEN 1
                                 WHEN EDADMESES='1' AND CUMPLECRED_RNHIS IS NOT NULL AND  [1CTRL] IS NOT NULL THEN 1
@@ -180,7 +180,7 @@ class CredPaqueteExport implements FromView, ShouldAutoSize
                                 ->groupBy('PROVINCIA_RES') ->groupBy('DISTRITO_RES') ->orderBy('PROVINCIA_RES') ->orderBy('DISTRITO_RES') ->get();
 
                 }else{
-                    $resCredMes = DB::connection('BD_JUNTOS') ->table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
+                    $resCredMes = DB::table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
                                 ->select('PROVINCIA_RES', 'DISTRITO_RES', DB::raw("COUNT(DISTRITO_RES) DENOMINADOR"), DB::raw("SUM(CASE
                                 WHEN EDADMESES='0' AND CUMPLECRED_RNHIS IS NOT NULL  THEN 1
                                 WHEN EDADMESES='1' AND CUMPLECRED_RNHIS IS NOT NULL AND  [1CTRL] IS NOT NULL THEN 1
@@ -230,7 +230,7 @@ class CredPaqueteExport implements FromView, ShouldAutoSize
             else if($dist != 'TODOS'){
                 if($anio == 'TODOS'){
                     $anio = 'Todos';
-                    $resCredMes = DB::connection('BD_JUNTOS') ->table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
+                    $resCredMes = DB::table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
                                 ->select('PROVINCIA_RES', 'DISTRITO_RES', DB::raw("COUNT(DISTRITO_RES) DENOMINADOR"), DB::raw("SUM(CASE
                                 WHEN EDADMESES='0' AND CUMPLECRED_RNHIS IS NOT NULL  THEN 1
                                 WHEN EDADMESES='1' AND CUMPLECRED_RNHIS IS NOT NULL AND  [1CTRL] IS NOT NULL THEN 1
@@ -277,7 +277,7 @@ class CredPaqueteExport implements FromView, ShouldAutoSize
                                 ->groupBy('PROVINCIA_RES') ->groupBy('DISTRITO_RES') ->orderBy('PROVINCIA_RES') ->orderBy('DISTRITO_RES') ->get();
 
                 }else{
-                    $resCredMes = DB::connection('BD_JUNTOS') ->table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
+                    $resCredMes = DB::table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
                                 ->select('PROVINCIA_RES', 'DISTRITO_RES', DB::raw("COUNT(DISTRITO_RES) DENOMINADOR"), DB::raw("SUM(CASE
                                 WHEN EDADMESES='0' AND CUMPLECRED_RNHIS IS NOT NULL  THEN 1
                                 WHEN EDADMESES='1' AND CUMPLECRED_RNHIS IS NOT NULL AND  [1CTRL] IS NOT NULL THEN 1
@@ -331,7 +331,7 @@ class CredPaqueteExport implements FromView, ShouldAutoSize
             if($red == 'TODOS'){
                 if($anio == 'TODOS'){
                     $anio = 'Todos';
-                    $nominalCred = DB::connection('BD_JUNTOS') ->table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
+                    $nominalCred = DB::table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
                                 ->select('PROVINCIA_RES', 'DISTRITO_RES', 'DNI_MO', 'FECHA_DE_NAC_MO', 'EDADMESES', '1CTRL RN as CTRLRN1', '2CTRL RN as CTRLRN2', '3CTRL RN as CTRLRN3', '4CTRL RN as CTRLRN4', '1CTRL as CTRL1', '2CTRL as CTRL2', '3CTRL as CTRL3', '4CTRL as CTRL4', '5CTRL as CTRL5', '6CTRL as CTRL6',
                                 '7CTRL as CTRL7', '8CTRL as CTRL8', '9CTRL as CTRL9', '10CTRL as CTRL10', '11CTRL as CTRL11', '12CTRL as CTRL12', '14CTRL as CTRL14', '16CTRL as CTRL16', '18CTRL as CTRL18', '20CTRL as CTRL20', '22CTRL as CTRL22',
                                 DB::raw("CASE WHEN EDADMESES='0' AND CUMPLECRED_RNHIS IS NOT NULL THEN 1
@@ -378,7 +378,7 @@ class CredPaqueteExport implements FromView, ShouldAutoSize
                                 ->orderBy('PROVINCIA_RES') ->orderBy('DISTRITO_RES') ->get();
                 }
                 else{
-                    $nominalCred = DB::connection('BD_JUNTOS') ->table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
+                    $nominalCred = DB::table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
                     ->select('PROVINCIA_RES', 'DISTRITO_RES', 'DNI_MO', 'FECHA_DE_NAC_MO', 'EDADMESES', '1CTRL RN as CTRLRN1', '2CTRL RN as CTRLRN2', '3CTRL RN as CTRLRN3', '4CTRL RN as CTRLRN4', '1CTRL as CTRL1', '2CTRL as CTRL2', '3CTRL as CTRL3', '4CTRL as CTRL4', '5CTRL as CTRL5', '6CTRL as CTRL6',
                     '7CTRL as CTRL7', '8CTRL as CTRL8', '9CTRL as CTRL9', '10CTRL as CTRL10', '11CTRL as CTRL11', '12CTRL as CTRL12', '14CTRL as CTRL14', '16CTRL as CTRL16', '18CTRL as CTRL18', '20CTRL as CTRL20', '22CTRL as CTRL22',
                                 DB::raw("CASE WHEN EDADMESES='0' AND CUMPLECRED_RNHIS IS NOT NULL THEN 1
@@ -428,7 +428,7 @@ class CredPaqueteExport implements FromView, ShouldAutoSize
             else if($red != 'TODOS' && $dist == 'TODOS'){
                 if($anio == 'TODOS'){
                     $anio = 'Todos';
-                    $nominalCred = DB::connection('BD_JUNTOS') ->table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
+                    $nominalCred = DB::table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
                     ->select('PROVINCIA_RES', 'DISTRITO_RES', 'DNI_MO', 'FECHA_DE_NAC_MO', 'EDADMESES', '1CTRL RN as CTRLRN1', '2CTRL RN as CTRLRN2', '3CTRL RN as CTRLRN3', '4CTRL RN as CTRLRN4', '1CTRL as CTRL1', '2CTRL as CTRL2', '3CTRL as CTRL3', '4CTRL as CTRL4', '5CTRL as CTRL5', '6CTRL as CTRL6',
                     '7CTRL as CTRL7', '8CTRL as CTRL8', '9CTRL as CTRL9', '10CTRL as CTRL10', '11CTRL as CTRL11', '12CTRL as CTRL12', '14CTRL as CTRL14', '16CTRL as CTRL16', '18CTRL as CTRL18', '20CTRL as CTRL20', '22CTRL as CTRL22',
                                 DB::raw("CASE WHEN EDADMESES='0' AND CUMPLECRED_RNHIS IS NOT NULL THEN 1
@@ -475,7 +475,7 @@ class CredPaqueteExport implements FromView, ShouldAutoSize
                                 ->where('PROVINCIA_RES', $red) ->orderBy('DISTRITO_RES') ->get();
                 }
                 else{
-                    $nominalCred = DB::connection('BD_JUNTOS') ->table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
+                    $nominalCred = DB::table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
                     ->select('PROVINCIA_RES', 'DISTRITO_RES', 'DNI_MO', 'FECHA_DE_NAC_MO', 'EDADMESES', '1CTRL RN as CTRLRN1', '2CTRL RN as CTRLRN2', '3CTRL RN as CTRLRN3', '4CTRL RN as CTRLRN4', '1CTRL as CTRL1', '2CTRL as CTRL2', '3CTRL as CTRL3', '4CTRL as CTRL4', '5CTRL as CTRL5', '6CTRL as CTRL6',
                     '7CTRL as CTRL7', '8CTRL as CTRL8', '9CTRL as CTRL9', '10CTRL as CTRL10', '11CTRL as CTRL11', '12CTRL as CTRL12', '14CTRL as CTRL14', '16CTRL as CTRL16', '18CTRL as CTRL18', '20CTRL as CTRL20', '22CTRL as CTRL22',
                                 DB::raw("CASE WHEN EDADMESES='0' AND CUMPLECRED_RNHIS IS NOT NULL THEN 1
@@ -525,7 +525,7 @@ class CredPaqueteExport implements FromView, ShouldAutoSize
             else if($dist != 'TODOS'){
                 if($anio == 'TODOS'){
                     $anio = 'Todos';
-                    $nominalCred = DB::connection('BD_JUNTOS') ->table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
+                    $nominalCred = DB::table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
                     ->select('PROVINCIA_RES', 'DISTRITO_RES', 'DNI_MO', 'FECHA_DE_NAC_MO', 'EDADMESES', '1CTRL RN as CTRLRN1', '2CTRL RN as CTRLRN2', '3CTRL RN as CTRLRN3', '4CTRL RN as CTRLRN4', '1CTRL as CTRL1', '2CTRL as CTRL2', '3CTRL as CTRL3', '4CTRL as CTRL4', '5CTRL as CTRL5', '6CTRL as CTRL6',
                     '7CTRL as CTRL7', '8CTRL as CTRL8', '9CTRL as CTRL9', '10CTRL as CTRL10', '11CTRL as CTRL11', '12CTRL as CTRL12', '14CTRL as CTRL14', '16CTRL as CTRL16', '18CTRL as CTRL18', '20CTRL as CTRL20', '22CTRL as CTRL22',
                                 DB::raw("CASE WHEN EDADMESES='0' AND CUMPLECRED_RNHIS IS NOT NULL THEN 1
@@ -572,7 +572,7 @@ class CredPaqueteExport implements FromView, ShouldAutoSize
                                 ->where('DISTRITO_RES', $dist) ->orderBy('DISTRITO_RES') ->get();
                 }
                 else{
-                    $nominalCred = DB::connection('BD_JUNTOS') ->table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
+                    $nominalCred = DB::table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
                     ->select('PROVINCIA_RES', 'DISTRITO_RES', 'DNI_MO', 'FECHA_DE_NAC_MO', 'EDADMESES', '1CTRL RN as CTRLRN1', '2CTRL RN as CTRLRN2', '3CTRL RN as CTRLRN3', '4CTRL RN as CTRLRN4', '1CTRL as CTRL1', '2CTRL as CTRL2', '3CTRL as CTRL3', '4CTRL as CTRL4', '5CTRL as CTRL5', '6CTRL as CTRL6',
                     '7CTRL as CTRL7', '8CTRL as CTRL8', '9CTRL as CTRL9', '10CTRL as CTRL10', '11CTRL as CTRL11', '12CTRL as CTRL12', '14CTRL as CTRL14', '16CTRL as CTRL16', '18CTRL as CTRL18', '20CTRL as CTRL20', '22CTRL as CTRL22',
                                 DB::raw("CASE WHEN EDADMESES='0' AND CUMPLECRED_RNHIS IS NOT NULL THEN 1

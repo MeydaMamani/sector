@@ -33,7 +33,7 @@ class CredMesExport implements FromView, ShouldAutoSize
             if($red == 'TODOS'){
                 if($anio == 'TODOS'){
                     $anio = 'Todos';
-                    $resCredMes = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $resCredMes = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', DB::raw("COUNT(DISTRITO) DENOMINADOR"), DB::raw("SUM(CASE
                                     WHEN ([1CTRL] IS NOT NULL AND [2CTRL] IS NOT NULL AND [4CTRL] IS NOT NULL AND [6CTRL] IS NOT NULL AND [9CTRL]
                                     IS NOT NULL) THEN 1 ELSE 0 END) AS RN_HIS_NUM"), DB::raw("round((cast(SUM(CASE WHEN ([1CTRL] IS NOT NULL AND
@@ -42,7 +42,7 @@ class CredMesExport implements FromView, ShouldAutoSize
                                 ->groupBy('PROVINCIA') ->groupBy('DISTRITO') ->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
 
                 }else{
-                    $resCredMes = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $resCredMes = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', DB::raw("COUNT(DISTRITO) DENOMINADOR"), DB::raw("SUM(CASE
                                     WHEN ([1CTRL] IS NOT NULL AND [2CTRL] IS NOT NULL AND [4CTRL] IS NOT NULL AND [6CTRL] IS NOT NULL AND [9CTRL]
                                     IS NOT NULL) THEN 1 ELSE 0 END) AS RN_HIS_NUM"), DB::raw("round((cast(SUM(CASE WHEN ([1CTRL] IS NOT NULL AND
@@ -54,7 +54,7 @@ class CredMesExport implements FromView, ShouldAutoSize
             else if($red != 'TODOS' && $dist == 'TODOS'){
                 if($anio == 'TODOS'){
                     $anio = 'Todos';
-                    $resCredMes = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $resCredMes = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', DB::raw("COUNT(DISTRITO) DENOMINADOR"), DB::raw("SUM(CASE
                                     WHEN ([1CTRL] IS NOT NULL AND [2CTRL] IS NOT NULL AND [4CTRL] IS NOT NULL AND [6CTRL] IS NOT NULL AND [9CTRL]
                                     IS NOT NULL) THEN 1 ELSE 0 END) AS RN_HIS_NUM"), DB::raw("round((cast(SUM(CASE WHEN ([1CTRL] IS NOT NULL AND
@@ -63,7 +63,7 @@ class CredMesExport implements FromView, ShouldAutoSize
                                 ->groupBy('PROVINCIA') ->groupBy('DISTRITO') ->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
 
                 }else{
-                    $resCredMes = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $resCredMes = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', DB::raw("COUNT(DISTRITO) DENOMINADOR"), DB::raw("SUM(CASE
                                     WHEN ([1CTRL] IS NOT NULL AND [2CTRL] IS NOT NULL AND [4CTRL] IS NOT NULL AND [6CTRL] IS NOT NULL AND [9CTRL]
                                     IS NOT NULL) THEN 1 ELSE 0 END) AS RN_HIS_NUM"), DB::raw("round((cast(SUM(CASE WHEN ([1CTRL] IS NOT NULL AND
@@ -76,7 +76,7 @@ class CredMesExport implements FromView, ShouldAutoSize
             else if($dist != 'TODOS'){
                 if($anio == 'TODOS'){
                     $anio = 'Todos';
-                    $resCredMes = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $resCredMes = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', DB::raw("COUNT(DISTRITO) DENOMINADOR"), DB::raw("SUM(CASE
                                     WHEN ([1CTRL] IS NOT NULL AND [2CTRL] IS NOT NULL AND [4CTRL] IS NOT NULL AND [6CTRL] IS NOT NULL AND [9CTRL]
                                     IS NOT NULL) THEN 1 ELSE 0 END) AS RN_HIS_NUM"), DB::raw("round((cast(SUM(CASE WHEN ([1CTRL] IS NOT NULL AND
@@ -85,7 +85,7 @@ class CredMesExport implements FromView, ShouldAutoSize
                                 ->groupBy('PROVINCIA') ->groupBy('DISTRITO') ->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
 
                 }else{
-                    $resCredMes = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $resCredMes = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', DB::raw("COUNT(DISTRITO) DENOMINADOR"), DB::raw("SUM(CASE
                                     WHEN ([1CTRL] IS NOT NULL AND [2CTRL] IS NOT NULL AND [4CTRL] IS NOT NULL AND [6CTRL] IS NOT NULL AND [9CTRL]
                                     IS NOT NULL) THEN 1 ELSE 0 END) AS RN_HIS_NUM"), DB::raw("round((cast(SUM(CASE WHEN ([1CTRL] IS NOT NULL AND
@@ -102,7 +102,7 @@ class CredMesExport implements FromView, ShouldAutoSize
             if($red == 'TODOS'){
                 if($anio == 'TODOS'){
                     $anio = 'Todos';
-                    $nominalCred = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $nominalCred = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', 'NUMERO_DE_DOCUMENTO_DEL_NINO', 'FECHA_DE_NACIMIENTO', '1CTRL as CTRL1', '2CTRL as CTRL2',
                                 '3CTRL as CTRL3', '4CTRL as CTRL4', '5CTRL as CTRL5', '6CTRL as CTRL6', '7CTRL as CTRL7', '8CTRL as CTRL8',
                                 '9CTRL as CTRL9', '10CTRL as CTRL10', '11CTRL as CTRL11', DB::raw("CASE WHEN ([1CTRL] IS NOT NULL AND [2CTRL] IS
@@ -110,7 +110,7 @@ class CredMesExport implements FromView, ShouldAutoSize
                                 END 'CUMPLE_HIS'")) ->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
                 }
                 else{
-                    $nominalCred = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $nominalCred = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', 'NUMERO_DE_DOCUMENTO_DEL_NINO', 'FECHA_DE_NACIMIENTO', '1CTRL as CTRL1', '2CTRL as CTRL2',
                                 '3CTRL as CTRL3', '4CTRL as CTRL4', '5CTRL as CTRL5', '6CTRL as CTRL6', '7CTRL as CTRL7', '8CTRL as CTRL8',
                                 '9CTRL as CTRL9', '10CTRL as CTRL10', '11CTRL as CTRL11', DB::raw("CASE WHEN ([1CTRL] IS NOT NULL AND [2CTRL] IS
@@ -121,7 +121,7 @@ class CredMesExport implements FromView, ShouldAutoSize
             else if($red != 'TODOS' && $dist == 'TODOS'){
                 if($anio == 'TODOS'){
                     $anio = 'Todos';
-                    $nominalCred = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $nominalCred = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', 'NUMERO_DE_DOCUMENTO_DEL_NINO', 'FECHA_DE_NACIMIENTO', '1CTRL as CTRL1', '2CTRL as CTRL2',
                                 '3CTRL as CTRL3', '4CTRL as CTRL4', '5CTRL as CTRL5', '6CTRL as CTRL6', '7CTRL as CTRL7', '8CTRL as CTRL8',
                                 '9CTRL as CTRL9', '10CTRL as CTRL10', '11CTRL as CTRL11', DB::raw("CASE WHEN ([1CTRL] IS NOT NULL AND [2CTRL] IS
@@ -129,7 +129,7 @@ class CredMesExport implements FromView, ShouldAutoSize
                                 END 'CUMPLE_HIS'")) ->where('PROVINCIA', $red) ->orderBy('DISTRITO') ->get();
                 }
                 else{
-                    $nominalCred = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $nominalCred = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', 'NUMERO_DE_DOCUMENTO_DEL_NINO', 'FECHA_DE_NACIMIENTO', '1CTRL as CTRL1', '2CTRL as CTRL2',
                                 '3CTRL as CTRL3', '4CTRL as CTRL4', '5CTRL as CTRL5', '6CTRL as CTRL6', '7CTRL as CTRL7', '8CTRL as CTRL8',
                                 '9CTRL as CTRL9', '10CTRL as CTRL10', '11CTRL as CTRL11', DB::raw("CASE WHEN ([1CTRL] IS NOT NULL AND [2CTRL] IS
@@ -140,7 +140,7 @@ class CredMesExport implements FromView, ShouldAutoSize
             else if($dist != 'TODOS'){
                 if($anio == 'TODOS'){
                     $anio = 'Todos';
-                    $nominalCred = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $nominalCred = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', 'NUMERO_DE_DOCUMENTO_DEL_NINO', 'FECHA_DE_NACIMIENTO', '1CTRL as CTRL1', '2CTRL as CTRL2',
                                 '3CTRL as CTRL3', '4CTRL as CTRL4', '5CTRL as CTRL5', '6CTRL as CTRL6', '7CTRL as CTRL7', '8CTRL as CTRL8',
                                 '9CTRL as CTRL9', '10CTRL as CTRL10', '11CTRL as CTRL11', DB::raw("CASE WHEN ([1CTRL] IS NOT NULL AND [2CTRL] IS
@@ -148,7 +148,7 @@ class CredMesExport implements FromView, ShouldAutoSize
                                 END 'CUMPLE_HIS'")) ->where('DISTRITO', $dist) ->orderBy('DISTRITO') ->get();
                 }
                 else{
-                    $nominalCred = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $nominalCred = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', 'NUMERO_DE_DOCUMENTO_DEL_NINO', 'FECHA_DE_NACIMIENTO', '1CTRL as CTRL1', '2CTRL as CTRL2',
                                 '3CTRL as CTRL3', '4CTRL as CTRL4', '5CTRL as CTRL5', '6CTRL as CTRL6', '7CTRL as CTRL7', '8CTRL as CTRL8',
                                 '9CTRL as CTRL9', '10CTRL as CTRL10', '11CTRL as CTRL11', DB::raw("CASE WHEN ([1CTRL] IS NOT NULL AND [2CTRL] IS

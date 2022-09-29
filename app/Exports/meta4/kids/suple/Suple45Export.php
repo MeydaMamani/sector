@@ -33,7 +33,7 @@ class Suple45Export implements FromView, ShouldAutoSize
             if($red == 'TODOS'){
                 if($anio == 'TODOS'){
                     $anio = 'Todos';
-                    $resumSuple45 = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $resumSuple45 = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', DB::raw("COUNT(DISTRITO) DENOMINADOR"), DB::raw("SUM(CASE WHEN ([EH-4M]
                                     IS NOT NULL AND [EH-5M] IS NOT NULL) THEN 1 ELSE 0 END) AS SUPLE4_5_HIS"), DB::raw("round((cast(SUM(CASE WHEN
                                     ([EH-4M] IS NOT NULL AND [EH-5M] IS NOT NULL) THEN 1 ELSE 0 END) as float) / cast(COUNT(DISTRITO) as float)
@@ -41,7 +41,7 @@ class Suple45Export implements FromView, ShouldAutoSize
                                     ->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
 
                 }else{
-                    $resumSuple45 = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $resumSuple45 = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', DB::raw("COUNT(DISTRITO) DENOMINADOR"), DB::raw("SUM(CASE WHEN ([EH-4M]
                                     IS NOT NULL AND [EH-5M] IS NOT NULL) THEN 1 ELSE 0 END) AS SUPLE4_5_HIS"), DB::raw("round((cast(SUM(CASE WHEN
                                     ([EH-4M] IS NOT NULL AND [EH-5M] IS NOT NULL) THEN 1 ELSE 0 END) as float) / cast(COUNT(DISTRITO) as float)
@@ -52,7 +52,7 @@ class Suple45Export implements FromView, ShouldAutoSize
             else if($red != 'TODOS' && $dist == 'TODOS'){
                 if($anio == 'TODOS'){
                     $anio = 'Todos';
-                    $resumSuple45 = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $resumSuple45 = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', DB::raw("COUNT(DISTRITO) DENOMINADOR"), DB::raw("SUM(CASE WHEN ([EH-4M]
                                     IS NOT NULL AND [EH-5M] IS NOT NULL) THEN 1 ELSE 0 END) AS SUPLE4_5_HIS"), DB::raw("round((cast(SUM(CASE WHEN
                                     ([EH-4M] IS NOT NULL AND [EH-5M] IS NOT NULL) THEN 1 ELSE 0 END) as float) / cast(COUNT(DISTRITO) as float)
@@ -60,7 +60,7 @@ class Suple45Export implements FromView, ShouldAutoSize
                                     ->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
 
                 }else{
-                    $resumSuple45 = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $resumSuple45 = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', DB::raw("COUNT(DISTRITO) DENOMINADOR"), DB::raw("SUM(CASE WHEN ([EH-4M]
                                     IS NOT NULL AND [EH-5M] IS NOT NULL) THEN 1 ELSE 0 END) AS SUPLE4_5_HIS"), DB::raw("round((cast(SUM(CASE WHEN
                                     ([EH-4M] IS NOT NULL AND [EH-5M] IS NOT NULL) THEN 1 ELSE 0 END) as float) / cast(COUNT(DISTRITO) as float)
@@ -71,7 +71,7 @@ class Suple45Export implements FromView, ShouldAutoSize
             else if($dist != 'TODOS'){
                 if($anio == 'TODOS'){
                     $anio = 'Todos';
-                    $resumSuple45 = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $resumSuple45 = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', DB::raw("COUNT(DISTRITO) DENOMINADOR"), DB::raw("SUM(CASE WHEN ([EH-4M]
                                     IS NOT NULL AND [EH-5M] IS NOT NULL) THEN 1 ELSE 0 END) AS SUPLE4_5_HIS"), DB::raw("round((cast(SUM(CASE WHEN
                                     ([EH-4M] IS NOT NULL AND [EH-5M] IS NOT NULL) THEN 1 ELSE 0 END) as float) / cast(COUNT(DISTRITO) as float)
@@ -79,7 +79,7 @@ class Suple45Export implements FromView, ShouldAutoSize
                                     ->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
 
                 }else{
-                    $resumSuple45 = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $resumSuple45 = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', DB::raw("COUNT(DISTRITO) DENOMINADOR"), DB::raw("SUM(CASE WHEN ([EH-4M]
                                     IS NOT NULL AND [EH-5M] IS NOT NULL) THEN 1 ELSE 0 END) AS SUPLE4_5_HIS"), DB::raw("round((cast(SUM(CASE WHEN
                                     ([EH-4M] IS NOT NULL AND [EH-5M] IS NOT NULL) THEN 1 ELSE 0 END) as float) / cast(COUNT(DISTRITO) as float)
@@ -94,13 +94,13 @@ class Suple45Export implements FromView, ShouldAutoSize
             if($red == 'TODOS'){
                 if($anio == 'TODOS'){
                     $anio = 'Todos';
-                    $nomSuple45 = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $nomSuple45 = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', 'NUMERO_DE_DOCUMENTO_DEL_NINO', 'FECHA_DE_NACIMIENTO', 'EH-4M as EH_4M',
                                 'EH-5M as EH_5M', DB::raw("CASE WHEN ([EH-4M] IS NOT NULL AND [EH-5M] IS NOT NULL)
                                 THEN 'Cumple' ELSE 'No Cumple' END 'CUMPLE_HIS'"))->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
                 }
                 else{
-                    $nomSuple45 = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $nomSuple45 = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', 'NUMERO_DE_DOCUMENTO_DEL_NINO', 'FECHA_DE_NACIMIENTO', 'EH-4M as EH_4M',
                                 'EH-5M as EH_5M', DB::raw("CASE WHEN ([EH-4M] IS NOT NULL AND [EH-5M] IS NOT NULL)
                                 THEN 'Cumple' ELSE 'No Cumple' END 'CUMPLE_HIS'")) ->whereYear('NUMERO_DE_DOCUMENTO_DEL_NINO', $anio)
@@ -110,14 +110,14 @@ class Suple45Export implements FromView, ShouldAutoSize
             else if($red != 'TODOS' && $dist == 'TODOS'){
                 if($anio == 'TODOS'){
                     $anio = 'Todos';
-                    $nomSuple45 = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $nomSuple45 = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', 'NUMERO_DE_DOCUMENTO_DEL_NINO', 'FECHA_DE_NACIMIENTO', 'EH-4M as EH_4M',
                                 'EH-5M as EH_5M', DB::raw("CASE WHEN ([EH-4M] IS NOT NULL AND [EH-5M] IS NOT NULL)
                                 THEN 'Cumple' ELSE 'No Cumple' END 'CUMPLE_HIS'")) ->where('PROVINCIA', $red) ->orderBy('PROVINCIA')
                                 ->orderBy('DISTRITO') ->get();
                 }
                 else{
-                    $nomSuple45 = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $nomSuple45 = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', 'NUMERO_DE_DOCUMENTO_DEL_NINO', 'FECHA_DE_NACIMIENTO', 'EH-4M as EH_4M',
                                 'EH-5M as EH_5M', DB::raw("CASE WHEN ([EH-4M] IS NOT NULL AND [EH-5M] IS NOT NULL)
                                 THEN 'Cumple' ELSE 'No Cumple' END 'CUMPLE_HIS'")) ->whereYear('NUMERO_DE_DOCUMENTO_DEL_NINO', $anio)
@@ -127,14 +127,14 @@ class Suple45Export implements FromView, ShouldAutoSize
             else if($dist != 'TODOS'){
                 if($anio == 'TODOS'){
                     $anio = 'Todos';
-                    $nomSuple45 = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $nomSuple45 = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', 'NUMERO_DE_DOCUMENTO_DEL_NINO', 'FECHA_DE_NACIMIENTO', 'EH-4M as EH_4M',
                                 'EH-5M as EH_5M', DB::raw("CASE WHEN ([EH-4M] IS NOT NULL AND [EH-5M] IS NOT NULL)
                                 THEN 'Cumple' ELSE 'No Cumple' END 'CUMPLE_HIS'")) ->where('DISTRITO', $dist) ->orderBy('PROVINCIA')
                                 ->orderBy('DISTRITO') ->get();
                 }
                 else{
-                    $nomSuple45 = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $nomSuple45 = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', 'NUMERO_DE_DOCUMENTO_DEL_NINO', 'FECHA_DE_NACIMIENTO', 'EH-4M as EH_4M',
                                 'EH-5M as EH_5M', DB::raw("CASE WHEN ([EH-4M] IS NOT NULL AND [EH-5M] IS NOT NULL)
                                 THEN 'Cumple' ELSE 'No Cumple' END 'CUMPLE_HIS'")) ->whereYear('NUMERO_DE_DOCUMENTO_DEL_NINO', $anio)

@@ -29,7 +29,7 @@ class ConsolidateExport implements FromView, ShouldAutoSize
         $a = $this->anio;
 
         if($r == 'TODOS'){
-            $nominal = DB::connection('BD_JUNTOS') ->table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
+            $nominal = DB::table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
                         ->select('*', DB::raw("CONCAT(PATERNO_TITULAR,' ',MATERNO_TITULAR,' ', NOMBRES_TITULAR) AS FULLNAME_TITULAR"),
                             DB::raw("CONCAT(APPATERNO_MO,' ',APMATERNO_MO,' ', NOMBRE_MO) AS FULLNAME_MO"), '1CTRL RN AS CTRL1_RN', '2CTRL RN AS CTRL2_RN',
                             '3CTRL RN AS CTRL3_RN', '4CTRL RN AS CTRL4_RN', '1CTRL AS CTRL1', '2CTRL AS CTRL2', '3CTRL AS CTRL3', '4CTRL AS CTRL4',
@@ -45,7 +45,7 @@ class ConsolidateExport implements FromView, ShouldAutoSize
                         ->get();
         }
         else if($r != 'TODOS' && $d == 'TODOS'){
-            $nominal = DB::connection('BD_JUNTOS') ->table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
+            $nominal = DB::table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
                         ->select('*', DB::raw("CONCAT(PATERNO_TITULAR,' ',MATERNO_TITULAR,' ', NOMBRES_TITULAR) AS FULLNAME_TITULAR"),
                             DB::raw("CONCAT(APPATERNO_MO,' ',APMATERNO_MO,' ', NOMBRE_MO) AS FULLNAME_MO"), '1CTRL RN AS CTRL1_RN', '2CTRL RN AS CTRL2_RN',
                             '3CTRL RN AS CTRL3_RN', '4CTRL RN AS CTRL4_RN', '1CTRL AS CTRL1', '2CTRL AS CTRL2', '3CTRL AS CTRL3', '4CTRL AS CTRL4',
@@ -61,7 +61,7 @@ class ConsolidateExport implements FromView, ShouldAutoSize
                         ->get();
         }
         else{
-            $nominal = DB::connection('BD_JUNTOS') ->table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
+            $nominal = DB::table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
                         ->select('*', DB::raw("CONCAT(PATERNO_TITULAR,' ',MATERNO_TITULAR,' ', NOMBRES_TITULAR) AS FULLNAME_TITULAR"),
                             DB::raw("CONCAT(APPATERNO_MO,' ',APMATERNO_MO,' ', NOMBRE_MO) AS FULLNAME_MO"), '1CTRL RN AS CTRL1_RN', '2CTRL RN AS CTRL2_RN',
                             '3CTRL RN AS CTRL3_RN', '4CTRL RN AS CTRL4_RN', '1CTRL AS CTRL1', '2CTRL AS CTRL2', '3CTRL AS CTRL3', '4CTRL AS CTRL4',

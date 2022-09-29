@@ -29,7 +29,7 @@ class ConsolidateExport implements FromView, ShouldAutoSize
         $a = $this->anio;
 
         if($r == 'TODOS'){
-            $nominal = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+            $nominal = DB::table('dbo.META4_CONSOLIDADO')
                         ->select('*', '1CTRL RN AS CTRL1_RN', '2CTRL RN AS CTRL2_RN',
                             '3CTRL RN AS CTRL3_RN', '4CTRL RN AS CTRL4_RN', '1CTRL AS CTRL1', '2CTRL AS CTRL2', '3CTRL AS CTRL3', '4CTRL AS CTRL4',
                             '5CTRL AS CTRL5', '6CTRL AS CTRL6', '7CTRL AS CTRL7', '8CTRL AS CTRL8', '9CTRL AS CTRL9', '10CTRL AS CTRL10', '11CTRL AS CTRL11',
@@ -48,7 +48,7 @@ class ConsolidateExport implements FromView, ShouldAutoSize
                         ->get();
         }
         else if($r != 'TODOS' && $d == 'TODOS'){
-            $nominal = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+            $nominal = DB::table('dbo.META4_CONSOLIDADO')
                         ->select('*', '1CTRL RN AS CTRL1_RN', '2CTRL RN AS CTRL2_RN',
                             '3CTRL RN AS CTRL3_RN', '4CTRL RN AS CTRL4_RN', '1CTRL AS CTRL1', '2CTRL AS CTRL2', '3CTRL AS CTRL3', '4CTRL AS CTRL4',
                             '5CTRL AS CTRL5', '6CTRL AS CTRL6', '7CTRL AS CTRL7', '8CTRL AS CTRL8', '9CTRL AS CTRL9', '10CTRL AS CTRL10', '11CTRL AS CTRL11',
@@ -67,7 +67,7 @@ class ConsolidateExport implements FromView, ShouldAutoSize
                         ->get();
         }
         else{
-            $nominal = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+            $nominal = DB::table('dbo.META4_CONSOLIDADO')
                         ->select('*', '1CTRL RN AS CTRL1_RN', '2CTRL RN AS CTRL2_RN',
                             '3CTRL RN AS CTRL3_RN', '4CTRL RN AS CTRL4_RN', '1CTRL AS CTRL1', '2CTRL AS CTRL2', '3CTRL AS CTRL3', '4CTRL AS CTRL4',
                             '5CTRL AS CTRL5', '6CTRL AS CTRL6', '7CTRL AS CTRL7', '8CTRL AS CTRL8', '9CTRL AS CTRL9', '10CTRL AS CTRL10', '11CTRL AS CTRL11',

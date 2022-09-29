@@ -33,7 +33,7 @@ class NewlyBornExport implements FromView, ShouldAutoSize
             if($red == 'TODOS'){
                 if($anio == 'TODOS'){
                     $anio = 'Todos';
-                    $resumRn = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $resumRn = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', DB::raw("COUNT(DISTRITO) DENOMINADOR"), DB::raw("SUM(CASE WHEN (CASE WHEN
                                     ([1CTRL RN] IS NOT NULL) THEN 1 ELSE 0 END + CASE WHEN ([2CTRL RN] IS NOT NULL) THEN 1 ELSE 0 END +
                                     CASE WHEN ([3CTRL RN] IS NOT NULL) THEN 1 ELSE 0 END + CASE WHEN ([4CTRL RN]
@@ -44,7 +44,7 @@ class NewlyBornExport implements FromView, ShouldAutoSize
                                 ->groupBy('PROVINCIA') ->groupBy('DISTRITO') ->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
 
                 }else{
-                    $resumRn = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $resumRn = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', DB::raw("COUNT(DISTRITO) DENOMINADOR"), DB::raw("SUM(CASE WHEN (CASE WHEN
                                     ([1CTRL RN] IS NOT NULL) THEN 1 ELSE 0 END + CASE WHEN ([2CTRL RN] IS NOT NULL) THEN 1 ELSE 0 END +
                                     CASE WHEN ([3CTRL RN] IS NOT NULL) THEN 1 ELSE 0 END + CASE WHEN ([4CTRL RN]
@@ -58,7 +58,7 @@ class NewlyBornExport implements FromView, ShouldAutoSize
             else if($red != 'TODOS' && $dist == 'TODOS'){
                 if($anio == 'TODOS'){
                     $anio = 'Todos';
-                    $resumRn = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $resumRn = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', DB::raw("COUNT(DISTRITO) DENOMINADOR"), DB::raw("SUM(CASE WHEN (CASE WHEN
                                     ([1CTRL RN] IS NOT NULL) THEN 1 ELSE 0 END + CASE WHEN ([2CTRL RN] IS NOT NULL) THEN 1 ELSE 0 END +
                                     CASE WHEN ([3CTRL RN] IS NOT NULL) THEN 1 ELSE 0 END + CASE WHEN ([4CTRL RN]
@@ -69,7 +69,7 @@ class NewlyBornExport implements FromView, ShouldAutoSize
                                 ->groupBy('PROVINCIA') ->groupBy('DISTRITO') ->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
 
                 }else{
-                    $resumRn = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $resumRn = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', DB::raw("COUNT(DISTRITO) DENOMINADOR"), DB::raw("SUM(CASE WHEN (CASE WHEN
                                     ([1CTRL RN] IS NOT NULL) THEN 1 ELSE 0 END + CASE WHEN ([2CTRL RN] IS NOT NULL) THEN 1 ELSE 0 END +
                                     CASE WHEN ([3CTRL RN] IS NOT NULL) THEN 1 ELSE 0 END + CASE WHEN ([4CTRL RN]
@@ -84,7 +84,7 @@ class NewlyBornExport implements FromView, ShouldAutoSize
             else if($dist != 'TODOS'){
                 if($anio == 'TODOS'){
                     $anio = 'Todos';
-                    $resumRn = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $resumRn = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', DB::raw("COUNT(DISTRITO) DENOMINADOR"), DB::raw("SUM(CASE WHEN (CASE WHEN
                                     ([1CTRL RN] IS NOT NULL) THEN 1 ELSE 0 END + CASE WHEN ([2CTRL RN] IS NOT NULL) THEN 1 ELSE 0 END +
                                     CASE WHEN ([3CTRL RN] IS NOT NULL) THEN 1 ELSE 0 END + CASE WHEN ([4CTRL RN]
@@ -95,7 +95,7 @@ class NewlyBornExport implements FromView, ShouldAutoSize
                                 ->groupBy('PROVINCIA') ->groupBy('DISTRITO') ->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
 
                 }else{
-                    $resumRn = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $resumRn = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', DB::raw("COUNT(DISTRITO) DENOMINADOR"), DB::raw("SUM(CASE WHEN (CASE WHEN
                                     ([1CTRL RN] IS NOT NULL) THEN 1 ELSE 0 END + CASE WHEN ([2CTRL RN] IS NOT NULL) THEN 1 ELSE 0 END +
                                     CASE WHEN ([3CTRL RN] IS NOT NULL) THEN 1 ELSE 0 END + CASE WHEN ([4CTRL RN]
@@ -114,7 +114,7 @@ class NewlyBornExport implements FromView, ShouldAutoSize
             if($red == 'TODOS'){
                 if($anio == 'TODOS'){
                     $anio = 'Todos';
-                    $nominalRn = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $nominalRn = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', 'NUMERO_DE_DOCUMENTO_DEL_NINO', 'FECHA_DE_NACIMIENTO', '1CTRL RN as CTRL1_RN',
                                 '2CTRL RN as CTRL2_RN', '3CTRL RN as CTRL3_RN', '4CTRL RN as CTRL4_RN', DB::raw("CASE WHEN
                                 (CASE WHEN ([1CTRL RN] IS NOT NULL) THEN 1 ELSE 0 END + CASE WHEN ([2CTRL RN] IS NOT NULL) THEN 1 ELSE 0 END +
@@ -122,7 +122,7 @@ class NewlyBornExport implements FromView, ShouldAutoSize
                                 THEN 'Cumple' ELSE 'No Cumple' END AS 'CUMPLE_HIS'"))->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
                 }
                 else{
-                    $nominalRn = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $nominalRn = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', 'NUMERO_DE_DOCUMENTO_DEL_NINO', 'FECHA_DE_NACIMIENTO', 'CRN1', 'CRN2',
                                 '1CTRL RN as CTRL1_RN', '2CTRL RN as CTRL2_RN', '3CTRL RN as CTRL3_RN', '4CTRL RN as CTRL4_RN', DB::raw("CASE WHEN
                                 (CASE WHEN ([1CTRL RN] IS NOT NULL) THEN 1 ELSE 0 END + CASE WHEN ([2CTRL RN] IS NOT NULL) THEN 1 ELSE 0 END +
@@ -134,7 +134,7 @@ class NewlyBornExport implements FromView, ShouldAutoSize
             else if($red != 'TODOS' && $dist == 'TODOS'){
                 if($anio == 'TODOS'){
                     $anio = 'Todos';
-                    $nominalRn = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $nominalRn = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', 'NUMERO_DE_DOCUMENTO_DEL_NINO', 'FECHA_DE_NACIMIENTO', '1CTRL RN as CTRL1_RN',
                                 '2CTRL RN as CTRL2_RN', '3CTRL RN as CTRL3_RN', '4CTRL RN as CTRL4_RN', DB::raw("CASE WHEN
                                 (CASE WHEN ([1CTRL RN] IS NOT NULL) THEN 1 ELSE 0 END + CASE WHEN ([2CTRL RN] IS NOT NULL) THEN 1 ELSE 0 END +
@@ -143,7 +143,7 @@ class NewlyBornExport implements FromView, ShouldAutoSize
                                 ->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
                 }
                 else{
-                    $nominalRn = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $nominalRn = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', 'NUMERO_DE_DOCUMENTO_DEL_NINO', 'FECHA_DE_NACIMIENTO', '1CTRL RN as CTRL1_RN',
                                 '2CTRL RN as CTRL2_RN', '3CTRL RN as CTRL3_RN', '4CTRL RN as CTRL4_RN', DB::raw("CASE WHEN
                                 (CASE WHEN ([1CTRL RN] IS NOT NULL) THEN 1 ELSE 0 END + CASE WHEN ([2CTRL RN] IS NOT NULL) THEN 1 ELSE 0 END +
@@ -155,7 +155,7 @@ class NewlyBornExport implements FromView, ShouldAutoSize
             else if($dist != 'TODOS'){
                 if($anio == 'TODOS'){
                     $anio = 'Todos';
-                    $nominalRn = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $nominalRn = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', 'NUMERO_DE_DOCUMENTO_DEL_NINO', 'FECHA_DE_NACIMIENTO', '1CTRL RN as CTRL1_RN',
                                 '2CTRL RN as CTRL2_RN', '3CTRL RN as CTRL3_RN', '4CTRL RN as CTRL4_RN', DB::raw("CASE WHEN
                                 (CASE WHEN ([1CTRL RN] IS NOT NULL) THEN 1 ELSE 0 END + CASE WHEN ([2CTRL RN] IS NOT NULL) THEN 1 ELSE 0 END +
@@ -164,7 +164,7 @@ class NewlyBornExport implements FromView, ShouldAutoSize
                                 ->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
                 }
                 else{
-                    $nominalRn = DB::connection('BD_JUNTOS') ->table('dbo.META4_CONSOLIDADO')
+                    $nominalRn = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', 'NUMERO_DE_DOCUMENTO_DEL_NINO', 'FECHA_DE_NACIMIENTO', '1CTRL RN as CTRL1_RN',
                                 '2CTRL RN as CTRL2_RN', '3CTRL RN as CTRL3_RN', '4CTRL RN as CTRL4_RN', DB::raw("CASE WHEN
                                 (CASE WHEN ([1CTRL RN] IS NOT NULL) THEN 1 ELSE 0 END + CASE WHEN ([2CTRL RN] IS NOT NULL) THEN 1 ELSE 0 END +
