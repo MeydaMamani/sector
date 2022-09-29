@@ -123,7 +123,7 @@ class NewlyBornExport implements FromView, ShouldAutoSize
                 }
                 else{
                     $nominalRn = DB::table('dbo.META4_CONSOLIDADO')
-                                ->select('PROVINCIA', 'DISTRITO', 'NUMERO_DE_DOCUMENTO_DEL_NINO', 'FECHA_DE_NACIMIENTO', 'CRN1', 'CRN2',
+                                ->select('PROVINCIA', 'DISTRITO', 'NUMERO_DE_DOCUMENTO_DEL_NINO', 'FECHA_DE_NACIMIENTO',
                                 '1CTRL RN as CTRL1_RN', '2CTRL RN as CTRL2_RN', '3CTRL RN as CTRL3_RN', '4CTRL RN as CTRL4_RN', DB::raw("CASE WHEN
                                 (CASE WHEN ([1CTRL RN] IS NOT NULL) THEN 1 ELSE 0 END + CASE WHEN ([2CTRL RN] IS NOT NULL) THEN 1 ELSE 0 END +
                                 CASE WHEN ([3CTRL RN] IS NOT NULL) THEN 1 ELSE 0 END + CASE WHEN ([4CTRL RN] IS NOT NULL) THEN 1 ELSE 0 END) >= 2

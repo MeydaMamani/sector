@@ -182,9 +182,9 @@
                                                 <td class="align-middle">[[ format.DISTRITO_RES ]]</td>
                                                 <td class="align-middle text-center">[[ format.DENOMINADOR ]]</td>
                                                 <td class="align-middle text-center">[[ format.RN_JUNT_NUM ]]</td>
-                                                <td class="align-middle text-center">[[ Math.ceil(format.AVANCE_JUNT) ]]%</td>
+                                                <td class="align-middle text-center">[[ Math.round(format.AVANCE_JUNT) ]]%</td>
                                                 <td class="align-middle text-center">[[ format.RN_HIS_NUM ]]</td>
-                                                <td class="align-middle text-center">[[ Math.ceil(format.AVANCE_HIS) ]]%</td>
+                                                <td class="align-middle text-center">[[ Math.round(format.AVANCE_HIS) ]]%</td>
                                                 <template v-if="format.AVANCE_JUNT == format.AVANCE_HIS">
                                                     <td class="align-middle text-center" style="background: #bbedbb;"></td>
                                                 </template>
@@ -285,9 +285,9 @@
                                                 <td class="align-middle">[[ format.DISTRITO_RES ]]</td>
                                                 <td class="align-middle text-center">[[ format.DENOMINADOR ]]</td>
                                                 <td class="align-middle text-center">[[ format.RN_JUNT_NUM ]]</td>
-                                                <td class="align-middle text-center">[[ Math.ceil(format.AVANCE_JUNT) ]]%</td>
+                                                <td class="align-middle text-center">[[ Math.round(format.AVANCE_JUNT) ]]%</td>
                                                 <td class="align-middle text-center">[[ format.RN_HIS_NUM ]]</td>
-                                                <td class="align-middle text-center">[[ Math.ceil(format.AVANCE_HIS) ]]%</td>
+                                                <td class="align-middle text-center">[[ Math.round(format.AVANCE_HIS) ]]%</td>
                                                 <template v-if="format.AVANCE_JUNT == format.AVANCE_HIS">
                                                     <td class="align-middle text-center" style="background: #bbedbb;"></td>
                                                 </template>
@@ -388,9 +388,9 @@
                                                 <td class="align-middle">[[ format.DISTRITO_RES ]]</td>
                                                 <td class="align-middle text-center">[[ format.DENOMINADOR ]]</td>
                                                 <td class="align-middle text-center">[[ format.RN_JUNT_NUM ]]</td>
-                                                <td class="align-middle text-center">[[ Math.ceil(format.AVANCE_JUNT) ]]%</td>
+                                                <td class="align-middle text-center">[[ Math.round(format.AVANCE_JUNT) ]]%</td>
                                                 <td class="align-middle text-center">[[ format.RN_HIS_NUM ]]</td>
-                                                <td class="align-middle text-center">[[ Math.ceil(format.AVANCE_HIS) ]]%</td>
+                                                <td class="align-middle text-center">[[ Math.round(format.AVANCE_HIS) ]]%</td>
                                                 <template v-if="format.AVANCE_JUNT == format.AVANCE_HIS">
                                                     <td class="align-middle text-center" style="background: #bbedbb;"></td>
                                                 </template>
@@ -489,10 +489,10 @@
                                                 <td class="align-middle">[[ format.PROVINCIA_RES ]]</td>
                                                 <td class="align-middle">[[ format.DISTRITO_RES ]]</td>
                                                 <td class="align-middle text-center">[[ format.DENOMINADOR ]]</td>
-                                                <td class="align-middle text-center">[[ Math.ceil(format.NUM_HIS) ]]</td>
-                                                <td class="align-middle text-center">[[ Math.ceil(format.AVAN_HIS) ]]%</td>
-                                                <td class="align-middle text-center">[[ Math.ceil(format.NUM_JUNTOS) ]]</td>
-                                                <td class="align-middle text-center">[[ Math.ceil(format.AVAN_JUNT)]]%</td>
+                                                <td class="align-middle text-center">[[ Math.round(format.NUM_HIS) ]]</td>
+                                                <td class="align-middle text-center">[[ Math.round(format.AVAN_HIS) ]]%</td>
+                                                <td class="align-middle text-center">[[ Math.round(format.NUM_JUNTOS) ]]</td>
+                                                <td class="align-middle text-center">[[ Math.round(format.AVAN_JUNT)]]%</td>
                                                 {{-- <template v-if="format.AVANCE_JUNTOS == format.AVANCE_HIS">
                                                     <td class="align-middle text-center" style="background: #bbedbb;"></td>
                                                 </template>

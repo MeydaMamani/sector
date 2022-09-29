@@ -263,7 +263,7 @@
                                                 <td class="align-middle">[[ format.DISTRITO ]]</td>
                                                 <td class="align-middle text-center">[[ format.DENOMINADOR ]]</td>
                                                 <td class="align-middle text-center">[[ format.RN_HIS_NUM ]]</td>
-                                                <td class="align-middle text-center">[[ Math.ceil(format.AVANCE_HIS) ]]%</td>
+                                                <td class="align-middle text-center">[[ Math.round(format.AVANCE_HIS) ]]%</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -350,7 +350,7 @@
                                                 <td class="align-middle">[[ format.DISTRITO ]]</td>
                                                 <td class="align-middle text-center">[[ format.DENOMINADOR ]]</td>
                                                 <td class="align-middle text-center">[[ format.RN_HIS_NUM ]]</td>
-                                                <td class="align-middle text-center">[[ Math.ceil(format.AVANCE_HIS) ]]%</td>
+                                                <td class="align-middle text-center">[[ Math.round(format.AVANCE_HIS) ]]%</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -437,7 +437,7 @@
                                                 <td class="align-middle">[[ format.DISTRITO ]]</td>
                                                 <td class="align-middle text-center">[[ format.DENOMINADOR ]]</td>
                                                 <td class="align-middle text-center">[[ format.RN_HIS_NUM ]]</td>
-                                                <td class="align-middle text-center">[[ Math.ceil(format.AVANCE_HIS) ]]%</td>
+                                                <td class="align-middle text-center">[[ Math.round(format.AVANCE_HIS) ]]%</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -524,7 +524,7 @@
                                                 <td class="align-middle">[[ format.DISTRITO ]]</td>
                                                 <td class="align-middle text-center">[[ format.DENOMINADOR ]]</td>
                                                 <td class="align-middle text-center">[[ format.RN_HIS_NUM ]]</td>
-                                                <td class="align-middle text-center">[[ Math.ceil(format.AVANCE_HIS) ]]%</td>
+                                                <td class="align-middle text-center">[[ Math.round(format.AVANCE_HIS) ]]%</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -611,7 +611,7 @@
                                                 <td class="align-middle">[[ format.DISTRITO ]]</td>
                                                 <td class="align-middle text-center">[[ format.DENOMINADOR ]]</td>
                                                 <td class="align-middle text-center">[[ format.SUPLE4_5_HIS ]]</td>
-                                                <td class="align-middle text-center">[[ Math.ceil(format.AVANCE_HIS) ]]%</td>
+                                                <td class="align-middle text-center">[[ Math.round(format.AVANCE_HIS) ]]%</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -698,7 +698,7 @@
                                                 <td class="align-middle">[[ format.DISTRITO ]]</td>
                                                 <td class="align-middle text-center">[[ format.DENOMINADOR ]]</td>
                                                 <td class="align-middle text-center">[[ format.SUPLE6_11_HIS ]]</td>
-                                                <td class="align-middle text-center">[[ Math.ceil(format.AVANCE_HIS) ]]%</td>
+                                                <td class="align-middle text-center">[[ Math.round(format.AVANCE_HIS) ]]%</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -785,7 +785,7 @@
                                                 <td class="align-middle">[[ format.DISTRITO ]]</td>
                                                 <td class="align-middle text-center">[[ format.DENOMINADOR ]]</td>
                                                 <td class="align-middle text-center">[[ format.NUM_HIS ]]</td>
-                                                <td class="align-middle text-center">[[ Math.ceil(format.AVANCE_HIS) ]]%</td>
+                                                <td class="align-middle text-center">[[ Math.round(format.AVANCE_HIS) ]]%</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -872,7 +872,7 @@
                                                 <td class="align-middle">[[ format.DISTRITO ]]</td>
                                                 <td class="align-middle text-center">[[ format.DENOMINADOR ]]</td>
                                                 <td class="align-middle text-center">[[ format.NUM_HIS ]]</td>
-                                                <td class="align-middle text-center">[[ Math.ceil(format.AVANCE_HIS) ]]%</td>
+                                                <td class="align-middle text-center">[[ Math.round(format.AVANCE_HIS) ]]%</td>
                                             </tr>
                                         </tbody>
                                     </table>
