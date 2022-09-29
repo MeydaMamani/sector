@@ -7,6 +7,8 @@ use App\Http\Controllers\main\MainController;
 use App\Http\Controllers\fed\KidsController;
 use App\Http\Controllers\juntos\jKidsController;
 use App\Http\Controllers\meta4\mKidsController;
+use App\Http\Controllers\cuna\SafController;
+use App\Http\Controllers\cuna\ScdController;
 
 // Route::get('/', function () { return view('index'); });
 Route::get('/', [LoginController::class, 'index']) ->name('login');
@@ -53,3 +55,10 @@ Route::post('/met4kids/tableResumVac', [mKidsController::class, 'tableResumVac']
 // Route::get('/met4kids/printSuple45', [mKidsController::class, 'printSuple45']);
 // Route::get('/met4kids/printSuple611', [mKidsController::class, 'printSuple611']);
 // Route::get('/met4kids/printSuple12', [mKidsController::class, 'printSuple12']);
+
+Route::get('/cunaSaf', [SafController::class, 'indexSaf']);
+Route::get('/cunaSaf/print', [SafController::class, 'printNominal']);
+
+
+Route::get('/cunaScd', [ScdController::class, 'indexScd']);
+Route::get('/cunaScd/print', [ScdController::class, 'printNominal']);
