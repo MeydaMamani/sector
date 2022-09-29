@@ -9,18 +9,18 @@
     <div class="sidebar">
         <!-- Name User -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            {{-- @foreach(session('dataPerson') as $user) --}}
+            @foreach(session('dataPerson') as $user)
             <div class="image">
-                {{-- @if ($user->gender == 'F') --}}
-                    {{-- <img src="dist/img/user7-128x128.jpg" class="img-circle elevation-2" alt="User Image"> --}}
-                {{-- @else --}}
+                @if ($user->gender == 'F')
                     <img src="./img/woman.png" class="img-circle elevation-2" alt="User Image" style="background: white;">
-                {{-- @endif --}}
+                @else
+                    <img src="./img/user.png" class="img-circle elevation-2" alt="User Image" style="background: white;">
+                @endif
             </div>
             <div class="info">
-                <a href="#" class="d-block text-white"> Hola Usuario</a>
+                <a href="#" class="d-block text-white"> Hola, {{ $user->names }}</a>
             </div>
-            {{-- @endforeach --}}
+            @endforeach
         </div>
 
         <!-- SidebarSearch Form -->
@@ -60,7 +60,27 @@
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i><img src="{{ asset('./img/menu/meta4.png') }}" width="30" alt="imagen-ind"></i>
+                        <i><img src="{{ asset('./img/menu/cuna.png') }}" width="30" alt="imagen-seg"></i>
+                        <p class="ml-2">Cuna <i class="right fas fa-angle-left pt-1"></i></p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>SAF Padrón</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>SCD Padrón</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i><img src="{{ asset('./img/menu/meta4_2.png') }}" width="30" alt="imagen-ind"></i>
                         <p class="ml-2">Meta 4 <i class="right fas fa-angle-left pt-1"></i></p>
                     </a>
                     <ul class="nav nav-treeview">

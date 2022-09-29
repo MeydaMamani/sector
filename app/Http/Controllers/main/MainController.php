@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\DB;
 
 class MainController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function province() {
         $provinces_all = DB::connection('BDHIS_MINSA')->table('MAESTRO_HIS_ESTABLECIMIENTO')

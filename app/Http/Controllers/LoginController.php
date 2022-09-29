@@ -20,38 +20,38 @@ class LoginController extends Controller
         return view('index');
     }
 
-    // public function loginAuth(LoginRequest $request){
-    //     $credentials = $request->getCredentials();
-    //     if(Auth::attempt($credentials)){
-    //         if(Auth::User()->is_active == 1){
-    //             $request->user()->last_login = now();
-    //             $request->user()->save();
-    //             $data = Person::select('Person.names', 'Person.gender', 'Person.is_region', 'Person.is_province', 'Person.is_district',
-    //                     'Users.province_name', 'Users.district_name') ->leftjoin('Users', 'Person.dni', '=', 'Users.username')
-    //                     ->where('Person.dni', $request->username) ->get();
+    public function loginAuth(LoginRequest $request){
+        $credentials = $request->getCredentials();
+        if(Auth::attempt($credentials)){
+            if(Auth::User()->is_active == 1){
+                // $request->user()->last_login = now();
+                // $request->user()->save();
+                $data = Person::select('Person.names', 'Person.gender', 'Person.is_region', 'Person.is_province', 'Person.is_district',
+                        'Users.province_name', 'Users.district_name') ->leftjoin('Users', 'Person.dni', '=', 'Users.username')
+                        ->where('Person.dni', $request->username) ->get();
 
-    //             $request->session()->regenerate();
-    //             $request->session()->put(['dataPerson' => $data]);
-    //             return redirect()->intended('/dashboard');
-    //             // return view('/dashboard',['data' => $data]);
-    //         }
+                $request->session()->regenerate();
+                $request->session()->put(['dataPerson' => $data]);
+                return redirect()->intended('/dashboard');
+                // return view('/dashboard',['data' => $data]);
+            }
 
-    //         throw ValidationException::withMessages([
-    //             'active' => 'Usuario Inválido'
-    //         ]);
-    //     }
+            throw ValidationException::withMessages([
+                'active' => 'Usuario Inválido'
+            ]);
+        }
 
-    //     // return redirect('/');
-    //     throw ValidationException::withMessages([
-    //         'username' => 'Usuario o Contraseña no validos'
-    //     ]);
-    // }
+        // return redirect('/');
+        throw ValidationException::withMessages([
+            'username' => 'Usuario o Contraseña no validos'
+        ]);
+    }
 
-    // public function logout(Request $request)
-    // {
-    //     Auth::logout();
-    //     $request->session()->invalidate();
-    //     $request->session()->regenerateToken();
-    //     return redirect('/');
-    // }
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/');
+    }
 }
