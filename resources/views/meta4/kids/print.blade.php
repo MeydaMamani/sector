@@ -15,16 +15,16 @@
 <body>
     <table>
         <thead>
-            <tr><td colspan="81"></td></tr>
+            <tr><td colspan="89"></td></tr>
             <tr>
-                <td colspan="81" style="font-size: 20px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">DIRESA PASCO DEIT</td>
+                <td colspan="89" style="font-size: 20px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">DIRESA PASCO DEIT</td>
             </tr>
-            <tr><td colspan="81"></td></tr>
+            <tr><td colspan="89"></td></tr>
             <tr>
-                <td colspan="81" style="font-size: 16px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">PADRÓN DE NIÑOS MENORES DE 24 MESES PARA LA ATENCIÓN AL HOGAR Y SEG. NOMINAL - {{ $nameProv }} / {{ $nameDist }}</td>
+                <td colspan="89" style="font-size: 16px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">PADRÓN DE NIÑOS MENORES DE 24 MESES PARA LA ATENCIÓN AL HOGAR Y SEG. NOMINAL - {{ $nameProv }} / {{ $nameDist }}</td>
             </tr>
-            <tr><td colspan="81"></td></tr>
-            <tr><td colspan="81"></td></tr>
+            <tr><td colspan="89"></td></tr>
+            <tr><td colspan="89"></td></tr>
         </thead>
         <thead>
             <tr>
@@ -37,6 +37,8 @@
                 <th colspan="2" style="background: #FFEDE6; font-weight: 500; text-align: center; font-size:12px; border: 3px solid #A6A6A6;">Vacuna SPR</th>
                 <th colspan="18" style="background: #E8D1DC; font-weight: 500; text-align: center; font-size:12px; border: 3px solid #A6A6A6;">Dosaje Hemoglobina</th>
                 <th colspan="20" style="background: #FFE6FF; font-weight: 500; text-align: center; font-size:12px; border: 3px solid #A6A6A6;">Entrega de Hierro Mensual</th>
+                <th colspan="4" style="background: #E5F4F7; font-weight: 500; text-align: center; font-size:12px; border: 3px solid #A6A6A6;">Visita por Suplementación</th>
+                <th colspan="4" style="background: #CCC0DA; font-weight: 500; text-align: center; font-size:12px; border: 3px solid #A6A6A6;">Visita por Aten Integral</th>
             </tr>
             <tr>
                 <th style="background: #DDEBF7; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">#</th>
@@ -128,6 +130,16 @@
                 <th style="background: #FFE6FF; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Hierro 21</th>
                 <th style="background: #FFE6FF; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Hierro 22</th>
                 <th style="background: #FFE6FF; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Hierro 23</th>
+
+                <th style="background: #E5F4F7; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Suple 4M</th>
+                <th style="background: #E5F4F7; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Suple 5M</th>
+                <th style="background: #E5F4F7; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Suple 6M</th>
+                <th style="background: #E5F4F7; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Suple 1A</th>
+
+                <th style="background: #CCC0DA; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Aten Int 4M</th>
+                <th style="background: #CCC0DA; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Aten Int 5M</th>
+                <th style="background: #CCC0DA; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Aten Int 6M</th>
+                <th style="background: #CCC0DA; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Aten Int 1A</th>
             </tr>
         </thead>
         <tbody>
@@ -221,6 +233,16 @@
                     <td>{{ $list->EH_21M }}</td>
                     <td>{{ $list->EH_22M }}</td>
                     <td>{{ $list->EH_23M }}</td>
+
+                    <td>{{ $list->VS_4M }}</td>
+                    <td>{{ $list->VS_5M }}</td>
+                    <td>{{ $list->VS_6M }}</td>
+                    <td>{{ $list->VS_1A }}</td>
+
+                    <td>{{ $list->VAI_4M }}</td>
+                    <td>{{ $list->VAI_5M }}</td>
+                    <td>{{ $list->VAI_6M }}</td>
+                    <td>{{ $list->VAI_1A }}</td>
                 </tr>
             @endforeach
         </tbody>
