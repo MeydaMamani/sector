@@ -15,28 +15,28 @@
 <body>
     <table>
         <thead>
-            <tr><td colspan="89"></td></tr>
+            <tr><td colspan="59"></td></tr>
             <tr>
-                <td colspan="89" style="font-size: 20px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">DIRESA PASCO DEIT</td>
+                <td colspan="59" style="font-size: 20px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">DIRESA PASCO DEIT</td>
             </tr>
-            <tr><td colspan="89"></td></tr>
+            <tr><td colspan="59"></td></tr>
             <tr>
-                <td colspan="89" style="font-size: 16px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">PADRÓN DE NIÑOS MENORES DE 24 MESES PARA LA ATENCIÓN AL HOGAR Y SEG. NOMINAL - {{ $nameProv }} / {{ $nameDist }}</td>
+                <td colspan="59" style="font-size: 16px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">PADRÓN DE NIÑOS MENORES DE 24 MESES PARA LA ATENCIÓN AL HOGAR Y SEG. NOMINAL - {{ $nameProv }} / {{ $nameDist }}</td>
             </tr>
-            <tr><td colspan="89"></td></tr>
-            <tr><td colspan="89"></td></tr>
+            <tr><td colspan="59"></td></tr>
+            <tr><td colspan="59"></td></tr>
         </thead>
         <thead>
             <tr>
                 <th colspan="12" style="background: #DDEBF7; font-weight: 500; text-align: center; font-size:12px; border: 3px solid #A6A6A6;">Datos Personales Niño</th>
                 <th colspan="4" style="background: #FCCECA; font-weight: 500; text-align: center; font-size:12px; border: 3px solid #A6A6A6;">Controles Cred Recién Nacidos</th>
-                <th colspan="17" style="background: #E7FCE3; font-weight: 500; text-align: center; font-size:12px; border: 3px solid #A6A6A6;">Controles Cred Mensuales</th>
+                <th colspan="11" style="background: #E7FCE3; font-weight: 500; text-align: center; font-size:12px; border: 3px solid #A6A6A6;">Controles Cred Mensuales</th>
                 <th colspan="3" style="background: #B1D4FC; font-weight: 500; text-align: center; font-size:12px; border: 3px solid #A6A6A6;">Vacuna Neumococo</th>
                 <th colspan="2" style="background: #A6B4C6; font-weight: 500; text-align: center; font-size:12px; border: 3px solid #A6A6A6;">Vacuna Rotavirus</th>
                 <th colspan="3" style="background: white; font-weight: 500; text-align: center; font-size:12px; border: 3px solid #A6A6A6;">Vacuna Pentavalente</th>
                 <th colspan="2" style="background: #FFEDE6; font-weight: 500; text-align: center; font-size:12px; border: 3px solid #A6A6A6;">Vacuna SPR</th>
-                <th colspan="18" style="background: #E8D1DC; font-weight: 500; text-align: center; font-size:12px; border: 3px solid #A6A6A6;">Dosaje Hemoglobina</th>
-                <th colspan="20" style="background: #FFE6FF; font-weight: 500; text-align: center; font-size:12px; border: 3px solid #A6A6A6;">Entrega de Hierro Mensual</th>
+                <th colspan="6" style="background: #E8D1DC; font-weight: 500; text-align: center; font-size:12px; border: 3px solid #A6A6A6;">Dosaje Hemoglobina</th>
+                <th colspan="8" style="background: #FFE6FF; font-weight: 500; text-align: center; font-size:12px; border: 3px solid #A6A6A6;">Entrega de Hierro Mensual</th>
                 <th colspan="4" style="background: #E5F4F7; font-weight: 500; text-align: center; font-size:12px; border: 3px solid #A6A6A6;">Visita por Suplementación</th>
                 <th colspan="4" style="background: #CCC0DA; font-weight: 500; text-align: center; font-size:12px; border: 3px solid #A6A6A6;">Visita por Aten Integral</th>
             </tr>
@@ -70,12 +70,6 @@
                 <th style="background: #E7FCE3; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">9° Ctrl Mes</th>
                 <th style="background: #E7FCE3; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">10° Ctrl Mes</th>
                 <th style="background: #E7FCE3; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">11° Ctrl Mes</th>
-                <th style="background: #E7FCE3; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">12° Ctrl Mes</th>
-                <th style="background: #E7FCE3; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">14° Ctrl Mes</th>
-                <th style="background: #E7FCE3; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">16° Ctrl Mes</th>
-                <th style="background: #E7FCE3; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">18° Ctrl Mes</th>
-                <th style="background: #E7FCE3; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">20° Ctrl Mes</th>
-                <th style="background: #E7FCE3; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">22° Ctrl Mes</th>
 
                 <th style="background: #B1D4FC; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Neumococo 2</th>
                 <th style="background: #B1D4FC; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Neumococo 4</th>
@@ -97,18 +91,6 @@
                 <th style="background: #E8D1DC; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Dosaje Hg 9</th>
                 <th style="background: #E8D1DC; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Dosaje Hg 10</th>
                 <th style="background: #E8D1DC; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Dosaje Hg 11</th>
-                <th style="background: #E8D1DC; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Dosaje Hg 12</th>
-                <th style="background: #E8D1DC; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Dosaje Hg 13</th>
-                <th style="background: #E8D1DC; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Dosaje Hg 14</th>
-                <th style="background: #E8D1DC; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Dosaje Hg 15</th>
-                <th style="background: #E8D1DC; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Dosaje Hg 16</th>
-                <th style="background: #E8D1DC; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Dosaje Hg 17</th>
-                <th style="background: #E8D1DC; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Dosaje Hg 18</th>
-                <th style="background: #E8D1DC; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Dosaje Hg 19</th>
-                <th style="background: #E8D1DC; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Dosaje Hg 20</th>
-                <th style="background: #E8D1DC; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Dosaje Hg 21</th>
-                <th style="background: #E8D1DC; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Dosaje Hg 22</th>
-                <th style="background: #E8D1DC; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Dosaje Hg 23</th>
 
                 <th style="background: #FFE6FF; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Hierro 4</th>
                 <th style="background: #FFE6FF; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Hierro 5</th>
@@ -118,18 +100,6 @@
                 <th style="background: #FFE6FF; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Hierro 9</th>
                 <th style="background: #FFE6FF; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Hierro 10</th>
                 <th style="background: #FFE6FF; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Hierro 11</th>
-                <th style="background: #FFE6FF; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Hierro 12</th>
-                <th style="background: #FFE6FF; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Hierro 13</th>
-                <th style="background: #FFE6FF; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Hierro 14</th>
-                <th style="background: #FFE6FF; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Hierro 15</th>
-                <th style="background: #FFE6FF; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Hierro 16</th>
-                <th style="background: #FFE6FF; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Hierro 17</th>
-                <th style="background: #FFE6FF; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Hierro 18</th>
-                <th style="background: #FFE6FF; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Hierro 19</th>
-                <th style="background: #FFE6FF; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Hierro 20</th>
-                <th style="background: #FFE6FF; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Hierro 21</th>
-                <th style="background: #FFE6FF; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Hierro 22</th>
-                <th style="background: #FFE6FF; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Hierro 23</th>
 
                 <th style="background: #E5F4F7; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Suple 4M</th>
                 <th style="background: #E5F4F7; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Suple 5M</th>
@@ -173,12 +143,6 @@
                     <td>{{ $list->CTRL9 }}</td>
                     <td>{{ $list->CTRL10 }}</td>
                     <td>{{ $list->CTRL11 }}</td>
-                    <td>{{ $list->CTRL12 }}</td>
-                    <td>{{ $list->CTRL14 }}</td>
-                    <td>{{ $list->CTRL16 }}</td>
-                    <td>{{ $list->CTRL18 }}</td>
-                    <td>{{ $list->CTRL20 }}</td>
-                    <td>{{ $list->CTRL22 }}</td>
 
                     <td>{{ $list->NEUMO1_2M }}</td>
                     <td>{{ $list->NEUMO2_4M }}</td>
@@ -200,18 +164,6 @@
                     <td>{{ $list->DOSAJE_HMB_9M }}</td>
                     <td>{{ $list->DOSAJE_HMB_10M }}</td>
                     <td>{{ $list->DOSAJE_HMB_11M }}</td>
-                    <td>{{ $list->DOSAJE_HMB_12M }}</td>
-                    <td>{{ $list->DOSAJE_HMB_13M }}</td>
-                    <td>{{ $list->DOSAJE_HMB_14M }}</td>
-                    <td>{{ $list->DOSAJE_HMB_15M }}</td>
-                    <td>{{ $list->DOSAJE_HMB_16M }}</td>
-                    <td>{{ $list->DOSAJE_HMB_17M }}</td>
-                    <td>{{ $list->DOSAJE_HMB_18M }}</td>
-                    <td>{{ $list->DOSAJE_HMB_19M }}</td>
-                    <td>{{ $list->DOSAJE_HMB_20M }}</td>
-                    <td>{{ $list->DOSAJE_HMB_21M }}</td>
-                    <td>{{ $list->DOSAJE_HMB_22M }}</td>
-                    <td>{{ $list->DOSAJE_HMB_23M }}</td>
 
                     <td>{{ $list->EH_4M }}</td>
                     <td>{{ $list->EH_5M }}</td>
@@ -221,18 +173,6 @@
                     <td>{{ $list->EH_9M }}</td>
                     <td>{{ $list->EH_10M }}</td>
                     <td>{{ $list->EH_11M }}</td>
-                    <td>{{ $list->EH_12M }}</td>
-                    <td>{{ $list->EH_13M }}</td>
-                    <td>{{ $list->EH_14M }}</td>
-                    <td>{{ $list->EH_15M }}</td>
-                    <td>{{ $list->EH_16M }}</td>
-                    <td>{{ $list->EH_17M }}</td>
-                    <td>{{ $list->EH_18M }}</td>
-                    <td>{{ $list->EH_19M }}</td>
-                    <td>{{ $list->EH_20M }}</td>
-                    <td>{{ $list->EH_21M }}</td>
-                    <td>{{ $list->EH_22M }}</td>
-                    <td>{{ $list->EH_23M }}</td>
 
                     <td>{{ $list->VS_4M }}</td>
                     <td>{{ $list->VS_5M }}</td>
