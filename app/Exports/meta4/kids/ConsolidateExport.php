@@ -44,8 +44,8 @@ class ConsolidateExport implements FromView, ShouldAutoSize
                             'EH-5M AS EH_5M', 'EH-6M AS EH_6M', 'EH-7M AS EH_7M', 'EH-8M AS EH_8M', 'EH-9M AS EH_9M', 'EH-10M AS EH_10M', 'EH-11M AS EH_11M',
                             'EH-12M AS EH_12M', 'EH-13M AS EH_13M', 'EH-14M AS EH_14M', 'EH-15M AS EH_15M', 'EH-16M AS EH_16M', 'EH-17M AS EH_17M',
                             'EH-18M AS EH_18M', 'EH-19M AS EH_19M', 'EH-20M AS EH_20M', 'EH-21M AS EH_21M', 'EH-22M AS EH_22M', 'EH-23M AS EH_23M')
-                             ->whereYear('FECHA_DE_NACIMIENTO', $a) ->orderBy('PROVINCIA') ->orderBy('DISTRITO')
-                        ->get();
+                            ->whereRaw('PERIODO = (SELECT MAX(PERIODO) FROM META4_CONSOLIDADO)') ->whereYear('FECHA_DE_NACIMIENTO', $a)
+                        ->orderBy('PROVINCIA') ->orderBy('DISTRITO')->get();
         }
         else if($r != 'TODOS' && $d == 'TODOS'){
             $nominal = DB::table('dbo.META4_CONSOLIDADO')
@@ -63,8 +63,8 @@ class ConsolidateExport implements FromView, ShouldAutoSize
                             'EH-5M AS EH_5M', 'EH-6M AS EH_6M', 'EH-7M AS EH_7M', 'EH-8M AS EH_8M', 'EH-9M AS EH_9M', 'EH-10M AS EH_10M', 'EH-11M AS EH_11M',
                             'EH-12M AS EH_12M', 'EH-13M AS EH_13M', 'EH-14M AS EH_14M', 'EH-15M AS EH_15M', 'EH-16M AS EH_16M', 'EH-17M AS EH_17M',
                             'EH-18M AS EH_18M', 'EH-19M AS EH_19M', 'EH-20M AS EH_20M', 'EH-21M AS EH_21M', 'EH-22M AS EH_22M', 'EH-23M AS EH_23M')
-                            ->where('PROVINCIA', $r) ->whereYear('FECHA_DE_NACIMIENTO', $a) ->orderBy('PROVINCIA') ->orderBy('DISTRITO')
-                        ->get();
+                            ->whereRaw('PERIODO = (SELECT MAX(PERIODO) FROM META4_CONSOLIDADO)') ->where('PROVINCIA', $r) ->whereYear('FECHA_DE_NACIMIENTO', $a)
+                        ->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
         }
         else{
             $nominal = DB::table('dbo.META4_CONSOLIDADO')
@@ -82,8 +82,8 @@ class ConsolidateExport implements FromView, ShouldAutoSize
                             'EH-5M AS EH_5M', 'EH-6M AS EH_6M', 'EH-7M AS EH_7M', 'EH-8M AS EH_8M', 'EH-9M AS EH_9M', 'EH-10M AS EH_10M', 'EH-11M AS EH_11M',
                             'EH-12M AS EH_12M', 'EH-13M AS EH_13M', 'EH-14M AS EH_14M', 'EH-15M AS EH_15M', 'EH-16M AS EH_16M', 'EH-17M AS EH_17M',
                             'EH-18M AS EH_18M', 'EH-19M AS EH_19M', 'EH-20M AS EH_20M', 'EH-21M AS EH_21M', 'EH-22M AS EH_22M', 'EH-23M AS EH_23M')
-                            ->where('DISTRITO', $d) ->whereYear('FECHA_DE_NACIMIENTO', $a) ->orderBy('PROVINCIA') ->orderBy('DISTRITO')
-                        ->get();
+                            ->whereRaw('PERIODO = (SELECT MAX(PERIODO) FROM META4_CONSOLIDADO)') ->where('DISTRITO', $d) ->whereYear('FECHA_DE_NACIMIENTO', $a)
+                        ->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
         }
 
         return view('meta4.kids.print', [
