@@ -417,17 +417,24 @@ const appRecienNacidos = new Vue({
         },
 
         tableResumVac2M: function(){
+            console.log(this.anioTablVac2M);
             axios({
                 method: 'POST',
-                url: 'met4kids/tableResumSuple',
+                url: 'met4kids/tableResumVac',
                 data: { "id": this.anioTablVac2M, "type": "v2m" },
             })
             .then(response => {
-                this.lisTablResumVac2M = response.data[2];
+                this.lisTablResumVac2M = response.data[0];
 
             }).catch(e => {
                 this.errors.push(e)
             })
+        },
+
+        PrintVac2M: function(){
+            const formData = $("#formVaccine2M").serialize();
+            url_ = window.location.origin + window.location.pathname + '/printSuple12?' + formData;
+            window.open(url_,'_blank');
         },
     }
 })

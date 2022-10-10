@@ -205,7 +205,7 @@
                                                             <option value="TODOS">TODOS</option>
                                                         </select>
                                                     </div>
-                                                    <button class="btn btn-outline-primary w-100 btn-sm mb-2" data-toggle="modal" data-target="#" @click="">
+                                                    <button class="btn btn-outline-primary w-100 btn-sm mb-2" data-toggle="modal" data-target="#modalVaccine2M" @click="tableResumVac2M">
                                                         2 Meses
                                                     </button>
                                                     <button class="btn btn-outline-primary w-100 btn-sm mb-2" data-toggle="modal" data-target="#" @click="">
@@ -871,7 +871,7 @@
                                                 <td class="align-middle">[[ format.PROVINCIA ]]</td>
                                                 <td class="align-middle">[[ format.DISTRITO ]]</td>
                                                 <td class="align-middle text-center">[[ format.DENOMINADOR ]]</td>
-                                                <td class="align-middle text-center">[[ format.NUM_HIS ]]</td>
+                                                <td class="align-middle text-center">[[ format.VACUNAS_HIS ]]</td>
                                                 <td class="align-middle text-center">[[ Math.round(format.AVANCE_HIS) ]]%</td>
                                             </tr>
                                         </tbody>
@@ -881,23 +881,23 @@
                             <div class="col-md-3">
                                 <br><br>
                                 <div class="card" style="border-color: #198754;">
-                                <h5 class="card-header text-white text-center p-1 font-13" style="background: #198754;">Suple 1 a 2 Años</h5>
+                                <h5 class="card-header text-white text-center p-1 font-13" style="background: #198754;">Vacunas 2 Meses</h5>
                                     <div class="card-body p-2">
-                                        <form method="POST" id="formSuple12" @submit.prevent="PrintSuple12">
+                                        <form method="POST" id="formVaccine2M" @submit.prevent="PrintVac2M">
                                             <div class="mb-2 form-group">
-                                                <select class="form-control select2 show-tick" data-width="100%" v-model="red" name="redSuple12" @change="filtersDistricts" v-select2 required>
+                                                <select class="form-control select2 show-tick" data-width="100%" v-model="red" name="redVac12" @change="filtersDistricts" v-select2 required>
                                                     <option value="">Seleccione Red</option>
                                                     <option v-for="format in listProvinces" :value="format.Provincia">[[ format.Provincia ]]</option>
                                                 </select>
                                             </div>
                                             <div class="mb-2 form-group">
-                                                <select class="form-control select2 show-tick" data-width="100%" name="distSuple12" v-select2 required>
+                                                <select class="form-control select2 show-tick" data-width="100%" name="distVac12" v-select2 required>
                                                     <option value="">Seleccione Distrito</option>
                                                     <option v-for="format in listDistricts" :value="format.Distrito">[[ format.Distrito ]]</option>
                                                 </select>
                                             </div>
                                             <div class="mb-2 form-group">
-                                                <select class="form-control select2 show-tick" data-width="100%" name="anioSuple12" v-select2 required>
+                                                <select class="form-control select2 show-tick" data-width="100%" name="anioVac12" v-select2 required>
                                                     <option value="-">Seleccione Año</option>
                                                     <option value="2021">2021</option>
                                                     <option value="2022">2022</option>
@@ -905,7 +905,7 @@
                                                 </select>
                                             </div>
                                             <div class="mb-2 form-group">
-                                                <select class="form-control select2 show-tick" data-width="100%" name="typeSuple12" v-select2 required>
+                                                <select class="form-control select2 show-tick" data-width="100%" name="typeVac12" v-select2 required>
                                                     <option value="" selected>Seleccione Tipo</option>
                                                     <option value="nominal">NOMINAL</option>
                                                     <option value="conteo">CONTEO</option>

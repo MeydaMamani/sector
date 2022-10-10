@@ -52,7 +52,7 @@ Route::get('/met4kids/printSuple12', [mKidsController::class, 'printSuple12']);
 
 Route::post('/met4kids/grafVaccine', [mKidsController::class, 'forGrafVaccine']);
 Route::post('/met4kids/tableResumVac', [mKidsController::class, 'tableResumVac']);
-// Route::get('/met4kids/printSuple45', [mKidsController::class, 'printSuple45']);
+Route::get('/met4kids/printVac12', [mKidsController::class, 'printVac12']);
 // Route::get('/met4kids/printSuple611', [mKidsController::class, 'printSuple611']);
 // Route::get('/met4kids/printSuple12', [mKidsController::class, 'printSuple12']);
 
