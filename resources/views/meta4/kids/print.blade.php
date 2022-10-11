@@ -15,20 +15,20 @@
 <body>
     <table>
         <thead>
-            <tr><td colspan="59"></td></tr>
+            <tr><td colspan="61"></td></tr>
             <tr>
-                <td colspan="59" style="font-size: 20px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">DIRESA PASCO DEIT</td>
+                <td colspan="61" style="font-size: 20px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">DIRESA PASCO DEIT</td>
             </tr>
-            <tr><td colspan="59"></td></tr>
+            <tr><td colspan="61"></td></tr>
             <tr>
-                <td colspan="59" style="font-size: 16px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">PADRÓN DE NIÑOS MENORES DE 24 MESES PARA LA ATENCIÓN AL HOGAR Y SEG. NOMINAL - {{ $nameProv }} / {{ $nameDist }}</td>
+                <td colspan="61" style="font-size: 16px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">PADRÓN DE NIÑOS MENORES DE 24 MESES PARA LA ATENCIÓN AL HOGAR Y SEG. NOMINAL - {{ $nameProv }} / {{ $nameDist }}</td>
             </tr>
-            <tr><td colspan="59"></td></tr>
-            <tr><td colspan="59"></td></tr>
+            <tr><td colspan="61"></td></tr>
+            <tr><td colspan="61"></td></tr>
         </thead>
         <thead>
             <tr>
-                <th colspan="12" style="background: #DDEBF7; font-weight: 500; text-align: center; font-size:12px; border: 3px solid #A6A6A6;">Datos Personales Niño</th>
+                <th colspan="14" style="background: #DDEBF7; font-weight: 500; text-align: center; font-size:12px; border: 3px solid #A6A6A6;">Datos Personales Niño</th>
                 <th colspan="4" style="background: #FCCECA; font-weight: 500; text-align: center; font-size:12px; border: 3px solid #A6A6A6;">Controles Cred Recién Nacidos</th>
                 <th colspan="11" style="background: #E7FCE3; font-weight: 500; text-align: center; font-size:12px; border: 3px solid #A6A6A6;">Controles Cred Mensuales</th>
                 <th colspan="3" style="background: #B1D4FC; font-weight: 500; text-align: center; font-size:12px; border: 3px solid #A6A6A6;">Vacuna Neumococo</th>
@@ -53,6 +53,8 @@
                 <th style="background: #DDEBF7; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Dni Niño</th>
                 <th style="background: #DDEBF7; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Fecha Nacido</th>
                 <th style="background: #DDEBF7; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Establecimiento</th>
+                <th style="background: #DDEBF7; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Total visitas completas para edad</th>
+                <th style="background: #DDEBF7; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Total VD presen. Realizadas</th>
 
                 <th style="background: #FCCECA; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">1° Ctrl</th>
                 <th style="background: #FCCECA; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">2° Ctrl</th>
@@ -128,6 +130,8 @@
                     <td>{{ $list->NUMERO_DE_DOCUMENTO_DEL_NINO }}</td>
                     <td>{{ $list->FECHA_DE_NACIMIENTO }}</td>
                     <td>{{ $list->EESS }}</td>
+                    <td>{{ $list->Total_de_visitas_completas_para_la_edad }}</td>
+                    <td>{{ $list->Total_de_VD_presenciales_Realizadas }}</td>
                     <td>{{ $list->CTRL1_RN }}</td>
                     <td>{{ $list->CTRL2_RN }}</td>
                     <td>{{ $list->CTRL3_RN }}</td>
