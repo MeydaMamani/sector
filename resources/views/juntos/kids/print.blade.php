@@ -15,16 +15,16 @@
 <body>
     <table>
         <thead>
-            <tr><td colspan="138"></td></tr>
+            <tr><td colspan="139"></td></tr>
             <tr>
-                <td colspan="138" style="font-size: 20px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">DIRESA PASCO DEIT</td>
+                <td colspan="139" style="font-size: 20px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">DIRESA PASCO DEIT</td>
             </tr>
-            <tr><td colspan="138"></td></tr>
+            <tr><td colspan="139"></td></tr>
             <tr>
-                <td colspan="138" style="font-size: 16px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">PADRÓN DE NIÑOS MENORES DE 24 MESES PARA LA ATENCIÓN AL HOGAR Y SEG. NOMINAL - {{ $nameProv }} / {{ $nameDist }}</td>
+                <td colspan="139" style="font-size: 16px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">PADRÓN DE NIÑOS MENORES DE 24 MESES PARA LA ATENCIÓN AL HOGAR Y SEG. NOMINAL - {{ $nameProv }} / {{ $nameDist }}</td>
             </tr>
-            <tr><td colspan="138"></td></tr>
-            <tr><td colspan="138"></td></tr>
+            <tr><td colspan="139"></td></tr>
+            <tr><td colspan="139"></td></tr>
         </thead>
         <thead>
             <tr>
@@ -39,6 +39,7 @@
                 <th colspan="4" style="background: #FFEDE6; font-weight: 500; text-align: center; font-size:12px; border: 3px solid #A6A6A6;">Vacuna SPR</th>
                 <th colspan="6" style="background: #E8D1DC; font-weight: 500; text-align: center; font-size:12px; border: 3px solid #A6A6A6;">Dosaje Hemoglobina</th>
                 <th colspan="40" style="background: #FFE6FF; font-weight: 500; text-align: center; font-size:12px; border: 3px solid #A6A6A6;">Entrega de Hieero Mensual</th>
+                <th rowspan="2" style="font-weight: 500; text-align: center; font-size:12px; border: 3px solid #A6A6A6;">Anemia 6M</th>
             </tr>
             <tr>
                 <th style="background: #DDEBF7; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">#</th>
@@ -341,6 +342,7 @@
                     <td>{{ $list->EH_22M }}</td>
                     <td>{{ $list->ENTREGA_HIERRO_23M }}</td>
                     <td>{{ $list->EH_23M }}</td>
+                    <td>{{ $list->ANEMIA_6M }}</td>
                 </tr>
             @endforeach
         </tbody>
