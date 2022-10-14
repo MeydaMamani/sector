@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Exports\juntos\kids;
+namespace App\Exports\juntos\kids\creds;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\DB;
@@ -120,7 +120,7 @@ class CredMesExport implements FromView, ShouldAutoSize
                 }
             }
 
-            return view('juntos.kids.credMes.printConteo', [ 'nominal' => $resCredMes, 'anio' => $anio ]);
+            return view('juntos.kids.creds.credMes.printConteo', [ 'nominal' => $resCredMes, 'anio' => $anio ]);
         }
         else if($type == 'nominal'){
             if($red == 'TODOS'){
@@ -199,7 +199,7 @@ class CredMesExport implements FromView, ShouldAutoSize
                 }
             }
 
-            return view('juntos.kids.credMes.printNominal', [ 'nominal' => $nominalCred, 'anio' => $anio ]);
+            return view('juntos.kids.creds.credMes.printNominal', [ 'nominal' => $nominalCred, 'anio' => $anio ]);
         }
     }
 }

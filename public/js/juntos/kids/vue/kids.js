@@ -35,12 +35,19 @@ const appRecienNacidos = new Vue({
         anioTablePaquete: 'TODOS',
         lisTableResumPaquete: [],
 
+        anioGrafSuple: 'TODOS',
+        anioTableSuple45: 'TODOS',
+        lisTabResumSuple45: [],
+        anioTableSuple611: 'TODOS',
+        lisTabResumSuple611: [],
+
     },
     created: function() {
         this.filtersProv();
         this.listTotal();
         // para controles creds
         this.grafChildsCred();
+        this.grafChildsSuple();
     },
     methods: {
         filtersProv: function() {
@@ -137,7 +144,6 @@ const appRecienNacidos = new Vue({
             }).catch(e => {
                 this.errors.push(e)
             })
-
         },
 
         grafChildsPackage: function(){
@@ -275,6 +281,93 @@ const appRecienNacidos = new Vue({
         PrintPaquete: function(){
             const formData = $("#formPaquete").serialize();
             url_ = window.location.origin + window.location.pathname + '/printPaquete?' + formData;
+            window.open(url_,'_blank');
+        },
+
+        // PARA GRAFICAS DE SUPLEMENTACIONES
+        grafChildsSuple: function(){
+            if(this.anioGrafSuple == '-'){ this.anioGrafSuple = 'TODOS'; }
+            axios({
+                method: 'POST',
+                url: 'juntkids/grafSuple',
+                data: { "id": this.anioGrafSuple },
+            })
+            .then(respuesta => {
+                $('#myChartSuple').remove();
+                $('.barChartSuple').append("<canvas id='myChartSuple'></canvas>");
+                var Suple45 = respuesta.data[0][0];
+                var Suple611 = respuesta.data[1][0];
+                var Suple12 = respuesta.data[2][0];
+                var areaChartData = {
+                    labels  : ['4-5 Meses', '6-11 Meses', '1-2 Años'],
+                    datasets: [
+                        {
+                            label: 'Juntos',
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                            pointRadius: false,
+                            data: [Suple45.AVANCE_JUNT, Suple611.AVANCE_JUNT, Suple12.AVANCE_JUNT]
+                        },
+                        {
+                            label: 'HisMinsa',
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                            pointRadius: false,
+                            data: [Suple45.AVANCE_HIS, Suple611.AVANCE_HIS, Suple12.AVANCE_HIS]
+                        },
+                    ]
+                }
+
+                var barChartCanvas = $('#myChartSuple').get(0).getContext('2d');
+                var barChartData = $.extend(true, {}, areaChartData);
+                new Chart(barChartCanvas, {
+                    type: 'bar',
+                    data: barChartData,
+                    options: barChartOptions
+                })
+
+            }).catch(e => {
+                this.errors.push(e)
+            })
+        },
+
+        tableResumSuple45: function(){
+            axios({
+                method: 'POST',
+                url: 'juntkids/tableResumSuple',
+                data: { "id": this.anioTableSuple45, "type": "s45" },
+            })
+            .then(response => {
+                console.log(response.data);
+                this.lisTabResumSuple45 = response.data[0];
+
+            }).catch(e => {
+                this.errors.push(e)
+            })
+        },
+
+        PrintSuple45: function(){
+            const formData = $("#formSuple45").serialize();
+            url_ = window.location.origin + window.location.pathname + '/printSuple5?' + formData;
+            window.open(url_,'_blank');
+        },
+
+        tableResumSuple6_11: function(){
+            axios({
+                method: 'POST',
+                url: 'juntkids/tableResumSuple',
+                data: { "id": this.anioTableSuple611, "type": "s611" },
+            })
+            .then(response => {
+                console.log(response.data);
+                this.lisTabResumSuple611 = response.data[1];
+
+            }).catch(e => {
+                this.errors.push(e)
+            })
+        },
+
+        PrintSuple45: function(){
+            const formData = $("#formSuple45").serialize();
+            url_ = window.location.origin + window.location.pathname + '/printSuple611?' + formData;
             window.open(url_,'_blank');
         },
     }

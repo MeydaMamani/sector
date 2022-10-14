@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Exports\juntos\kids;
+namespace App\Exports\juntos\kids\creds;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\DB;
@@ -120,7 +120,7 @@ class Cred12Export implements FromView, ShouldAutoSize
                 }
             }
 
-            return view('juntos.kids.cred12.printConteo', [ 'nominal' => $resCredMes, 'anio' => $anio ]);
+            return view('juntos.kids.creds.cred12.printConteo', [ 'nominal' => $resCredMes, 'anio' => $anio ]);
         }
         else if($type == 'nominal'){
             if($red == 'TODOS'){
@@ -130,7 +130,7 @@ class Cred12Export implements FromView, ShouldAutoSize
                                 ->select('PROVINCIA_RES', 'DISTRITO_RES', 'DNI_MO', 'FECHA_DE_NAC_MO', '_CRED_12_mes', '_CRED_14_mes', '_CRED_16_mes',
                                 '_CRED_18_mes', '_CRED_20_mes', '_CRED_22_mes',
                                 DB::raw("CASE WHEN (_CRED_12_mes IS NOT NULL AND _CRED_14_mes IS NOT NULL AND _CRED_16_mes IS NOT NULL AND _CRED_18_mes
-                                IS NOT NULL AND _CRED_20_mes IS NOT NULL AND _CRED_22_mes IS NOT NULL) THEN 'Cumple' ELSE 'No Cumple' END 'CUMPLE_JUNTOS'"), 
+                                IS NOT NULL AND _CRED_20_mes IS NOT NULL AND _CRED_22_mes IS NOT NULL) THEN 'Cumple' ELSE 'No Cumple' END 'CUMPLE_JUNTOS'"),
                                 '12CTRL as CTRL12', '14CTRL as CTRL14', '16CTRL as CTRL16', '18CTRL as CTRL18', '20CTRL as CTRL20', '22CTRL as CTRL22',
                                 DB::raw("CASE WHEN ([12CTRL] IS NOT NULL AND [14CTRL] IS
                                 NOT NULL AND [16CTRL] IS NOT NULL AND [18CTRL] IS NOT NULL AND [20CTRL] IS NOT NULL AND [22CTRL] IS NOT NULL) THEN 'Cumple' ELSE 'No Cumple'
@@ -141,7 +141,7 @@ class Cred12Export implements FromView, ShouldAutoSize
                                 ->select('PROVINCIA_RES', 'DISTRITO_RES', 'DNI_MO', 'FECHA_DE_NAC_MO', '_CRED_12_mes', '_CRED_14_mes', '_CRED_16_mes',
                                 '_CRED_18_mes', '_CRED_20_mes', '_CRED_22_mes',
                                 DB::raw("CASE WHEN (_CRED_12_mes IS NOT NULL AND _CRED_14_mes IS NOT NULL AND _CRED_16_mes IS NOT NULL AND _CRED_18_mes
-                                IS NOT NULL AND _CRED_20_mes IS NOT NULL AND _CRED_22_mes IS NOT NULL) THEN 'Cumple' ELSE 'No Cumple' END 'CUMPLE_JUNTOS'"), 
+                                IS NOT NULL AND _CRED_20_mes IS NOT NULL AND _CRED_22_mes IS NOT NULL) THEN 'Cumple' ELSE 'No Cumple' END 'CUMPLE_JUNTOS'"),
                                 '12CTRL as CTRL12', '14CTRL as CTRL14', '16CTRL as CTRL16', '18CTRL as CTRL18', '20CTRL as CTRL20', '22CTRL as CTRL22',
                                 DB::raw("CASE WHEN ([12CTRL] IS NOT NULL AND [14CTRL] IS
                                 NOT NULL AND [16CTRL] IS NOT NULL AND [18CTRL] IS NOT NULL AND [20CTRL] IS NOT NULL AND [22CTRL] IS NOT NULL) THEN 'Cumple' ELSE 'No Cumple'
@@ -199,7 +199,7 @@ class Cred12Export implements FromView, ShouldAutoSize
                 }
             }
 
-            return view('juntos.kids.cred12.printNominal', [ 'nominal' => $nominalCred, 'anio' => $anio ]);
+            return view('juntos.kids.creds.cred12.printNominal', [ 'nominal' => $nominalCred, 'anio' => $anio ]);
         }
     }
 }
