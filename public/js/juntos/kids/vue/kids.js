@@ -40,7 +40,24 @@ const appRecienNacidos = new Vue({
         lisTabResumSuple45: [],
         anioTableSuple611: 'TODOS',
         lisTabResumSuple611: [],
+        anioTableSuple12: 'TODOS',
+        lisTabResumSuple12: [],
 
+        anioGrafVaccine: 'TODOS',
+        anioTableVacc2M: 'TODOS',
+        lisTabResumVacc2M: [],
+        anioTableVacc4M: 'TODOS',
+        lisTabResumVacc4M: [],
+        anioTableVacc6M: 'TODOS',
+        lisTabResumVacc6M: [],
+
+        anioGrafTmz: 'TODOS',
+        anioTableTmz6M: 'TODOS',
+        lisTabResumTmz6M: [],
+        anioTableTmz12M: 'TODOS',
+        lisTabResumTmz12M: [],
+        anioTableTmz18M: 'TODOS',
+        lisTabResumTmz18M: [],
     },
     created: function() {
         this.filtersProv();
@@ -48,6 +65,8 @@ const appRecienNacidos = new Vue({
         // para controles creds
         this.grafChildsCred();
         this.grafChildsSuple();
+        this.grafChildsVaccine();
+        this.grafChildsTmz();
     },
     methods: {
         filtersProv: function() {
@@ -365,9 +384,246 @@ const appRecienNacidos = new Vue({
             })
         },
 
-        PrintSuple45: function(){
-            const formData = $("#formSuple45").serialize();
+        PrintSuple6_11: function(){
+            const formData = $("#formSuple6_11").serialize();
             url_ = window.location.origin + window.location.pathname + '/printSuple611?' + formData;
+            window.open(url_,'_blank');
+        },
+
+        tableResumSuple1_2: function(){
+            axios({
+                method: 'POST',
+                url: 'juntkids/tableResumSuple',
+                data: { "id": this.anioTableSuple12, "type": "s12" },
+            })
+            .then(response => {
+                console.log(response.data);
+                this.lisTabResumSuple12 = response.data[2];
+
+            }).catch(e => {
+                this.errors.push(e)
+            })
+        },
+
+        PrintSuple1_2: function(){
+            const formData = $("#formSuple12").serialize();
+            url_ = window.location.origin + window.location.pathname + '/printSuple12?' + formData;
+            window.open(url_,'_blank');
+        },
+
+        // PARA GRAFICAS DE VACUNAS
+        grafChildsVaccine: function(){
+            if(this.anioGrafVaccine == '-'){ this.anioGrafVaccine = 'TODOS'; }
+            axios({
+                method: 'POST',
+                url: 'juntkids/grafVaccine',
+                data: { "id": this.anioGrafVaccine },
+            })
+            .then(respuesta => {
+                $('#myChartVaccine').remove();
+                $('.barChartVaccine').append("<canvas id='myChartVaccine'></canvas>");
+                var Vaccine2M = respuesta.data[0][0];
+                var Vaccine4M = respuesta.data[1][0];
+                var Vaccine6M = respuesta.data[2][0];
+                var areaChartData = {
+                    labels  : ['2 Meses', '4 Meses', '6 Meses'],
+                    datasets: [
+                        {
+                            label: 'Juntos',
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                            pointRadius: false,
+                            data: [ Vaccine2M.AVANCE_JUNT, Vaccine4M.AVANCE_JUNT, Vaccine6M.AVANCE_JUNT ]
+                        },
+                        {
+                            label: 'HisMinsa',
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                            pointRadius: false,
+                            data: [ Vaccine2M.AVANCE_HIS, Vaccine4M.AVANCE_HIS, Vaccine6M.AVANCE_HIS ]
+                        },
+                    ]
+                }
+
+                var barChartCanvas = $('#myChartVaccine').get(0).getContext('2d');
+                var barChartData = $.extend(true, {}, areaChartData);
+                new Chart(barChartCanvas, {
+                    type: 'bar',
+                    data: barChartData,
+                    options: barChartOptions
+                })
+
+            }).catch(e => {
+                this.errors.push(e)
+            })
+        },
+
+        tableResumVacc2M: function(){
+            axios({
+                method: 'POST',
+                url: 'juntkids/tableResumVaccine',
+                data: { "id": this.anioTableVacc2M, "type": "v2m" },
+            })
+            .then(response => {
+                console.log(response.data);
+                this.lisTabResumVacc2M = response.data[0];
+
+            }).catch(e => {
+                this.errors.push(e)
+            })
+        },
+
+        PrintVaccine2M: function(){
+            const formData = $("#formVaccine2M").serialize();
+            url_ = window.location.origin + window.location.pathname + '/printVaccine2M?' + formData;
+            window.open(url_,'_blank');
+        },
+
+        tableResumVacc4M: function(){
+            axios({
+                method: 'POST',
+                url: 'juntkids/tableResumVaccine',
+                data: { "id": this.anioTableVacc4M, "type": "v4m" },
+            })
+            .then(response => {
+                console.log(response.data);
+                this.lisTabResumVacc4M = response.data[1];
+
+            }).catch(e => {
+                this.errors.push(e)
+            })
+        },
+
+        PrintVaccine4M: function(){
+            const formData = $("#formVaccine4M").serialize();
+            url_ = window.location.origin + window.location.pathname + '/printVaccine4M?' + formData;
+            window.open(url_,'_blank');
+        },
+
+        tableResumVacc6M: function(){
+            axios({
+                method: 'POST',
+                url: 'juntkids/tableResumVaccine',
+                data: { "id": this.anioTableVacc6M, "type": "v6m" },
+            })
+            .then(response => {
+                console.log(response.data);
+                this.lisTabResumVacc6M = response.data[2];
+
+            }).catch(e => {
+                this.errors.push(e)
+            })
+        },
+
+        PrintVaccine6M: function(){
+            const formData = $("#formVaccine6M").serialize();
+            url_ = window.location.origin + window.location.pathname + '/printVaccine6M?' + formData;
+            window.open(url_,'_blank');
+        },
+
+        // PARA GRAFICAS DE TAMIZAJES
+        grafChildsTmz: function(){
+            if(this.anioGrafTmz == '-'){ this.anioGrafTmz = 'TODOS'; }
+            axios({
+                method: 'POST',
+                url: 'juntkids/grafTmz',
+                data: { "id": this.anioGrafTmz },
+            })
+            .then(respuesta => {
+                $('#myChartTmz').remove();
+                $('.barChartTmz').append("<canvas id='myChartTmz'></canvas>");
+                var Tmz6M = respuesta.data[0][0];
+                var Tmz12M = respuesta.data[1][0];
+                var Tmz18M = respuesta.data[2][0];
+                var areaChartData = {
+                    labels  : ['6 Meses', '12 Meses', '18 Meses'],
+                    datasets: [
+                        {
+                            label: 'Juntos',
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                            pointRadius: false,
+                            data: [ Tmz6M.AVANCE_JUNT, Tmz12M.AVANCE_JUNT, Tmz18M.AVANCE_JUNT ]
+                        },
+                        {
+                            label: 'HisMinsa',
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                            pointRadius: false,
+                            data: [ Tmz6M.AVANCE_HIS, Tmz12M.AVANCE_HIS, Tmz18M.AVANCE_HIS ]
+                        },
+                    ]
+                }
+
+                var barChartCanvas = $('#myChartTmz').get(0).getContext('2d');
+                var barChartData = $.extend(true, {}, areaChartData);
+                new Chart(barChartCanvas, {
+                    type: 'bar',
+                    data: barChartData,
+                    options: barChartOptions
+                })
+
+            }).catch(e => {
+                this.errors.push(e)
+            })
+        },
+
+        tableResumTmz6M: function(){
+            axios({
+                method: 'POST',
+                url: 'juntkids/tableResumTmz',
+                data: { "id": this.anioTableTmz6M, "type": "t6m" },
+            })
+            .then(response => {
+                console.log(response.data);
+                this.lisTabResumTmz6M = response.data[0];
+
+            }).catch(e => {
+                this.errors.push(e)
+            })
+        },
+
+        PrintTmz6M: function(){
+            const formData = $("#formTmz6M").serialize();
+            url_ = window.location.origin + window.location.pathname + '/printTmz6M?' + formData;
+            window.open(url_,'_blank');
+        },
+
+        tableResumTmz12M: function(){
+            axios({
+                method: 'POST',
+                url: 'juntkids/tableResumTmz',
+                data: { "id": this.anioTableTmz12M, "type": "t12m" },
+            })
+            .then(response => {
+                console.log(response.data);
+                this.lisTabResumTmz12M = response.data[1];
+
+            }).catch(e => {
+                this.errors.push(e)
+            })
+        },
+
+        PrintTmz12M: function(){
+            const formData = $("#formTmz12M").serialize();
+            url_ = window.location.origin + window.location.pathname + '/printTmz12M?' + formData;
+            window.open(url_,'_blank');
+        },
+
+        tableResumTmz18M: function(){
+            axios({
+                method: 'POST',
+                url: 'juntkids/tableResumTmz',
+                data: { "id": this.anioTableTmz18M, "type": "t18m" },
+            })
+            .then(response => {
+                console.log(response.data);
+                this.lisTabResumTmz18M = response.data[2];
+
+            }).catch(e => {
+                this.errors.push(e)
+            })
+        },
+
+        PrintTmz18M: function(){
+            const formData = $("#formTmz18M").serialize();
+            url_ = window.location.origin + window.location.pathname + '/printTmz18M?' + formData;
             window.open(url_,'_blank');
         },
     }

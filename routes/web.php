@@ -38,8 +38,20 @@ Route::get('/juntkids/printPaquete', [jKidsController::class, 'printPaquete']);
 Route::post('/juntkids/grafSuple', [jKidsController::class, 'forGrafSuple']);
 Route::post('/juntkids/tableResumSuple', [jKidsController::class, 'tableResumSuple']);
 Route::get('/juntkids/printSuple5', [jKidsController::class, 'printSuple5']);
-Route::get('/juntkids/printSuple611', [jKidsController::class, 'printSuple611']);
+Route::get('/juntkids/printSuple611', [jKidsController::class, 'printSuple6_11']);
+Route::get('/juntkids/printSuple12', [jKidsController::class, 'printSuple1_2']);
 
+Route::post('/juntkids/grafVaccine', [jKidsController::class, 'forGrafVaccine']);
+Route::post('/juntkids/tableResumVaccine', [jKidsController::class, 'tableResumVaccine']);
+Route::get('/juntkids/printVaccine2M', [jKidsController::class, 'printVaccine2M']);
+Route::get('/juntkids/printVaccine4M', [jKidsController::class, 'printVaccine4M']);
+Route::get('/juntkids/printVaccine6M', [jKidsController::class, 'printVaccine6M']);
+
+Route::post('/juntkids/grafTmz', [jKidsController::class, 'forGrafTmz']);
+Route::post('/juntkids/tableResumTmz', [jKidsController::class, 'tableResumTmz']);
+Route::get('/juntkids/printTmz6M', [jKidsController::class, 'printTmz6M']);
+Route::get('/juntkids/printTmz12M', [jKidsController::class, 'printTmz12M']);
+Route::get('/juntkids/printTmz18M', [jKidsController::class, 'printTmz18M']);
 
 Route::get('/met4kids', [mKidsController::class, 'indexKids']);
 Route::get('/met4kids/print', [mKidsController::class, 'printKids']);

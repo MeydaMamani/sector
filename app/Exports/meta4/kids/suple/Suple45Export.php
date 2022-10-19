@@ -103,7 +103,7 @@ class Suple45Export implements FromView, ShouldAutoSize
                     $nomSuple45 = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', 'NUMERO_DE_DOCUMENTO_DEL_NINO', 'FECHA_DE_NACIMIENTO', 'EH-4M as EH_4M',
                                 'EH-5M as EH_5M', DB::raw("CASE WHEN ([EH-4M] IS NOT NULL AND [EH-5M] IS NOT NULL)
-                                THEN 'Cumple' ELSE 'No Cumple' END 'CUMPLE_HIS'")) ->whereYear('NUMERO_DE_DOCUMENTO_DEL_NINO', $anio)
+                                THEN 'Cumple' ELSE 'No Cumple' END 'CUMPLE_HIS'")) ->whereYear('FECHA_DE_NACIMIENTO', $anio)
                                 ->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
                 }
             }
@@ -120,7 +120,7 @@ class Suple45Export implements FromView, ShouldAutoSize
                     $nomSuple45 = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', 'NUMERO_DE_DOCUMENTO_DEL_NINO', 'FECHA_DE_NACIMIENTO', 'EH-4M as EH_4M',
                                 'EH-5M as EH_5M', DB::raw("CASE WHEN ([EH-4M] IS NOT NULL AND [EH-5M] IS NOT NULL)
-                                THEN 'Cumple' ELSE 'No Cumple' END 'CUMPLE_HIS'")) ->whereYear('NUMERO_DE_DOCUMENTO_DEL_NINO', $anio)
+                                THEN 'Cumple' ELSE 'No Cumple' END 'CUMPLE_HIS'")) ->whereYear('FECHA_DE_NACIMIENTO', $anio)
                                 ->where('PROVINCIA', $red) ->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
                 }
             }
@@ -137,7 +137,7 @@ class Suple45Export implements FromView, ShouldAutoSize
                     $nomSuple45 = DB::table('dbo.META4_CONSOLIDADO')
                                 ->select('PROVINCIA', 'DISTRITO', 'NUMERO_DE_DOCUMENTO_DEL_NINO', 'FECHA_DE_NACIMIENTO', 'EH-4M as EH_4M',
                                 'EH-5M as EH_5M', DB::raw("CASE WHEN ([EH-4M] IS NOT NULL AND [EH-5M] IS NOT NULL)
-                                THEN 'Cumple' ELSE 'No Cumple' END 'CUMPLE_HIS'")) ->whereYear('NUMERO_DE_DOCUMENTO_DEL_NINO', $anio)
+                                THEN 'Cumple' ELSE 'No Cumple' END 'CUMPLE_HIS'")) ->whereYear('FECHA_DE_NACIMIENTO', $anio)
                                 ->where('DISTRITO', $dist) ->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
                 }
             }
