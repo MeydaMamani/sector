@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Exports\meta4\kids\creds;
+namespace App\Exports\meta4\kids\n6a11;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Concerns\FromView;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 
-class Cred12Export implements FromView, ShouldAutoSize
+class n611Export implements FromView, ShouldAutoSize
 {
     protected $red;
     protected $dist;
@@ -32,40 +32,59 @@ class Cred12Export implements FromView, ShouldAutoSize
         if($type == 'conteo'){
             if($red == 'TODOS'){
                 if($anio == 'TODOS'){
-                    $resultCred12 = DB::table('dbo.META4_CONSOLIDADO')
-                                    ->select('PROVINCIA', 'DISTRITO', DB::raw("COUNT(DISTRITO) DENOMINADOR"),
-                                    DB::raw("SUM(CASE WHEN ([12CTRL] IS NOT NULL AND [14CTRL] IS NOT NULL AND [16CTRL] IS NOT NULL AND [18CTRL] IS NOT NULL
-                                    AND [20CTRL] IS NOT NULL AND [22CTRL] IS NOT NULL) THEN 1 ELSE 0 END) AS RN_HIS_NUM"), DB::raw("round((cast(SUM(CASE WHEN
-                                    ([12CTRL] IS NOT NULL AND [14CTRL] IS NOT NULL AND [16CTRL] IS NOT NULL AND [18CTRL] IS NOT NULL AND [20CTRL] IS NOT NULL
-                                    AND [22CTRL] IS NOT NULL) THEN 1 ELSE 0 END) as float) / cast(COUNT(DISTRITO) as float) * 100), 2) 'AVANCE_HIS'"))
-                                    ->whereRaw('PERIODO = (SELECT MAX(PERIODO) FROM META4_CONSOLIDADO)')
-                                    ->groupBy('PROVINCIA') ->groupBy('DISTRITO') ->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
+                    $r6a11 = DB::table('dbo.META4_CONSOLIDADO')
+                                    ->select('PROVINCIA', 'DISTRITO', DB::raw("COUNT(DISTRITO) DENOMINADOR"), DB::raw("SUM(CASE WHEN ((EdadMeses BETWEEN 11 AND 15)
+                                    AND [6CTRL] IS NOT NULL AND [7CTRL] IS NOT NULL AND [8CTRL] IS NOT NULL AND [9CTRL] IS NOT NULL AND [10CTRL] IS NOT NULL AND
+                                    [11CTRL] IS NOT NULL AND [3_NEUMO_6M] IS NOT NULL AND [3_PENTA_6M] IS NOT NULL AND [EH_6M] IS NOT NULL AND
+                                    [EH_7M] IS NOT NULL AND [EH_8M] IS NOT NULL AND [EH_9M] IS NOT NULL AND [EH_10M] IS NOT NULL AND [EH_11M] IS NOT NULL AND
+                                    [DOSAJE_HMB_6M] IS NOT NULL) THEN 1 ELSE 0 END) AS PAQUETE"), DB::raw("round((cast(SUM(CASE WHEN ((EdadMeses BETWEEN 11 AND 15)
+                                    AND [6CTRL] IS NOT NULL AND [7CTRL] IS NOT NULL AND [8CTRL] IS NOT NULL AND [9CTRL] IS NOT NULL AND [10CTRL] IS NOT NULL AND
+                                    [11CTRL] IS NOT NULL AND [3_NEUMO_6M] IS NOT NULL AND [3_PENTA_6M] IS NOT NULL AND [EH_6M] IS NOT NULL AND
+                                    [EH_7M] IS NOT NULL AND [EH_8M] IS NOT NULL AND [EH_9M] IS NOT NULL AND [EH_10M] IS NOT NULL AND [EH_11M] IS NOT NULL AND
+                                    [DOSAJE_HMB_6M] IS NOT NULL) THEN 1 ELSE 0 END) as float) / cast(COUNT(*) as float) * 100), 2) 'AVANCE_HIS'"))
+                                    ->whereRaw('PERIODO = (SELECT MAX(PERIODO) FROM META4_CONSOLIDADO)') ->groupBy('PROVINCIA') ->groupBy('DISTRITO')
+                                    ->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
 
                 }else{
-                    $resultCred12 = DB::table('dbo.META4_CONSOLIDADO')
-                                    ->select('PROVINCIA', 'DISTRITO', DB::raw("COUNT(DISTRITO) DENOMINADOR"),
-                                    DB::raw("SUM(CASE WHEN ([12CTRL] IS NOT NULL AND [14CTRL] IS NOT NULL AND [16CTRL] IS NOT NULL AND [18CTRL] IS NOT NULL
-                                    AND [20CTRL] IS NOT NULL AND [22CTRL] IS NOT NULL) THEN 1 ELSE 0 END) AS RN_HIS_NUM"), DB::raw("round((cast(SUM(CASE WHEN
-                                    ([12CTRL] IS NOT NULL AND [14CTRL] IS NOT NULL AND [16CTRL] IS NOT NULL AND [18CTRL] IS NOT NULL AND [20CTRL] IS NOT NULL
-                                    AND [22CTRL] IS NOT NULL) THEN 1 ELSE 0 END) as float) / cast(COUNT(DISTRITO) as float) * 100), 2) 'AVANCE_HIS'"))
+                    $r6a11 = DB::table('dbo.META4_CONSOLIDADO')
+                                    ->select('PROVINCIA', 'DISTRITO', DB::raw("COUNT(DISTRITO) DENOMINADOR"), DB::raw("SUM(CASE WHEN ((EdadMeses BETWEEN 11 AND 15)
+                                    AND [6CTRL] IS NOT NULL AND [7CTRL] IS NOT NULL AND [8CTRL] IS NOT NULL AND [9CTRL] IS NOT NULL AND [10CTRL] IS NOT NULL AND
+                                    [11CTRL] IS NOT NULL AND [3_NEUMO_6M] IS NOT NULL AND [3_PENTA_6M] IS NOT NULL AND [EH_6M] IS NOT NULL AND [EH_7M] IS NOT NULL
+                                    AND [EH_8M] IS NOT NULL AND [EH_9M] IS NOT NULL AND [EH_10M] IS NOT NULL AND [EH_11M] IS NOT NULL AND [DOSAJE_HMB_6M] IS NOT NULL)
+                                    THEN 1 ELSE 0 END) AS PAQUETE"), DB::raw("round((cast(SUM(CASE WHEN ((EdadMeses BETWEEN 11 AND 15) AND [6CTRL] IS NOT NULL
+                                    AND [7CTRL] IS NOT NULL AND [8CTRL] IS NOT NULL AND [9CTRL] IS NOT NULL AND [10CTRL] IS NOT NULL AND [11CTRL] IS NOT NULL AND
+                                    [3_NEUMO_6M] IS NOT NULL AND [3_PENTA_6M] IS NOT NULL AND [EH_6M] IS NOT NULL AND [EH_7M] IS NOT NULL AND [EH_8M] IS NOT NULL
+                                    AND [EH_9M] IS NOT NULL AND [EH_10M] IS NOT NULL AND [EH_11M] IS NOT NULL AND [DOSAJE_HMB_6M] IS NOT NULL) THEN 1 ELSE 0 END) as float) /
+                                        cast(COUNT(*) as float) * 100), 2) 'AVANCE_HIS'")) ->whereYear('FECHA_DE_NACIMIENTO', $anio)
                                     ->whereRaw('PERIODO = (SELECT MAX(PERIODO) FROM META4_CONSOLIDADO)')
-                                    -> whereYear('FECHA_DE_NACIMIENTO', $anio) ->groupBy('PROVINCIA') ->groupBy('DISTRITO')
+                                    ->groupBy('PROVINCIA') ->groupBy('DISTRITO')
                                     ->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
                 }
             }
 
-            return view('meta4.kids.creds.cred12.printConteo', [ 'nominal' => $resultCred12, 'anio' => $anio ]);
+            return view('meta4.kids.n6a11.printConteo', [ 'nominal' => $r6a11, 'anio' => $anio ]);
         }
         else if($type == 'nominal'){
             if($red == 'TODOS'){
                 if($anio == 'TODOS'){
                     $anio = 'Todos';
                     $nominalCred = DB::table('dbo.META4_CONSOLIDADO')
-                                ->select('PROVINCIA', 'DISTRITO', 'NUMERO_DE_DOCUMENTO_DEL_NINO', 'FECHA_DE_NACIMIENTO', '12CTRL as CTRL12', '14CTRL as CTRL14',
-                                '16CTRL as CTRL16', '18CTRL as CTRL18', '20CTRL as CTRL20', '22CTRL as CTRL22', DB::raw("CASE WHEN ([12CTRL] IS NOT NULL AND
-                                [14CTRL] IS NOT NULL AND [16CTRL] IS NOT NULL AND [18CTRL] IS NOT NULL AND [20CTRL] IS NOT NULL
-                                AND [22CTRL] IS NOT NULL) THEN 'Cumple' ELSE 'No Cumple' END 'CUMPLE_HIS'"))
-                                ->whereRaw('PERIODO = (SELECT MAX(PERIODO) FROM META4_CONSOLIDADO)')
+                                ->select('PROVINCIA', 'DISTRITO', 'EESS', 'NUMERO_DE_DOCUMENTO_DEL_NINO', 'FECHA_DE_NACIMIENTO',
+                                '6CTRL as CTRL6', '7CTRL as CTRL7', '8CTRL as CTRL8', '9CTRL as CTRL9', '10CTRL as CTRL10', '11CTRL as CTRL11',
+                                DB::raw("(CASE WHEN ((EdadMeses BETWEEN 11 AND 15) AND [6CTRL] IS NOT NULL AND [7CTRL] IS NOT NULL AND [8CTRL]
+                                IS NOT NULL AND [9CTRL] IS NOT NULL AND [10CTRL] IS NOT NULL AND [11CTRL] IS NOT NULL )THEN 'Cumple' ELSE
+                                'No Cumple' END)'CUMPLE_CRED'"), '3_NEUMO_6M as NEUMO3_6M', '3_PENTA_6M as PENTA3_6M', DB::raw("(CASE WHEN
+                                ((EdadMeses BETWEEN 11 AND 15) AND [3_NEUMO_6M] IS NOT NULL AND [3_PENTA_6M] IS NOT NULL ) THEN 'Cumple' ELSE
+                                'No Cumple' END) 'CUMPLE_INMUNI'"), 'EH_6M', 'EH_7M', 'EH_8M', 'EH_9M', 'EH_10M', 'EH_11M', DB::raw("(CASE WHEN
+                                ((EdadMeses BETWEEN 11 AND 15) AND [EH_6M] IS NOT NULL AND [EH_7M] IS NOT NULL AND [EH_8M] IS NOT NULL AND [EH_9M]
+                                IS NOT NULL AND [EH_10M] IS NOT NULL AND [EH_11M] IS NOT NULL ) THEN 'Cumple' ELSE 'No Cumple' END) 'CUMPLE_SUPLE'"),
+                                'DOSAJE_HMB_6M',  DB::raw("(CASE WHEN ((EdadMeses BETWEEN 11 AND 15) AND [DOSAJE_HMB_6M] IS NOT NULL) THEN 'Cumple'
+                                ELSE 'No Cumple' END)'DOSAJESHMB'"), 'ANEMIA_6M', DB::raw("CASE WHEN ((EdadMeses BETWEEN 11 AND 15) AND [6CTRL]
+                                IS NOT NULL AND [7CTRL] IS NOT NULL AND [8CTRL] IS NOT NULL AND [9CTRL] IS NOT NULL AND [10CTRL] IS NOT NULL AND
+                                [11CTRL] IS NOT NULL AND [3_NEUMO_6M] IS NOT NULL AND [3_PENTA_6M] IS NOT NULL AND [EH_6M] IS NOT NULL AND
+                                [EH_7M] IS NOT NULL AND [EH_8M] IS NOT NULL AND [EH_9M] IS NOT NULL AND [EH_10M] IS NOT NULL AND [EH_11M] IS NOT NULL AND
+                                [DOSAJE_HMB_6M] IS NOT NULL) THEN 'Cumple' ELSE 'No Cumple' END AS 'MIDE'"))
+                                ->whereRaw('PERIODO = (SELECT MAX(PERIODO) FROM META4_CONSOLIDADO)') ->whereBetween('EdadMeses', [1, 6])
                                 ->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
                 }
                 else{
@@ -125,7 +144,7 @@ class Cred12Export implements FromView, ShouldAutoSize
                 }
             }
 
-            return view('meta4.kids.creds.cred12.printNominal', [ 'nominal' => $nominalCred, 'anio' => $anio ]);
+            return view('meta4.kids.n6a11.printNominal', [ 'nominal' => $nominalCred, 'anio' => $anio ]);
         }
     }
 }

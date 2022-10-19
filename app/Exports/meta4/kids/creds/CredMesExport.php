@@ -39,6 +39,7 @@ class CredMesExport implements FromView, ShouldAutoSize
                                     IS NOT NULL) THEN 1 ELSE 0 END) AS RN_HIS_NUM"), DB::raw("round((cast(SUM(CASE WHEN ([1CTRL] IS NOT NULL AND
                                     [2CTRL] IS NOT NULL AND [4CTRL] IS NOT NULL AND [6CTRL] IS NOT NULL AND [9CTRL] IS NOT NULL) THEN 1 ELSE 0 END)
                                     as float) / cast(COUNT(DISTRITO) as float) * 100), 2) 'AVANCE_HIS'"))
+                                    ->whereRaw('PERIODO = (SELECT MAX(PERIODO) FROM META4_CONSOLIDADO)')
                                 ->groupBy('PROVINCIA') ->groupBy('DISTRITO') ->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
 
                 }else{
@@ -47,7 +48,9 @@ class CredMesExport implements FromView, ShouldAutoSize
                                     WHEN ([1CTRL] IS NOT NULL AND [2CTRL] IS NOT NULL AND [4CTRL] IS NOT NULL AND [6CTRL] IS NOT NULL AND [9CTRL]
                                     IS NOT NULL) THEN 1 ELSE 0 END) AS RN_HIS_NUM"), DB::raw("round((cast(SUM(CASE WHEN ([1CTRL] IS NOT NULL AND
                                     [2CTRL] IS NOT NULL AND [4CTRL] IS NOT NULL AND [6CTRL] IS NOT NULL AND [9CTRL] IS NOT NULL) THEN 1 ELSE 0 END)
-                                    as float) / cast(COUNT(DISTRITO) as float) * 100), 2) 'AVANCE_HIS'")) ->whereYear('FECHA_DE_NACIMIENTO', $anio)
+                                    as float) / cast(COUNT(DISTRITO) as float) * 100), 2) 'AVANCE_HIS'")) 
+                                    ->whereRaw('PERIODO = (SELECT MAX(PERIODO) FROM META4_CONSOLIDADO)')
+                                    ->whereYear('FECHA_DE_NACIMIENTO', $anio)
                                 ->groupBy('PROVINCIA') ->groupBy('DISTRITO') ->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
                 }
             }
@@ -59,7 +62,9 @@ class CredMesExport implements FromView, ShouldAutoSize
                                     WHEN ([1CTRL] IS NOT NULL AND [2CTRL] IS NOT NULL AND [4CTRL] IS NOT NULL AND [6CTRL] IS NOT NULL AND [9CTRL]
                                     IS NOT NULL) THEN 1 ELSE 0 END) AS RN_HIS_NUM"), DB::raw("round((cast(SUM(CASE WHEN ([1CTRL] IS NOT NULL AND
                                     [2CTRL] IS NOT NULL AND [4CTRL] IS NOT NULL AND [6CTRL] IS NOT NULL AND [9CTRL] IS NOT NULL) THEN 1 ELSE 0 END)
-                                    as float) / cast(COUNT(DISTRITO) as float) * 100), 2) 'AVANCE_HIS'")) ->where('PROVINCIA', $red)
+                                    as float) / cast(COUNT(DISTRITO) as float) * 100), 2) 'AVANCE_HIS'"))
+                                    ->whereRaw('PERIODO = (SELECT MAX(PERIODO) FROM META4_CONSOLIDADO)')
+                                    ->where('PROVINCIA', $red)
                                 ->groupBy('PROVINCIA') ->groupBy('DISTRITO') ->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
 
                 }else{
@@ -68,7 +73,9 @@ class CredMesExport implements FromView, ShouldAutoSize
                                     WHEN ([1CTRL] IS NOT NULL AND [2CTRL] IS NOT NULL AND [4CTRL] IS NOT NULL AND [6CTRL] IS NOT NULL AND [9CTRL]
                                     IS NOT NULL) THEN 1 ELSE 0 END) AS RN_HIS_NUM"), DB::raw("round((cast(SUM(CASE WHEN ([1CTRL] IS NOT NULL AND
                                     [2CTRL] IS NOT NULL AND [4CTRL] IS NOT NULL AND [6CTRL] IS NOT NULL AND [9CTRL] IS NOT NULL) THEN 1 ELSE 0 END)
-                                    as float) / cast(COUNT(DISTRITO) as float) * 100), 2) 'AVANCE_HIS'")) ->where('PROVINCIA', $red)
+                                    as float) / cast(COUNT(DISTRITO) as float) * 100), 2) 'AVANCE_HIS'"))
+                                    ->whereRaw('PERIODO = (SELECT MAX(PERIODO) FROM META4_CONSOLIDADO)')
+                                    ->where('PROVINCIA', $red)
                                     ->whereYear('FECHA_DE_NACIMIENTO', $anio)
                                 ->groupBy('PROVINCIA') ->groupBy('DISTRITO') ->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
                 }
@@ -81,7 +88,9 @@ class CredMesExport implements FromView, ShouldAutoSize
                                     WHEN ([1CTRL] IS NOT NULL AND [2CTRL] IS NOT NULL AND [4CTRL] IS NOT NULL AND [6CTRL] IS NOT NULL AND [9CTRL]
                                     IS NOT NULL) THEN 1 ELSE 0 END) AS RN_HIS_NUM"), DB::raw("round((cast(SUM(CASE WHEN ([1CTRL] IS NOT NULL AND
                                     [2CTRL] IS NOT NULL AND [4CTRL] IS NOT NULL AND [6CTRL] IS NOT NULL AND [9CTRL] IS NOT NULL) THEN 1 ELSE 0 END)
-                                    as float) / cast(COUNT(DISTRITO) as float) * 100), 2) 'AVANCE_HIS'")) ->where('DISTRITO', $dist)
+                                    as float) / cast(COUNT(DISTRITO) as float) * 100), 2) 'AVANCE_HIS'"))
+                                    ->whereRaw('PERIODO = (SELECT MAX(PERIODO) FROM META4_CONSOLIDADO)')
+                                    ->where('DISTRITO', $dist)
                                 ->groupBy('PROVINCIA') ->groupBy('DISTRITO') ->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
 
                 }else{
@@ -90,13 +99,15 @@ class CredMesExport implements FromView, ShouldAutoSize
                                     WHEN ([1CTRL] IS NOT NULL AND [2CTRL] IS NOT NULL AND [4CTRL] IS NOT NULL AND [6CTRL] IS NOT NULL AND [9CTRL]
                                     IS NOT NULL) THEN 1 ELSE 0 END) AS RN_HIS_NUM"), DB::raw("round((cast(SUM(CASE WHEN ([1CTRL] IS NOT NULL AND
                                     [2CTRL] IS NOT NULL AND [4CTRL] IS NOT NULL AND [6CTRL] IS NOT NULL AND [9CTRL] IS NOT NULL) THEN 1 ELSE 0 END)
-                                    as float) / cast(COUNT(DISTRITO) as float) * 100), 2) 'AVANCE_HIS'")) ->where('DISTRITO', $dist)
+                                    as float) / cast(COUNT(DISTRITO) as float) * 100), 2) 'AVANCE_HIS'"))
+                                    ->whereRaw('PERIODO = (SELECT MAX(PERIODO) FROM META4_CONSOLIDADO)')
+                                    ->where('DISTRITO', $dist)
                                     ->whereYear('FECHA_DE_NACIMIENTO', $anio)
                                 ->groupBy('PROVINCIA') ->groupBy('DISTRITO') ->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
                 }
             }
 
-            return view('meta4.kids.credMes.printConteo', [ 'nominal' => $resCredMes, 'anio' => $anio ]);
+            return view('meta4.kids.creds.credMes.printConteo', [ 'nominal' => $resCredMes, 'anio' => $anio ]);
         }
         else if($type == 'nominal'){
             if($red == 'TODOS'){
@@ -107,7 +118,9 @@ class CredMesExport implements FromView, ShouldAutoSize
                                 '3CTRL as CTRL3', '4CTRL as CTRL4', '5CTRL as CTRL5', '6CTRL as CTRL6', '7CTRL as CTRL7', '8CTRL as CTRL8',
                                 '9CTRL as CTRL9', '10CTRL as CTRL10', '11CTRL as CTRL11', DB::raw("CASE WHEN ([1CTRL] IS NOT NULL AND [2CTRL] IS
                                 NOT NULL AND [4CTRL] IS NOT NULL AND [6CTRL] IS NOT NULL AND [9CTRL] IS NOT NULL) THEN 'Cumple' ELSE 'No Cumple'
-                                END 'CUMPLE_HIS'")) ->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
+                                END 'CUMPLE_HIS'"))
+                                ->whereRaw('PERIODO = (SELECT MAX(PERIODO) FROM META4_CONSOLIDADO)')
+                                ->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
                 }
                 else{
                     $nominalCred = DB::table('dbo.META4_CONSOLIDADO')
@@ -115,7 +128,9 @@ class CredMesExport implements FromView, ShouldAutoSize
                                 '3CTRL as CTRL3', '4CTRL as CTRL4', '5CTRL as CTRL5', '6CTRL as CTRL6', '7CTRL as CTRL7', '8CTRL as CTRL8',
                                 '9CTRL as CTRL9', '10CTRL as CTRL10', '11CTRL as CTRL11', DB::raw("CASE WHEN ([1CTRL] IS NOT NULL AND [2CTRL] IS
                                 NOT NULL AND [4CTRL] IS NOT NULL AND [6CTRL] IS NOT NULL AND [9CTRL] IS NOT NULL) THEN 'Cumple' ELSE 'No Cumple'
-                                END 'CUMPLE_HIS'")) ->whereYear('FECHA_DE_NACIMIENTO', $anio) ->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
+                                END 'CUMPLE_HIS'"))
+                                ->whereRaw('PERIODO = (SELECT MAX(PERIODO) FROM META4_CONSOLIDADO)')
+                                ->whereYear('FECHA_DE_NACIMIENTO', $anio) ->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
                 }
             }
             else if($red != 'TODOS' && $dist == 'TODOS'){
@@ -126,7 +141,9 @@ class CredMesExport implements FromView, ShouldAutoSize
                                 '3CTRL as CTRL3', '4CTRL as CTRL4', '5CTRL as CTRL5', '6CTRL as CTRL6', '7CTRL as CTRL7', '8CTRL as CTRL8',
                                 '9CTRL as CTRL9', '10CTRL as CTRL10', '11CTRL as CTRL11', DB::raw("CASE WHEN ([1CTRL] IS NOT NULL AND [2CTRL] IS
                                 NOT NULL AND [4CTRL] IS NOT NULL AND [6CTRL] IS NOT NULL AND [9CTRL] IS NOT NULL) THEN 'Cumple' ELSE 'No Cumple'
-                                END 'CUMPLE_HIS'")) ->where('PROVINCIA', $red) ->orderBy('DISTRITO') ->get();
+                                END 'CUMPLE_HIS'"))
+                                ->whereRaw('PERIODO = (SELECT MAX(PERIODO) FROM META4_CONSOLIDADO)')
+                                ->where('PROVINCIA', $red) ->orderBy('DISTRITO') ->get();
                 }
                 else{
                     $nominalCred = DB::table('dbo.META4_CONSOLIDADO')
@@ -134,7 +151,9 @@ class CredMesExport implements FromView, ShouldAutoSize
                                 '3CTRL as CTRL3', '4CTRL as CTRL4', '5CTRL as CTRL5', '6CTRL as CTRL6', '7CTRL as CTRL7', '8CTRL as CTRL8',
                                 '9CTRL as CTRL9', '10CTRL as CTRL10', '11CTRL as CTRL11', DB::raw("CASE WHEN ([1CTRL] IS NOT NULL AND [2CTRL] IS
                                 NOT NULL AND [4CTRL] IS NOT NULL AND [6CTRL] IS NOT NULL AND [9CTRL] IS NOT NULL) THEN 'Cumple' ELSE 'No Cumple'
-                                END 'CUMPLE_HIS'")) ->where('PROVINCIA', $red) ->whereYear('FECHA_DE_NACIMIENTO', $anio) ->orderBy('DISTRITO') ->get();
+                                END 'CUMPLE_HIS'"))
+                                ->whereRaw('PERIODO = (SELECT MAX(PERIODO) FROM META4_CONSOLIDADO)')
+                                ->where('PROVINCIA', $red) ->whereYear('FECHA_DE_NACIMIENTO', $anio) ->orderBy('DISTRITO') ->get();
                 }
             }
             else if($dist != 'TODOS'){
@@ -145,7 +164,9 @@ class CredMesExport implements FromView, ShouldAutoSize
                                 '3CTRL as CTRL3', '4CTRL as CTRL4', '5CTRL as CTRL5', '6CTRL as CTRL6', '7CTRL as CTRL7', '8CTRL as CTRL8',
                                 '9CTRL as CTRL9', '10CTRL as CTRL10', '11CTRL as CTRL11', DB::raw("CASE WHEN ([1CTRL] IS NOT NULL AND [2CTRL] IS
                                 NOT NULL AND [4CTRL] IS NOT NULL AND [6CTRL] IS NOT NULL AND [9CTRL] IS NOT NULL) THEN 'Cumple' ELSE 'No Cumple'
-                                END 'CUMPLE_HIS'")) ->where('DISTRITO', $dist) ->orderBy('DISTRITO') ->get();
+                                END 'CUMPLE_HIS'"))
+                                ->whereRaw('PERIODO = (SELECT MAX(PERIODO) FROM META4_CONSOLIDADO)')
+                                ->where('DISTRITO', $dist) ->orderBy('DISTRITO') ->get();
                 }
                 else{
                     $nominalCred = DB::table('dbo.META4_CONSOLIDADO')
@@ -153,7 +174,9 @@ class CredMesExport implements FromView, ShouldAutoSize
                                 '3CTRL as CTRL3', '4CTRL as CTRL4', '5CTRL as CTRL5', '6CTRL as CTRL6', '7CTRL as CTRL7', '8CTRL as CTRL8',
                                 '9CTRL as CTRL9', '10CTRL as CTRL10', '11CTRL as CTRL11', DB::raw("CASE WHEN ([1CTRL] IS NOT NULL AND [2CTRL] IS
                                 NOT NULL AND [4CTRL] IS NOT NULL AND [6CTRL] IS NOT NULL AND [9CTRL] IS NOT NULL) THEN 'Cumple' ELSE 'No Cumple'
-                                END 'CUMPLE_HIS'")) ->where('DISTRITO', $dist) ->whereYear('FECHA_DE_NACIMIENTO', $anio) ->orderBy('DISTRITO') ->get();
+                                END 'CUMPLE_HIS'"))
+                                ->whereRaw('PERIODO = (SELECT MAX(PERIODO) FROM META4_CONSOLIDADO)')
+                                ->where('DISTRITO', $dist) ->whereYear('FECHA_DE_NACIMIENTO', $anio) ->orderBy('DISTRITO') ->get();
                 }
             }
 

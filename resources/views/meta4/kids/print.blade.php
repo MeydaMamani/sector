@@ -15,16 +15,16 @@
 <body>
     <table>
         <thead>
-            <tr><td colspan="61"></td></tr>
+            <tr><td colspan="62"></td></tr>
             <tr>
-                <td colspan="61" style="font-size: 20px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">DIRESA PASCO DEIT</td>
+                <td colspan="62" style="font-size: 20px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">DIRESA PASCO DEIT</td>
             </tr>
-            <tr><td colspan="61"></td></tr>
+            <tr><td colspan="62"></td></tr>
             <tr>
-                <td colspan="61" style="font-size: 16px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">PADRÓN DE NIÑOS MENORES DE 24 MESES PARA LA ATENCIÓN AL HOGAR Y SEG. NOMINAL - {{ $nameProv }} / {{ $nameDist }}</td>
+                <td colspan="62" style="font-size: 16px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">PADRÓN DE NIÑOS MENORES DE 24 MESES PARA LA ATENCIÓN AL HOGAR Y SEG. NOMINAL - {{ $nameProv }} / {{ $nameDist }}</td>
             </tr>
-            <tr><td colspan="61"></td></tr>
-            <tr><td colspan="61"></td></tr>
+            <tr><td colspan="62"></td></tr>
+            <tr><td colspan="62"></td></tr>
         </thead>
         <thead>
             <tr>
@@ -36,7 +36,7 @@
                 <th colspan="3" style="background: white; font-weight: 500; text-align: center; font-size:12px; border: 3px solid #A6A6A6;">Vacuna Pentavalente</th>
                 <th colspan="2" style="background: #FFEDE6; font-weight: 500; text-align: center; font-size:12px; border: 3px solid #A6A6A6;">Vacuna SPR</th>
                 <th colspan="6" style="background: #E8D1DC; font-weight: 500; text-align: center; font-size:12px; border: 3px solid #A6A6A6;">Dosaje Hemoglobina</th>
-                <th colspan="8" style="background: #FFE6FF; font-weight: 500; text-align: center; font-size:12px; border: 3px solid #A6A6A6;">Entrega de Hierro Mensual</th>
+                <th colspan="9" style="background: #FFE6FF; font-weight: 500; text-align: center; font-size:12px; border: 3px solid #A6A6A6;">Entrega de Hierro Mensual</th>
                 <th colspan="4" style="background: #E5F4F7; font-weight: 500; text-align: center; font-size:12px; border: 3px solid #A6A6A6;">Visita por Suplementación</th>
                 <th colspan="4" style="background: #CCC0DA; font-weight: 500; text-align: center; font-size:12px; border: 3px solid #A6A6A6;">Visita por Aten Integral</th>
             </tr>
@@ -97,6 +97,7 @@
                 <th style="background: #FFE6FF; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Hierro 4</th>
                 <th style="background: #FFE6FF; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Hierro 5</th>
                 <th style="background: #FFE6FF; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Hierro 6</th>
+                <th style="background: #d972d9; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Anemia 6M</th>
                 <th style="background: #FFE6FF; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Hierro 7</th>
                 <th style="background: #FFE6FF; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Hierro 8</th>
                 <th style="background: #FFE6FF; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Hierro 9</th>
@@ -130,8 +131,8 @@
                     <td>{{ $list->NUMERO_DE_DOCUMENTO_DEL_NINO }}</td>
                     <td>{{ $list->FECHA_DE_NACIMIENTO }}</td>
                     <td>{{ $list->EESS }}</td>
-                    <td>{{ $list->Total_de_visitas_completas_para_la_edad }}</td>
-                    <td>{{ $list->Total_de_VD_presenciales_Realizadas }}</td>
+                    {{-- <td>{{ $list->Total_de_visitas_completas_para_la_edad }}</td>
+                    <td>{{ $list->Total_de_VD_presenciales_Realizadas }}</td> --}}
                     <td>{{ $list->CTRL1_RN }}</td>
                     <td>{{ $list->CTRL2_RN }}</td>
                     <td>{{ $list->CTRL3_RN }}</td>
@@ -172,6 +173,7 @@
                     <td>{{ $list->EH_4M }}</td>
                     <td>{{ $list->EH_5M }}</td>
                     <td>{{ $list->EH_6M }}</td>
+                    <td>{{ $list->ANEMIA_6M }}</td>
                     <td>{{ $list->EH_7M }}</td>
                     <td>{{ $list->EH_8M }}</td>
                     <td>{{ $list->EH_9M }}</td>

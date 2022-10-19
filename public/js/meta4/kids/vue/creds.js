@@ -46,19 +46,31 @@ const appRecienNacidos = new Vue({
         anioGrafVac: 'TODOS',
         anioTablVac2M: 'TODOS',
         lisTablResumVac2M: [],
-        anioTablSuple611: 'TODOS',
-        lisTablResumSuple611: [],
-        anioTablSuple12: 'TODOS',
-        lisTablResumSuple12: [],
+        anioTablVac4M: 'TODOS',
+        lisTablResumVac4M: [],
+        anioTablVac6M: 'TODOS',
+        lisTablResumVac6M: [],
+        // PARA TAMIZAJE
+        anioGrafTmz: 'TODOS',
+        anioTableTmz6M: 'TODOS',
+        lisTablResumTmz6M: [],
+        anioTableTmz12M: 'TODOS',
+        lisTablResumTmz12M: [],
 
+        anioGraf6_11m: 'TODOS',
+        lisTablResum6_11M: [],
+        anioTabl611: 'TODOS',
     },
     created: function() {
         this.filtersProv();
         this.listTotal();
+        // para graficas edad en meses
+        this.grafChilds6_11m();
         // para controles creds
         this.grafChildsCred();
         this.grafChildsSuple();
         this.grafChildsVaccine();
+        this.grafChildsTmz();
     },
     methods: {
         filtersProv: function() {
@@ -433,7 +445,196 @@ const appRecienNacidos = new Vue({
 
         PrintVac2M: function(){
             const formData = $("#formVaccine2M").serialize();
-            url_ = window.location.origin + window.location.pathname + '/printSuple12?' + formData;
+            url_ = window.location.origin + window.location.pathname + '/printVac12?' + formData;
+            window.open(url_,'_blank');
+        },
+
+        tableResumVac4M: function(){
+            console.log(this.anioTablVac4M);
+            axios({
+                method: 'POST',
+                url: 'met4kids/tableResumVac',
+                data: { "id": this.anioTablVac4M, "type": "v4m" },
+            })
+            .then(response => {
+                this.lisTablResumVac4M = response.data[1];
+
+            }).catch(e => {
+                this.errors.push(e)
+            })
+        },
+
+        PrintVac4M: function(){
+            const formData = $("#formVaccine4M").serialize();
+            url_ = window.location.origin + window.location.pathname + '/printVac4?' + formData;
+            window.open(url_,'_blank');
+        },
+
+        tableResumVac6M: function(){
+            console.log(this.anioTablVac6M);
+            axios({
+                method: 'POST',
+                url: 'met4kids/tableResumVac',
+                data: { "id": this.anioTablVac6M, "type": "v6m" },
+            })
+            .then(response => {
+                this.lisTablResumVac6M = response.data[2];
+
+            }).catch(e => {
+                this.errors.push(e)
+            })
+        },
+
+        PrintVac6M: function(){
+            const formData = $("#formVaccine6M").serialize();
+            url_ = window.location.origin + window.location.pathname + '/printVac6?' + formData;
+            window.open(url_,'_blank');
+        },
+
+        // PARA TAMIZAJE
+        grafChildsTmz: function(){
+            console.log(this.anioGrafTmz);
+            axios({
+                method: 'POST',
+                url: 'met4kids/grafTmz',
+                data: { "id": this.anioGrafTmz },
+            })
+            .then(respuesta => {
+                $('#myChartTmz').remove();
+                $('.barChartTmz').append("<canvas id='myChartTmz'></canvas>");
+                var Tmz6M = respuesta.data[0][0];
+                console.log(Tmz6M);
+                var Tmz12M = respuesta.data[1][0];
+                var Tmz18M = respuesta.data[2][0];
+                var areaChartData = {
+                    labels  : ['6 Meses', '12 Meses', '18 Meses'],
+                    datasets: [
+                        {
+                            label: 'HisMinsa',
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                            pointRadius: false,
+                            data: [ Tmz6M.AVANCE_HIS, Tmz12M.AVANCE_HIS, Tmz18M.AVANCE_HIS ]
+                        },
+                    ]
+                }
+
+                var barChartCanvas = $('#myChartTmz').get(0).getContext('2d');
+                var barChartData = $.extend(true, {}, areaChartData);
+                new Chart(barChartCanvas, {
+                    type: 'bar',
+                    data: barChartData,
+                    options: barChartOptions
+                })
+
+            }).catch(e => {
+                this.errors.push(e)
+            })
+        },
+
+        tableResumTmz6M: function(){
+            console.log(this.anioTableTmz6M);
+            axios({
+                method: 'POST',
+                url: 'met4kids/tableResumTmz',
+                data: { "id": this.anioTableTmz6M, "type": "tmz6" },
+            })
+            .then(response => {
+                    console.log(response.data);
+                this.lisTablResumTmz6M = response.data[0];
+
+            }).catch(e => {
+                this.errors.push(e)
+            })
+        },
+
+        tableResumTmz12M: function(){
+            console.log(this.anioTableTmz12M);
+            axios({
+                method: 'POST',
+                url: 'met4kids/tableResumTmz',
+                data: { "id": this.anioTableTmz12M, "type": "tmz12" },
+            })
+            .then(response => {
+                    console.log(response.data);
+                this.lisTablResumTmz12M = response.data[1];
+
+            }).catch(e => {
+                this.errors.push(e)
+            })
+        },
+
+
+        tableResumTmz18M: function(){
+            console.log(this.anioTableTmz18M);
+            axios({
+                method: 'POST',
+                url: 'met4kids/tableResumTmz',
+                data: { "id": this.anioTableTmz18M, "type": "tmz18" },
+            })
+            .then(response => {
+                    console.log(response.data);
+                this.lisTablResumTmz18M = response.data[2];
+
+            }).catch(e => {
+                this.errors.push(e)
+            })
+        },
+
+        // PARA GRAFICAS DE CONTROLES CRED
+        grafChilds6_11m: function(){
+            axios({
+                method: 'POST',
+                url: 'met4kids/graf6_11m',
+                data: { "id": this.anioGrafCred },
+            })
+            .then(respuesta => {
+                $('#myChart6_11m').remove();
+                $('.barChart6_11m').append("<canvas id='myChart6_11m'></canvas>");
+                var CredRn = respuesta.data[0][0];
+                console.log(CredRn);
+                var areaChartData = {
+                    labels  : ['Paquete'],
+                    datasets: [
+                        {
+                            label: 'HisMinsa',
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                            pointRadius: false,
+                            data: [ CredRn.AVANCE_HIS  ]
+                        },
+                    ]
+                }
+
+                var barChartCanvas = $('#myChart6_11m').get(0).getContext('2d');
+                var barChartData = $.extend(true, {}, areaChartData);
+                new Chart(barChartCanvas, {
+                    type: 'bar',
+                    data: barChartData,
+                    options: barChartOptions
+                })
+
+            }).catch(e => {
+                this.errors.push(e)
+            })
+        },
+
+        tableResum6_11M: function(){
+            axios({
+                method: 'POST',
+                url: 'met4kids/tableResum6_11',
+                data: { "id": this.anioTabl611, "type": "6_11" },
+            })
+            .then(response => {
+                    console.log(response.data);
+                this.lisTablResum6_11M = response.data[0];
+
+            }).catch(e => {
+                this.errors.push(e)
+            })
+        },
+
+        Print611: function(){
+            const formData = $("#form611").serialize();
+            url_ = window.location.origin + window.location.pathname + '/print611?' + formData;
             window.open(url_,'_blank');
         },
     }
