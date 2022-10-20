@@ -15,16 +15,16 @@
 <body>
     <table>
         <thead>
-            <tr><td colspan="9"></td></tr>
+            <tr><td colspan="23"></td></tr>
             <tr>
-                <td colspan="9" style="font-size: 20px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">DIRESA PASCO DEIT</td>
+                <td colspan="23" style="font-size: 20px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">DIRESA PASCO DEIT</td>
             </tr>
-            <tr><td colspan="9"></td></tr>
+            <tr><td colspan="23"></td></tr>
             <tr>
-                <td colspan="9" style="font-size: 17px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">Reporte Nominal de Niños de 6 a 11 Meses {{ $anio }}</td>
+                <td colspan="23" style="font-size: 17px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">Reporte Nominal de Niños de 6 a 11 Meses {{ $anio }}</td>
             </tr>
-            <tr><td colspan="9"></td></tr>
-            <tr><td colspan="9"></td></tr>
+            <tr><td colspan="23"></td></tr>
+            <tr><td colspan="23"></td></tr>
         </thead>
         <thead>
             <tr>
@@ -40,21 +40,17 @@
                 <th style="background: #B5D3FA; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Ctrl 9</th>
                 <th style="background: #B5D3FA; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Crtl 10</th>
                 <th style="background: #B5D3FA; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Ctrl 11</th>
-                <th style="background: #75a6e7; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Cumple Creds</th>
                 <th style="background: #B5D3FA; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Vac Neumococo</th>
                 <th style="background: #B5D3FA; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Vac Pentavalente</th>
-                <th style="background: #75a6e7; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Cumple Vacunas</th>
                 <th style="background: #B5D3FA; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Suple 6</th>
                 <th style="background: #B5D3FA; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Suple 7</th>
                 <th style="background: #B5D3FA; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Suple 8</th>
                 <th style="background: #B5D3FA; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Suple 9</th>
                 <th style="background: #B5D3FA; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Suple 10</th>
                 <th style="background: #B5D3FA; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Suple 11</th>
-                <th style="background: #75a6e7; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Cumple Suple</th>
                 <th style="background: #B5D3FA; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Tamizaje</th>
-                <th style="background: #75a6e7; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Cumple Tmz</th>
                 <th style="background: #B5D3FA; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Dx Anemia</th>
-                <th style="background: #FFFF00; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Mide</th>
+                <th style="background: #FFFF00; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Cumple</th>
             </tr>
         </thead>
         <tbody>
@@ -72,17 +68,14 @@
                     <td>{{ $list->CTRL9 }}</td>
                     <td>{{ $list->CTRL10 }}</td>
                     <td>{{ $list->CTRL11 }}</td>
-                    <td>{{ $list->CUMPLE_CRED }}</td>
                     <td>{{ $list->NEUMO3_6M }}</td>
                     <td>{{ $list->PENTA3_6M }}</td>
-                    <td>{{ $list->CUMPLE_INMUNI }}</td>
                     <td>{{ $list->EH_6M }}</td>
                     <td>{{ $list->EH_7M }}</td>
                     <td>{{ $list->EH_8M }}</td>
                     <td>{{ $list->EH_9M }}</td>
                     <td>{{ $list->EH_10M }}</td>
                     <td>{{ $list->EH_11M }}</td>
-                    <td>{{ $list->CUMPLE_SUPLE }}</td>
                     <td>{{ $list->DOSAJE_HMB_6M }}</td>
                     <td>{{ $list->DOSAJESHMB }}</td>
                     <td>{{ $list->ANEMIA_6M }}</td>

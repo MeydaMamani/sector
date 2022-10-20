@@ -15,22 +15,22 @@
 <body>
     <table>
         <thead>
-            <tr><td colspan="62"></td></tr>
+            <tr><td colspan="64"></td></tr>
             <tr>
-                <td colspan="62" style="font-size: 20px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">DIRESA PASCO DEIT</td>
+                <td colspan="64" style="font-size: 20px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">DIRESA PASCO DEIT</td>
             </tr>
-            <tr><td colspan="62"></td></tr>
+            <tr><td colspan="64"></td></tr>
             <tr>
-                <td colspan="62" style="font-size: 16px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">PADRÓN DE NIÑOS MENORES DE 24 MESES PARA LA ATENCIÓN AL HOGAR Y SEG. NOMINAL - {{ $nameProv }} / {{ $nameDist }}</td>
+                <td colspan="64" style="font-size: 16px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">PADRÓN DE NIÑOS MENORES DE 24 MESES PARA LA ATENCIÓN AL HOGAR Y SEG. NOMINAL - {{ $nameProv }} / {{ $nameDist }}</td>
             </tr>
-            <tr><td colspan="62"></td></tr>
-            <tr><td colspan="62"></td></tr>
+            <tr><td colspan="64"></td></tr>
+            <tr><td colspan="64"></td></tr>
         </thead>
         <thead>
             <tr>
                 <th colspan="14" style="background: #DDEBF7; font-weight: 500; text-align: center; font-size:12px; border: 3px solid #A6A6A6;">Datos Personales Niño</th>
                 <th colspan="4" style="background: #FCCECA; font-weight: 500; text-align: center; font-size:12px; border: 3px solid #A6A6A6;">Controles Cred Recién Nacidos</th>
-                <th colspan="11" style="background: #E7FCE3; font-weight: 500; text-align: center; font-size:12px; border: 3px solid #A6A6A6;">Controles Cred Mensuales</th>
+                <th colspan="13" style="background: #E7FCE3; font-weight: 500; text-align: center; font-size:12px; border: 3px solid #A6A6A6;">Controles Cred Mensuales</th>
                 <th colspan="3" style="background: #B1D4FC; font-weight: 500; text-align: center; font-size:12px; border: 3px solid #A6A6A6;">Vacuna Neumococo</th>
                 <th colspan="2" style="background: #A6B4C6; font-weight: 500; text-align: center; font-size:12px; border: 3px solid #A6A6A6;">Vacuna Rotavirus</th>
                 <th colspan="3" style="background: white; font-weight: 500; text-align: center; font-size:12px; border: 3px solid #A6A6A6;">Vacuna Pentavalente</th>
@@ -72,6 +72,8 @@
                 <th style="background: #E7FCE3; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">9° Ctrl Mes</th>
                 <th style="background: #E7FCE3; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">10° Ctrl Mes</th>
                 <th style="background: #E7FCE3; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">11° Ctrl Mes</th>
+                <th style="background: #E7FCE3; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">12° Ctrl Mes</th>
+                <th style="background: #E7FCE3; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">14° Ctrl Mes</th>
 
                 <th style="background: #B1D4FC; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Neumococo 2</th>
                 <th style="background: #B1D4FC; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Neumococo 4</th>
@@ -131,8 +133,8 @@
                     <td>{{ $list->NUMERO_DE_DOCUMENTO_DEL_NINO }}</td>
                     <td>{{ $list->FECHA_DE_NACIMIENTO }}</td>
                     <td>{{ $list->EESS }}</td>
-                    {{-- <td>{{ $list->Total_de_visitas_completas_para_la_edad }}</td>
-                    <td>{{ $list->Total_de_VD_presenciales_Realizadas }}</td> --}}
+                    <td>{{ $list->Total_de_VD_presenciales_Válidas }}</td>
+                    <td>{{ $list->Total_de_VD_presenciales_Realizadas }}</td>
                     <td>{{ $list->CTRL1_RN }}</td>
                     <td>{{ $list->CTRL2_RN }}</td>
                     <td>{{ $list->CTRL3_RN }}</td>
@@ -148,6 +150,8 @@
                     <td>{{ $list->CTRL9 }}</td>
                     <td>{{ $list->CTRL10 }}</td>
                     <td>{{ $list->CTRL11 }}</td>
+                    <td>{{ $list->CTRL12 }}</td>
+                    <td>{{ $list->CTRL14 }}</td>
 
                     <td>{{ $list->NEUMO1_2M }}</td>
                     <td>{{ $list->NEUMO2_4M }}</td>

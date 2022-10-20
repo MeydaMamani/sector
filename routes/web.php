@@ -77,9 +77,11 @@ Route::get('/met4kids/printVac6', [mKidsController::class, 'printVac6']);
 Route::post('/met4kids/grafTmz', [mKidsController::class, 'forGrafTmz']);
 Route::post('/met4kids/tableResumTmz', [mKidsController::class, 'tableResumTmz']);
 
-Route::post('/met4kids/graf6_11m', [mKidsController::class, 'forGraf6_11m']);
-Route::post('/met4kids/tableResum6_11', [mKidsController::class, 'tableResum6_11']);
-Route::get('/met4kids/print611', [mKidsController::class, 'print611']);
+Route::post('/met4kids/grafAgeMonth', [mKidsController::class, 'forGrafAgeMonth']);
+Route::post('/met4kids/tableResumPackKids', [mKidsController::class, 'tableResumPackKids']);
+Route::get('/met4kids/printPack611', [mKidsController::class, 'printPack611']);
+Route::get('/met4kids/printDx611', [mKidsController::class, 'printDx611']);
+Route::get('/met4kids/printPack45', [mKidsController::class, 'printPack45']);
 
 Route::get('/cunaSaf', [SafController::class, 'indexSaf']);
 Route::get('/cunaSaf/print', [SafController::class, 'printNominal']);

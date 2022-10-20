@@ -189,7 +189,6 @@ const appPrematuros = new Vue({
             red == '' ? red = "TODOS" : red;    dist == '' ? dist = "TODOS" : dist;
             anio == '' ? anio = getDate.getFullYear() : anio;     mes == '' ? mes = getDate.getMonth()+1 : mes;
 
-            console.log(red, dist, anio, mes);
             url_ = window.location.origin + window.location.pathname + '/print?r=' + (red) + '&d=' + (dist) + '&a=' + (anio)
             + '&m=' + (mes)  + '&nameMonth=' + (this.nameMonth) + '&pn=' + (this.date_pn) + '&cnv=' + (this.date_cnv);
             window.open(url_,'_blank');

@@ -56,16 +56,24 @@ const appRecienNacidos = new Vue({
         lisTablResumTmz6M: [],
         anioTableTmz12M: 'TODOS',
         lisTablResumTmz12M: [],
-
+        // PARA NIÑOS DE 6 A 11 MESES
         anioGraf6_11m: 'TODOS',
-        lisTablResum6_11M: [],
+        lisTablResumPack6_11: [],
         anioTabl611: 'TODOS',
+        anioTablDx611: 'TODOS',
+        lisTablResumDX6_11: [],
+
+        anioGraf4_5m: 'TODOS',
+        lisTablResumPack4_5: [],
+        anioTabl45: 'TODOS',
+        lisTablResumPack4_5: [],
     },
     created: function() {
         this.filtersProv();
         this.listTotal();
         // para graficas edad en meses
         this.grafChilds6_11m();
+        this.grafChilds4_5m();
         // para controles creds
         this.grafChildsCred();
         this.grafChildsSuple();
@@ -161,53 +169,6 @@ const appRecienNacidos = new Vue({
             })
         },
 
-        // grafChildsPackage: function(){
-        //     if ($('#paqueteCreds').is(':checked') ) {
-        //         axios({
-        //             method: 'POST',
-        //             url: 'juntkids/grafCred',
-        //             data: { "id": this.anioGrafCred },
-        //         })
-        //         .then(respuesta => {
-        //             $('#myChartCred').remove();
-        //             $('.barChartCred').append("<canvas id='myChartCred'></canvas>");
-        //             var package = respuesta.data[0][0];
-        //             const paqueteJunt = ((package.AVANCE_JUNTOS / package.DENOMINADOR)*100).toFixed(1);
-        //             const paqueteHis = ((package.AVANCE_HIS / package.DENOMINADOR)*100).toFixed(1);
-        //             var areaChartData = {
-        //                 labels  : ['Paquete'],
-        //                 datasets: [
-        //                     {
-        //                         label: 'Juntos',
-        //                         backgroundColor: 'rgba(255, 99, 132, 0.2)',
-        //                         pointRadius: false,
-        //                         data: [ paqueteJunt ]
-        //                     },
-        //                     {
-        //                         label: 'HisMinsa',
-        //                         backgroundColor: 'rgba(54, 162, 235, 0.2)',
-        //                         pointRadius: false,
-        //                         data: [ paqueteHis ]
-        //                     },
-        //                 ]
-        //             }
-
-        //             var barChartCanvas = $('#myChartCred').get(0).getContext('2d');
-        //             var barChartData = $.extend(true, {}, areaChartData);
-        //             new Chart(barChartCanvas, {
-        //                 type: 'bar',
-        //                 data: barChartData,
-        //                 options: barChartOptions
-        //             })
-        //         }).catch(e => {
-        //             this.errors.push(e)
-        //         })
-        //     }
-        //     else{
-        //         this.grafChildsCred();
-        //     }
-        // },
-
         tableResumRn: function(){
             axios({
                 method: 'POST',
@@ -290,7 +251,6 @@ const appRecienNacidos = new Vue({
 
         // PARA SUPLEMENTACION
         grafChildsSuple: function(){
-            console.log(this.anioGrafSuple);
             axios({
                 method: 'POST',
                 url: 'met4kids/grafSuple',
@@ -335,7 +295,6 @@ const appRecienNacidos = new Vue({
             })
             .then(response => {
                 this.lisTablResumSuple45 = response.data[0];
-                console.log(this.lisTablResumSuple45);
 
             }).catch(e => {
                 this.errors.push(e)
@@ -356,7 +315,6 @@ const appRecienNacidos = new Vue({
             })
             .then(response => {
                 this.lisTablResumSuple611 = response.data[1];
-                console.log(this.lisTablResumSuple611);
 
             }).catch(e => {
                 this.errors.push(e)
@@ -391,7 +349,6 @@ const appRecienNacidos = new Vue({
 
         // PARA VACUNAS
         grafChildsVaccine: function(){
-            console.log(this.anioGrafVac);
             axios({
                 method: 'POST',
                 url: 'met4kids/grafVaccine',
@@ -429,7 +386,6 @@ const appRecienNacidos = new Vue({
         },
 
         tableResumVac2M: function(){
-            console.log(this.anioTablVac2M);
             axios({
                 method: 'POST',
                 url: 'met4kids/tableResumVac',
@@ -450,7 +406,6 @@ const appRecienNacidos = new Vue({
         },
 
         tableResumVac4M: function(){
-            console.log(this.anioTablVac4M);
             axios({
                 method: 'POST',
                 url: 'met4kids/tableResumVac',
@@ -471,7 +426,6 @@ const appRecienNacidos = new Vue({
         },
 
         tableResumVac6M: function(){
-            console.log(this.anioTablVac6M);
             axios({
                 method: 'POST',
                 url: 'met4kids/tableResumVac',
@@ -493,7 +447,6 @@ const appRecienNacidos = new Vue({
 
         // PARA TAMIZAJE
         grafChildsTmz: function(){
-            console.log(this.anioGrafTmz);
             axios({
                 method: 'POST',
                 url: 'met4kids/grafTmz',
@@ -503,7 +456,6 @@ const appRecienNacidos = new Vue({
                 $('#myChartTmz').remove();
                 $('.barChartTmz').append("<canvas id='myChartTmz'></canvas>");
                 var Tmz6M = respuesta.data[0][0];
-                console.log(Tmz6M);
                 var Tmz12M = respuesta.data[1][0];
                 var Tmz18M = respuesta.data[2][0];
                 var areaChartData = {
@@ -532,14 +484,12 @@ const appRecienNacidos = new Vue({
         },
 
         tableResumTmz6M: function(){
-            console.log(this.anioTableTmz6M);
             axios({
                 method: 'POST',
                 url: 'met4kids/tableResumTmz',
                 data: { "id": this.anioTableTmz6M, "type": "tmz6" },
             })
             .then(response => {
-                    console.log(response.data);
                 this.lisTablResumTmz6M = response.data[0];
 
             }).catch(e => {
@@ -548,14 +498,12 @@ const appRecienNacidos = new Vue({
         },
 
         tableResumTmz12M: function(){
-            console.log(this.anioTableTmz12M);
             axios({
                 method: 'POST',
                 url: 'met4kids/tableResumTmz',
                 data: { "id": this.anioTableTmz12M, "type": "tmz12" },
             })
             .then(response => {
-                    console.log(response.data);
                 this.lisTablResumTmz12M = response.data[1];
 
             }).catch(e => {
@@ -565,14 +513,12 @@ const appRecienNacidos = new Vue({
 
 
         tableResumTmz18M: function(){
-            console.log(this.anioTableTmz18M);
             axios({
                 method: 'POST',
                 url: 'met4kids/tableResumTmz',
                 data: { "id": this.anioTableTmz18M, "type": "tmz18" },
             })
             .then(response => {
-                    console.log(response.data);
                 this.lisTablResumTmz18M = response.data[2];
 
             }).catch(e => {
@@ -580,18 +526,17 @@ const appRecienNacidos = new Vue({
             })
         },
 
-        // PARA GRAFICAS DE CONTROLES CRED
+        // PARA GRAFICAS DE 6 A 11 MESES
         grafChilds6_11m: function(){
             axios({
                 method: 'POST',
-                url: 'met4kids/graf6_11m',
-                data: { "id": this.anioGrafCred },
+                url: 'met4kids/grafAgeMonth',
+                data: { "id": this.anioGraf6_11m },
             })
             .then(respuesta => {
                 $('#myChart6_11m').remove();
                 $('.barChart6_11m').append("<canvas id='myChart6_11m'></canvas>");
                 var CredRn = respuesta.data[0][0];
-                console.log(CredRn);
                 var areaChartData = {
                     labels  : ['Paquete'],
                     datasets: [
@@ -617,15 +562,14 @@ const appRecienNacidos = new Vue({
             })
         },
 
-        tableResum6_11M: function(){
+        tableResumPack6_11: function(){
             axios({
                 method: 'POST',
-                url: 'met4kids/tableResum6_11',
+                url: 'met4kids/tableResumPackKids',
                 data: { "id": this.anioTabl611, "type": "6_11" },
             })
             .then(response => {
-                    console.log(response.data);
-                this.lisTablResum6_11M = response.data[0];
+                this.lisTablResumPack6_11 = response.data[0];
 
             }).catch(e => {
                 this.errors.push(e)
@@ -634,7 +578,83 @@ const appRecienNacidos = new Vue({
 
         Print611: function(){
             const formData = $("#form611").serialize();
-            url_ = window.location.origin + window.location.pathname + '/print611?' + formData;
+            url_ = window.location.origin + window.location.pathname + '/printPack611?' + formData;
+            window.open(url_,'_blank');
+        },
+
+        tableResumDxAnemia: function(){
+            axios({
+                method: 'POST',
+                url: 'met4kids/tableResumPackKids',
+                data: { "id": this.anioTablDx611, "type": "dx_ane" },
+            })
+            .then(response => {
+                this.lisTablResumDX6_11 = response.data[1];
+
+            }).catch(e => {
+                this.errors.push(e)
+            })
+        },
+
+        PrintDx611: function(){
+            const formData = $("#formDx611").serialize();
+            url_ = window.location.origin + window.location.pathname + '/printDx611?' + formData;
+            window.open(url_,'_blank');
+        },
+
+        // PARA GRAFICAS DE 4 A 5 MESES
+        grafChilds4_5m: function(){
+            axios({
+                method: 'POST',
+                url: 'met4kids/grafAgeMonth',
+                data: { "id": this.anioGraf4_5m },
+            })
+            .then(respuesta => {
+                $('#myChart4_5m').remove();
+                $('.barChart4_5m').append("<canvas id='myChart4_5m'></canvas>");
+                var n45 = respuesta.data[1][0];
+                var areaChartData = {
+                    labels  : ['Paquete'],
+                    datasets: [
+                        {
+                            label: 'HisMinsa',
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                            pointRadius: false,
+                            data: [ n45.AVANCE_HIS  ]
+                        },
+                    ]
+                }
+
+                var barChartCanvas = $('#myChart4_5m').get(0).getContext('2d');
+                var barChartData = $.extend(true, {}, areaChartData);
+                new Chart(barChartCanvas, {
+                    type: 'bar',
+                    data: barChartData,
+                    options: barChartOptions
+                })
+
+            }).catch(e => {
+                this.errors.push(e)
+            })
+        },
+
+        tableResumPack4_5: function(){
+            axios({
+                method: 'POST',
+                url: 'met4kids/tableResumPackKids',
+                data: { "id": this.anioTabl45, "type": "n4_5" },
+            })
+            .then(response => {
+                this.lisTablResumPack4_5 = response.data[2];
+
+            }).catch(e => {
+                this.errors.push(e)
+            })
+        },
+
+        Print45: function(){
+            const formData = $("#form45").serialize();
+            url_ = window.location.origin + window.location.pathname + '/printPack45?' + formData;
             window.open(url_,'_blank');
         },
     }

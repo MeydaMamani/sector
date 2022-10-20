@@ -82,7 +82,6 @@ const appRecienNacidos = new Vue({
         },
 
         filtersDistricts() {
-            console.log(this.red);
             this.listDistricts = [];
             axios({
                 method: 'POST',
@@ -219,7 +218,6 @@ const appRecienNacidos = new Vue({
                 data: { "id": this.anioTableRn, "type": "rn" },
             })
             .then(response => {
-                console.log(response.data);
                 this.lisTableResumRn = response.data[0];
 
             }).catch(e => {
@@ -240,7 +238,6 @@ const appRecienNacidos = new Vue({
                 data: { "id": this.anioTableCredMes, "type": "credMes" },
             })
             .then(response => {
-                console.log(response.data);
                 this.lisTableResumCredMes = response.data[1];
 
             }).catch(e => {
@@ -255,14 +252,12 @@ const appRecienNacidos = new Vue({
         },
 
         tableResumCred12: function(){
-            console.log(this.anioTableCred12);
             axios({
                 method: 'POST',
                 url: 'juntkids/tableResumCred',
                 data: { "id": this.anioTableCred12, "type": "cred12" },
             })
             .then(response => {
-                console.log(response.data);
                 this.lisTableResumCred12 = response.data[2];
 
             }).catch(e => {
@@ -277,7 +272,6 @@ const appRecienNacidos = new Vue({
         },
 
         tableResumPaquete: function(){
-            console.log(this.anioTablePaquete);
             axios({
                 method: 'POST',
                 url: 'juntkids/tableResumCred',
@@ -289,8 +283,6 @@ const appRecienNacidos = new Vue({
                     this.lisTableResumPaquete[i].AVAN_JUNT = ((this.lisTableResumPaquete[i].NUM_JUNTOS / this.lisTableResumPaquete[i].DENOMINADOR)*100).toFixed(1);
                     this.lisTableResumPaquete[i].AVAN_HIS = ((this.lisTableResumPaquete[i].NUM_HIS / this.lisTableResumPaquete[i].DENOMINADOR)*100).toFixed(1);
                 }
-                console.log(this.lisTableResumPaquete);
-             
 
             }).catch(e => {
                 this.errors.push(e)
@@ -355,7 +347,6 @@ const appRecienNacidos = new Vue({
                 data: { "id": this.anioTableSuple45, "type": "s45" },
             })
             .then(response => {
-                console.log(response.data);
                 this.lisTabResumSuple45 = response.data[0];
 
             }).catch(e => {
@@ -376,7 +367,6 @@ const appRecienNacidos = new Vue({
                 data: { "id": this.anioTableSuple611, "type": "s611" },
             })
             .then(response => {
-                console.log(response.data);
                 this.lisTabResumSuple611 = response.data[1];
 
             }).catch(e => {
@@ -397,7 +387,6 @@ const appRecienNacidos = new Vue({
                 data: { "id": this.anioTableSuple12, "type": "s12" },
             })
             .then(response => {
-                console.log(response.data);
                 this.lisTabResumSuple12 = response.data[2];
 
             }).catch(e => {
@@ -463,7 +452,6 @@ const appRecienNacidos = new Vue({
                 data: { "id": this.anioTableVacc2M, "type": "v2m" },
             })
             .then(response => {
-                console.log(response.data);
                 this.lisTabResumVacc2M = response.data[0];
 
             }).catch(e => {
@@ -484,7 +472,6 @@ const appRecienNacidos = new Vue({
                 data: { "id": this.anioTableVacc4M, "type": "v4m" },
             })
             .then(response => {
-                console.log(response.data);
                 this.lisTabResumVacc4M = response.data[1];
 
             }).catch(e => {
@@ -505,7 +492,6 @@ const appRecienNacidos = new Vue({
                 data: { "id": this.anioTableVacc6M, "type": "v6m" },
             })
             .then(response => {
-                console.log(response.data);
                 this.lisTabResumVacc6M = response.data[2];
 
             }).catch(e => {
@@ -571,7 +557,6 @@ const appRecienNacidos = new Vue({
                 data: { "id": this.anioTableTmz6M, "type": "t6m" },
             })
             .then(response => {
-                console.log(response.data);
                 this.lisTabResumTmz6M = response.data[0];
 
             }).catch(e => {
@@ -592,7 +577,6 @@ const appRecienNacidos = new Vue({
                 data: { "id": this.anioTableTmz12M, "type": "t12m" },
             })
             .then(response => {
-                console.log(response.data);
                 this.lisTabResumTmz12M = response.data[1];
 
             }).catch(e => {
@@ -613,7 +597,6 @@ const appRecienNacidos = new Vue({
                 data: { "id": this.anioTableTmz18M, "type": "t18m" },
             })
             .then(response => {
-                console.log(response.data);
                 this.lisTabResumTmz18M = response.data[2];
 
             }).catch(e => {

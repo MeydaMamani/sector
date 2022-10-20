@@ -74,7 +74,7 @@
                         <div class="col-md-10">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div class="card card-outline card-secondary">
+                                    <div class="card card-outline card-lightblue">
                                         <div class="card-header">
                                             <h3 class="card-title">Niños de 6 a 11 Meses</h3>
                                             <div class="card-tools">
@@ -102,7 +102,47 @@
                                                             <option value="TODOS">TODOS</option>
                                                         </select>
                                                     </div>
-                                                    <button class="btn btn-outline-secondary w-100 btn-sm mb-2" data-toggle="modal" data-target="#modal6_11m" @click="tableResum6_11M">
+                                                    <button class="btn btn-outline-info w-100 btn-sm mb-2" data-toggle="modal" data-target="#modal6_11m" @click="tableResumPack6_11">
+                                                        Paquete
+                                                    </button>
+                                                    <button class="btn btn-outline-info w-100 btn-sm mb-2" data-toggle="modal" data-target="#modaldxanem6_11m" @click="tableResumDxAnemia">
+                                                        Dx Anemia
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card card-outline card-pink">
+                                        <div class="card-header">
+                                            <h3 class="card-title">Niños de 4 a 5 Meses</h3>
+                                            <div class="card-tools">
+                                                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                                    <i class="fas fa-minus"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="card-body p-3">
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <div class="border border-secondary">
+                                                        <div class="d-flex">
+                                                            <h6 class="p-2 mb-0 text-center col-md-11">Avance</h6>
+                                                        </div>
+                                                        <div class="barChart4_5m" style="height: 160px; padding: 0px 10px 2px 0px;"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="mb-2 filter_fed">
+                                                        <select class="form-control" data-width="100%" v-model="anioGraf6_11m" @change="grafChilds4_5m">
+                                                            <option value="-">Seleccione año</option>
+                                                            <option value="2021">2021</option>
+                                                            <option value="2022">2022</option>
+                                                            <option value="TODOS">TODOS</option>
+                                                        </select>
+                                                    </div>
+                                                    <button class="btn btn-outline-secondary w-100 btn-sm mb-2" data-toggle="modal" data-target="#modal4_5m" @click="tableResumPack4_5">
                                                         Paquete
                                                     </button>
                                                 </div>
@@ -290,28 +330,25 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-
-                            </div>
                         </div>
                     </div>
                 </div>
             </section>
         </section>
 
-        <!-- MODAL CRED RECIEN NACIDOS -->
+        <!-- MODAL NIÑOS DE 6 A 11 MESES PAQUETE -->
         <div class="modal fade" id="modal6_11m" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Niños de 6 a 11 Meses</h5>
+                        <h5 class="modal-title" id="staticBackdropLabel">Paquete Niños de 6 a 11 Meses</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     </div>
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-9">
                                 <div class="mb-2 col-md-3">
-                                    <select class="form-control" data-width="100%" v-model="anioTabl611" @change="tableResum6_11M">
+                                    <select class="form-control" data-width="100%" v-model="anioTabl611" @change="tableResumPack6_11">
                                         <option value="2021">2021</option>
                                         <option value="2022">2022</option>
                                         <option value="TODOS">TODOS</option>
@@ -330,7 +367,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr v-for="(format, key) in lisTablResum6_11M" class="font-9">
+                                            <tr v-for="(format, key) in lisTablResumPack6_11" class="font-9">
                                                 <td class="align-middle text-center">[[ key+1 ]]</td>
                                                 <td class="align-middle">[[ format.PROVINCIA ]]</td>
                                                 <td class="align-middle">[[ format.DISTRITO ]]</td>
@@ -385,7 +422,181 @@
                 </div>
             </div>
         </div>
-        
+
+        <!-- MODAL NIÑOS DE 6 A 11 MESES CON DX ANEMIA -->
+        <div class="modal fade" id="modaldxanem6_11m" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Dx Anemia Niños de 6 a 11 Meses</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="mb-2 col-md-3">
+                                    <select class="form-control" data-width="100%" v-model="anioTablDx611" @change="tableResumDxAnemia">
+                                        <option value="2021">2021</option>
+                                        <option value="2022">2022</option>
+                                        <option value="TODOS">TODOS</option>
+                                    </select>
+                                </div>
+                                <div class="table-responsive" id="cred_juntos">
+                                    <table class="table table-hover table-bordered">
+                                        <thead>
+                                            <tr class="font-10 text-center" style="background: #e0eff5;">
+                                                <th class="align-middle">#</th>
+                                                <th class="align-middle">Provincia</th>
+                                                <th class="align-middle">Distrito</th>
+                                                <th class="align-middle">Den</th>
+                                                <th class="align-middle">Num His</th>
+                                                <th class="align-middle">%</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr v-for="(format, key) in lisTablResumDX6_11" class="font-9">
+                                                <td class="align-middle text-center">[[ key+1 ]]</td>
+                                                <td class="align-middle">[[ format.PROVINCIA ]]</td>
+                                                <td class="align-middle">[[ format.DISTRITO ]]</td>
+                                                <td class="align-middle text-center">[[ format.DENOMINADOR ]]</td>
+                                                <td class="align-middle text-center">[[ format.PAQUETE ]]</td>
+                                                <td class="align-middle text-center">[[ Math.round(format.AVANCE_HIS) ]]%</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <br><br>
+                                <div class="card" style="border-color: #198754;">
+                                <h5 class="card-header text-white text-center p-1 font-13" style="background: #198754;">6 a 11 Meses </h5>
+                                    <div class="card-body p-2">
+                                        <form method="POST" id="formDx611" @submit.prevent="PrintDx611">
+                                            <div class="mb-2 form-group">
+                                                <select class="form-control select2 show-tick" data-width="100%" v-model="red" name="reddx6_11" @change="filtersDistricts" v-select2 required>
+                                                    <option value="">Seleccione Red</option>
+                                                    <option v-for="format in listProvinces" :value="format.Provincia">[[ format.Provincia ]]</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-2 form-group">
+                                                <select class="form-control select2 show-tick" data-width="100%" name="distdx6_11" v-select2 required>
+                                                    <option value="">Seleccione Distrito</option>
+                                                    <option v-for="format in listDistricts" :value="format.Distrito">[[ format.Distrito ]]</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-2 form-group">
+                                                <select class="form-control select2 show-tick" data-width="100%" name="aniodx6_11" v-select2 required>
+                                                    <option value="-">Seleccione Año</option>
+                                                    <option value="2021">2021</option>
+                                                    <option value="2022">2022</option>
+                                                    <option value="TODOS">TODOS</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-2 form-group">
+                                                <select class="form-control select2 show-tick" data-width="100%" name="typedx6_11" v-select2 required>
+                                                    <option value="" selected>Seleccione Tipo</option>
+                                                    <option value="nominal">NOMINAL</option>
+                                                    <option value="conteo">CONTEO</option>
+                                                </select>
+                                            </div>
+                                            <button type="submit" class="btn btn-outline-success btn-block btn-sm mt-1 font-12 w-100"><i class="fa fa-print"></i> Descargar</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL NIÑOS DE 6 A 11 MESES PAQUETE -->
+        <div class="modal fade" id="modal4_5m" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Paquete Niños de 4 a 5 Meses</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="mb-2 col-md-3">
+                                    <select class="form-control" data-width="100%" v-model="anioTabl45" @change="tableResumPack4_5">
+                                        <option value="2021">2021</option>
+                                        <option value="2022">2022</option>
+                                        <option value="TODOS">TODOS</option>
+                                    </select>
+                                </div>
+                                <div class="table-responsive" id="cred_juntos">
+                                    <table class="table table-hover table-bordered">
+                                        <thead>
+                                            <tr class="font-10 text-center" style="background: #e0eff5;">
+                                                <th class="align-middle">#</th>
+                                                <th class="align-middle">Provincia</th>
+                                                <th class="align-middle">Distrito</th>
+                                                <th class="align-middle">Den</th>
+                                                <th class="align-middle">Num His</th>
+                                                <th class="align-middle">%</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr v-for="(format, key) in lisTablResumPack4_5" class="font-9">
+                                                <td class="align-middle text-center">[[ key+1 ]]</td>
+                                                <td class="align-middle">[[ format.PROVINCIA ]]</td>
+                                                <td class="align-middle">[[ format.DISTRITO ]]</td>
+                                                <td class="align-middle text-center">[[ format.DENOMINADOR ]]</td>
+                                                <td class="align-middle text-center">[[ format.PAQUETE ]]</td>
+                                                <td class="align-middle text-center">[[ Math.round(format.AVANCE_HIS) ]]%</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <br><br>
+                                <div class="card" style="border-color: #198754;">
+                                <h5 class="card-header text-white text-center p-1 font-13" style="background: #198754;">4 a 5 Meses </h5>
+                                    <div class="card-body p-2">
+                                        <form method="POST" id="form45" @submit.prevent="Print45">
+                                            <div class="mb-2 form-group">
+                                                <select class="form-control select2 show-tick" data-width="100%" v-model="red" name="red4_5" @change="filtersDistricts" v-select2 required>
+                                                    <option value="">Seleccione Red</option>
+                                                    <option v-for="format in listProvinces" :value="format.Provincia">[[ format.Provincia ]]</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-2 form-group">
+                                                <select class="form-control select2 show-tick" data-width="100%" name="dist4_5" v-select2 required>
+                                                    <option value="">Seleccione Distrito</option>
+                                                    <option v-for="format in listDistricts" :value="format.Distrito">[[ format.Distrito ]]</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-2 form-group">
+                                                <select class="form-control select2 show-tick" data-width="100%" name="anio4_5" v-select2 required>
+                                                    <option value="-">Seleccione Año</option>
+                                                    <option value="2021">2021</option>
+                                                    <option value="2022">2022</option>
+                                                    <option value="TODOS">TODOS</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-2 form-group">
+                                                <select class="form-control select2 show-tick" data-width="100%" name="type4_5" v-select2 required>
+                                                    <option value="" selected>Seleccione Tipo</option>
+                                                    <option value="nominal">NOMINAL</option>
+                                                    <option value="conteo">CONTEO</option>
+                                                </select>
+                                            </div>
+                                            <button type="submit" class="btn btn-outline-success btn-block btn-sm mt-1 font-12 w-100"><i class="fa fa-print"></i> Descargar</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- MODAL CRED RECIEN NACIDOS -->
         <div class="modal fade" id="modalRecienNacidos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -1430,7 +1641,6 @@
             </div>
         </div>
 
-
         <!-- MODAL TAMIZAJE 18 MESES -->
         <div class="modal fade" id="modalTmz18meses" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -1517,8 +1727,6 @@
                 </div>
             </div>
         </div>
-
-
     </div>
 
     <script src="./js/meta4/kids/js/met4kids.js"></script>
