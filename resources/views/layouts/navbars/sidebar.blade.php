@@ -203,15 +203,9 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ url('/patients') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Niños</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Gestante</p>
+                                <p>Niños y Gestantes</p>
                             </a>
                         </li>
                     </ul>
