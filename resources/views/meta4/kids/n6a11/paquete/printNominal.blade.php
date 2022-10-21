@@ -21,7 +21,7 @@
             </tr>
             <tr><td colspan="23"></td></tr>
             <tr>
-                <td colspan="23" style="font-size: 17px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">Reporte Nominal de Niños de 6 a 11 Meses {{ $anio }}</td>
+                <td colspan="23" style="font-size: 17px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">Reporte Nominal de Niños de 6 a 11 Meses</td>
             </tr>
             <tr><td colspan="23"></td></tr>
             <tr><td colspan="23"></td></tr>
@@ -77,7 +77,6 @@
                     <td>{{ $list->EH_10M }}</td>
                     <td>{{ $list->EH_11M }}</td>
                     <td>{{ $list->DOSAJE_HMB_6M }}</td>
-                    <td>{{ $list->DOSAJESHMB }}</td>
                     <td>{{ $list->ANEMIA_6M }}</td>
                     <td>{{ $list->MIDE }}</td>
                 </tr>

@@ -57,13 +57,9 @@ const appRecienNacidos = new Vue({
         anioTableTmz12M: 'TODOS',
         lisTablResumTmz12M: [],
         // PARA NIÑOS DE 6 A 11 MESES
-        anioGraf6_11m: 'TODOS',
         lisTablResumPack6_11: [],
-        anioTabl611: 'TODOS',
-        anioTablDx611: 'TODOS',
         lisTablResumDX6_11: [],
 
-        anioGraf4_5m: 'TODOS',
         lisTablResumPack4_5: [],
         anioTabl45: 'TODOS',
         lisTablResumPack4_5: [],
@@ -511,7 +507,6 @@ const appRecienNacidos = new Vue({
             })
         },
 
-
         tableResumTmz18M: function(){
             axios({
                 method: 'POST',
@@ -531,7 +526,6 @@ const appRecienNacidos = new Vue({
             axios({
                 method: 'POST',
                 url: 'met4kids/grafAgeMonth',
-                data: { "id": this.anioGraf6_11m },
             })
             .then(respuesta => {
                 $('#myChart6_11m').remove();
@@ -566,7 +560,7 @@ const appRecienNacidos = new Vue({
             axios({
                 method: 'POST',
                 url: 'met4kids/tableResumPackKids',
-                data: { "id": this.anioTabl611, "type": "6_11" },
+                data: { "type": "6_11" },
             })
             .then(response => {
                 this.lisTablResumPack6_11 = response.data[0];
@@ -586,7 +580,7 @@ const appRecienNacidos = new Vue({
             axios({
                 method: 'POST',
                 url: 'met4kids/tableResumPackKids',
-                data: { "id": this.anioTablDx611, "type": "dx_ane" },
+                data: { "type": "dx_ane" },
             })
             .then(response => {
                 this.lisTablResumDX6_11 = response.data[1];
@@ -607,7 +601,6 @@ const appRecienNacidos = new Vue({
             axios({
                 method: 'POST',
                 url: 'met4kids/grafAgeMonth',
-                data: { "id": this.anioGraf4_5m },
             })
             .then(respuesta => {
                 $('#myChart4_5m').remove();
@@ -642,7 +635,7 @@ const appRecienNacidos = new Vue({
             axios({
                 method: 'POST',
                 url: 'met4kids/tableResumPackKids',
-                data: { "id": this.anioTabl45, "type": "n4_5" },
+                data: { "type": "n4_5" },
             })
             .then(response => {
                 this.lisTablResumPack4_5 = response.data[2];

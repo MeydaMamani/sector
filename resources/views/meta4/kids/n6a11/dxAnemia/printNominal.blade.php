@@ -21,7 +21,7 @@
             </tr>
             <tr><td colspan="14"></td></tr>
             <tr>
-                <td colspan="14" style="font-size: 17px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">Reporte Nominal de Niños con Dx Anemia de 6 a 11 Meses - {{ $anio }}</td>
+                <td colspan="14" style="font-size: 17px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">Reporte Nominal de Niños con Dx Anemia de 6 a 11 Meses</td>
             </tr>
             <tr><td colspan="14"></td></tr>
             <tr><td colspan="14"></td></tr>
@@ -34,7 +34,7 @@
                 <th style="background: #DDEBF7; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Establecimiento</th>
                 <th style="background: #DDEBF7; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Fecha Nacido</th>
                 <th style="background: #B5D3FA; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Documento</th>
-                <th style="background: #B5D3FA; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Anemia 6 Meses</th>
+                <th style="background: #B5D3FA; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Dosaje Anemia</th>
                 <th style="background: #B5D3FA; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Suple 6</th>
                 <th style="background: #B5D3FA; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Suple 7</th>
                 <th style="background: #B5D3FA; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Suple 8</th>

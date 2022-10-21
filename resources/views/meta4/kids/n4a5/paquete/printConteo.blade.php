@@ -21,7 +21,7 @@
             </tr>
             <tr><td colspan="6"></td></tr>
             <tr>
-                <td colspan="6" style="font-size: 16px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">Reporte de Niños de 4 a 5 Meses - Conteo {{ $anio }}</td>
+                <td colspan="6" style="font-size: 16px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">Reporte de Niños de 4 a 5 Meses - Conteo</td>
             </tr>
             <tr><td colspan="6"></td></tr>
             <tr><td colspan="6"></td></tr>
