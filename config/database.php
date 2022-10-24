@@ -93,7 +93,7 @@ return [
             // 'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
         ],
 
-        'BDHIS_MINSA_EXTERNO_V2' => [
+        'BD_JUNTOS' => [
             'driver' => 'sqlsrv',
             'url' => env('DATABASE_URL'),
             'host' => env('DB_HOST', '127.0.0.1'),
@@ -132,7 +132,7 @@ return [
             'prefix_indexes' => true,
         ],
 
-        'BD_JUNTOS' => [
+        'PAQUETE' => [
             'driver' => 'sqlsrv',
             'url' => env('DATABASE_URL'),
             'host' => env('DB_HOST', '127.0.0.1'),
@@ -144,6 +144,7 @@ return [
             'prefix' => '',
             'prefix_indexes' => true,
         ],
+
     ],
 
     /*

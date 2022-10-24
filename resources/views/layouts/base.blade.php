@@ -47,11 +47,22 @@
         <script src="plugins/jquery/jquery.min.js"></script>
         <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 
+        <!-- SweetAlert2 -->
+        <link rel="stylesheet" href="plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+
         <!-- VUE -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0/axios.min.js"></script>
         <script src="./plugins/vue/vue.js"></script>
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+        <!-- link para iconos -->
+        <link rel="stylesheet" href="./css/materialdesignicons.css">
+        <link rel="stylesheet" href="./css/materialdesignicons.min.css">
+
+        <!-- estilos css -->
+        <link rel="stylesheet" href="{{ asset('./css/styleVaccine.css') }}"/>
+        <link rel="stylesheet" href="{{ asset('./css/stylePregnant.css') }}"/>
+        <script src="./js/hammer/hammer.min.js"></script>
         @yield('css')
     </head>
     <body class="hold-transition sidebar-mini layout-fixed">
@@ -100,7 +111,8 @@
         <script src="dist/js/demo.js"></script>
         <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
         <script src="dist/js/pages/dashboard.js"></script>
-
+        <!-- SweetAlert2 -->
+        <script src="plugins/sweetalert2/sweetalert2.min.js"></script>
         <!-- Select2 -->
         <script src="plugins/select2/js/select2.full.min.js"></script>
         <script>

@@ -11,6 +11,8 @@ use App\Http\Controllers\meta4\mKidsController;
 use App\Http\Controllers\cuna\SafController;
 use App\Http\Controllers\cuna\ScdController;
 
+use App\Http\Controllers\PaqueteController;
+
 // Route::get('/', function () { return view('index'); });
 Route::get('/', [LoginController::class, 'index']) ->name('login');
 Route::post('/', [LoginController::class, 'loginAuth']) ->name('login.loginAuth');
@@ -91,3 +93,7 @@ Route::get('/cunaSaf/print', [SafController::class, 'printNominal']);
 
 Route::get('/cunaScd', [ScdController::class, 'indexScd']);
 Route::get('/cunaScd/print', [ScdController::class, 'printNominal']);
+
+Route::get('/patients', [PaqueteController::class, 'index']);
+Route::post('/patients/kids', [PaqueteController::class, 'searchKids']);
+Route::post('/patients/pregnant', [PaqueteController::class, 'searchPregnant']);
