@@ -676,4 +676,3 @@ const appRecienNacidos = new Vue({
         },
     }
 })
-
