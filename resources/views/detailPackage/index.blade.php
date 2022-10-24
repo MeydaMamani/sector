@@ -6,7 +6,7 @@
             <section class="content">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-6 mt-3 text-end">
+                        <div class="col-md-5 mt-3 text-end">
                             <div class="card">
                                 <div class="card-body border border-primary p-2">
                                     <form method="POST" id="formulario" @submit.prevent="searchFormUser">
@@ -23,8 +23,8 @@
                                             </div>
                                             <div class="col-md-4 mt-1 p-0">
                                                 <div class="d-flex justify-content-center">
-                                                    <button class="btn btn-primary btn-sm m-1" type="submit"><i class="mdi mdi-magnify"></i> Buscar</button>
-                                                    <button class="btn btn-secondary btn-sm m-1" type="button" id="clear"><i class="mdi mdi-broom"></i> Limpiar</button>
+                                                    <button class="btn btn-primary btn-sm m-1" type="submit"> Buscar</button>
+                                                    <button class="btn btn-secondary btn-sm m-1" type="button" id="clear"> Limpiar</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -32,14 +32,14 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 mt-4">
+                        <div class="col-md-5 mt-4">
                             <ul class="list-group p-1" v-show="viewKids">
                                 <li class="list-group-item d-flex border-primary text-center">
                                     <div class="col-md-5">
-                                        <b>Número de DNI: </b><span> [[ listsKids.DOCUMENTO ]]</span>
+                                        <b>DNI: </b><span> [[ listsKids.DOCUMENTO ]]</span>
                                     </div>
                                     <div class="col-md-7">
-                                        <b>Fecha de Nacimiento:</b><span> [[ listsKids.FECHA_NACIMIENTO_NINO ]]</span>
+                                        <b>Fecha de Nacido:</b><span> [[ listsKids.FECHA_NACIMIENTO_NINO ]]</span>
                                     </div>
                                 </li>
                             </ul>
@@ -48,6 +48,15 @@
                                     <b class="mr-3">Número de DNI: </b><span> [[ listPregnant.DOCUMENTO ]]</span>
                                 </li>
                             </ul>
+                        </div>
+                        <div class="col-md-2 mt-3" v-show="nameBdView">
+                            <div class="box mt-3">
+                              <span></span>
+                              <span class="span2"></span>
+                              <span></span>
+                              <span class="span2"></span>
+                              <h6 class="text-center mb-0">[[ nameBD.BD ]]</h6>
+                            </div>
                         </div>
                     </div>
                     <div class="page-wrapper">

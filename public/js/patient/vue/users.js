@@ -7,7 +7,9 @@ const appPer = new Vue({
         listPregnant: [],
         viewKids: false,
         viewPregnant: false,
-        type: 1
+        type: 1,
+        nameBD: '',
+        nameBdView:'',
     },
     created: function () {
         this.inputUser();
@@ -19,7 +21,6 @@ const appPer = new Vue({
 
         searchFormUser: function(){
             const formData = $("#formulario").serialize();
-
             if(this.type == 1){
                 axios({
                     method: 'POST',
@@ -27,19 +28,22 @@ const appPer = new Vue({
                     data: formData,
                 })
                 .then(response => {
-                    if(response.data.length < 1){
+                    if(response.data[1].length < 1){
                         Swal.fire({
                             icon: 'error',
                             title: 'El usuario no ha sido encontrado...!',
-                            text: 'Usuario no registrado en Padrón Nominal y His Minsa.',
+                            // text: 'Usuario no registrado en Padrón Nominal y His Minsa.',
                         })
 
                         this.viewKids = false
                         this.viewPregnant = false
+                        this.nameBdView = false
                     }else{
-                        this.listsKids = response.data[0];
+                        this.nameBD = response.data[0];
+                        this.listsKids = response.data[1][0];
                         this.viewKids = true
                         this.viewPregnant = false
+                        this. nameBdView = true
                     }
                     document.getElementById("formulario").reset();
 
