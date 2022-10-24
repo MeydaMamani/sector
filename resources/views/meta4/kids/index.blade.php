@@ -106,7 +106,7 @@
                                                         Paquete
                                                     </button>
                                                     <button class="btn btn-outline-info w-100 btn-sm mb-2" data-toggle="modal" data-target="#modaldxanem6_11m" @click="tableResumDxAnemia">
-                                                        Dx Anemia
+                                                        Dx Anemia y Tto
                                                     </button>
                                                 </div>
                                             </div>
@@ -428,7 +428,7 @@
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Dx Anemia Niños de 6 a 11 Meses</h5>
+                        <h5 class="modal-title" id="staticBackdropLabel">Dx Anemia y Tratamiento en Niños de 6 a 11 Meses</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     </div>
                     <div class="modal-body">
