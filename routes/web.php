@@ -55,6 +55,8 @@ Route::get('/juntkids/printTmz6M', [jKidsController::class, 'printTmz6M']);
 Route::get('/juntkids/printTmz12M', [jKidsController::class, 'printTmz12M']);
 Route::get('/juntkids/printTmz18M', [jKidsController::class, 'printTmz18M']);
 
+
+
 Route::get('/met4kids', [mKidsController::class, 'indexKids']);
 Route::get('/met4kids/print', [mKidsController::class, 'printKids']);
 Route::post('/met4kids/list', [mKidsController::class, 'totalData']);
