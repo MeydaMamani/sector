@@ -50,12 +50,16 @@ Route::get('/juntkids/printVaccine2M', [jKidsController::class, 'printVaccine2M'
 Route::get('/juntkids/printVaccine4M', [jKidsController::class, 'printVaccine4M']);
 Route::get('/juntkids/printVaccine6M', [jKidsController::class, 'printVaccine6M']);
 
+Route::post('/juntkids/grafTmz', [jKidsController::class, 'forGrafTmz']);
+Route::post('/juntkids/tableResumTmz', [jKidsController::class, 'tableResumTmz']);
+Route::get('/juntkids/printTmz6M', [jKidsController::class, 'printTmz6M']);
+Route::get('/juntkids/printTmz12M', [jKidsController::class, 'printTmz12M']);
+Route::get('/juntkids/printTmz18M', [jKidsController::class, 'printTmz18M']);
+
 Route::get('/juntpregnants', [jPregnantsController::class, 'indexPregnants']);
 Route::get('/juntpregnants/print', [jPregnantsController::class, 'printPregnants']);
 Route::post('/juntpregnants/list', [jPregnantsController::class, 'totalData']);
 Route::post('/juntpregnants/grafEA', [jPregnantsController::class, 'forGrafEA']);
-
-
 
 Route::get('/met4kids', [mKidsController::class, 'indexKids']);
 Route::get('/met4kids/print', [mKidsController::class, 'printKids']);
