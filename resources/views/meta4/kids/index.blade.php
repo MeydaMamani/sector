@@ -94,6 +94,14 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
+                                                    <div class="mb-2 filter_fed">
+                                                        <select class="form-control" data-width="100%" v-model="anioGraf6_11m" @change="grafChilds6_11m">
+                                                            <option value="-">Seleccione año</option>
+                                                            <option value="2021">2021</option>
+                                                            <option value="2022">2022</option>
+                                                            <option value="TODOS">TODOS</option>
+                                                        </select>
+                                                    </div>
                                                     <button class="btn btn-outline-info w-100 btn-sm mb-2" data-toggle="modal" data-target="#modal6_11m" @click="tableResumPack6_11">
                                                         Paquete
                                                     </button>
@@ -126,6 +134,14 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
+                                                    <div class="mb-2 filter_fed">
+                                                        <select class="form-control" data-width="100%" v-model="anioGraf6_11m" @change="grafChilds4_5m">
+                                                            <option value="-">Seleccione año</option>
+                                                            <option value="2021">2021</option>
+                                                            <option value="2022">2022</option>
+                                                            <option value="TODOS">TODOS</option>
+                                                        </select>
+                                                    </div>
                                                     <button class="btn btn-outline-secondary w-100 btn-sm mb-2" data-toggle="modal" data-target="#modal4_5m" @click="tableResumPack4_5">
                                                         Paquete
                                                     </button>
@@ -302,10 +318,10 @@
                                                     <button class="btn btn-outline-success w-100 btn-sm mb-2" data-toggle="modal" data-target="#modalTmz6M" @click="tableResumTmz6M">
                                                         6 Meses
                                                     </button>
-                                                    <button class="btn btn-outline-success w-100 btn-sm mb-2" data-toggle="modal">
+                                                    <button class="btn btn-outline-success w-100 btn-sm mb-2" data-toggle="modal" data-target="#modalTmz12M" @click="tableResumTmz12M">
                                                         12 Meses
                                                     </button>
-                                                    <button class="btn btn-outline-success w-100 btn-sm mb-2" data-toggle="modal">
+                                                    <button class="btn btn-outline-success w-100 btn-sm mb-2" data-toggle="modal" data-target="#modalTmz18M" @click="tableResumTmz18M">
                                                         18 Meses
                                                     </button>
                                                 </div>
@@ -331,6 +347,13 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-9">
+                                <div class="mb-2 col-md-3">
+                                    <select class="form-control" data-width="100%" v-model="anioTabl611" @change="tableResumPack6_11">
+                                        <option value="2021">2021</option>
+                                        <option value="2022">2022</option>
+                                        <option value="TODOS">TODOS</option>
+                                    </select>
+                                </div>
                                 <div class="table-responsive" id="cred_juntos">
                                     <table class="table table-hover table-bordered">
                                         <thead>
@@ -357,6 +380,7 @@
                                 </div>
                             </div>
                             <div class="col-md-3">
+                                <br><br>
                                 <div class="card" style="border-color: #198754;">
                                 <h5 class="card-header text-white text-center p-1 font-13" style="background: #198754;">6 a 11 Meses </h5>
                                     <div class="card-body p-2">
@@ -371,6 +395,14 @@
                                                 <select class="form-control select2 show-tick" data-width="100%" name="dist6_11" v-select2 required>
                                                     <option value="">Seleccione Distrito</option>
                                                     <option v-for="format in listDistricts" :value="format.Distrito">[[ format.Distrito ]]</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-2 form-group">
+                                                <select class="form-control select2 show-tick" data-width="100%" name="anio6_11" v-select2 required>
+                                                    <option value="-">Seleccione Año</option>
+                                                    <option value="2021">2021</option>
+                                                    <option value="2022">2022</option>
+                                                    <option value="TODOS">TODOS</option>
                                                 </select>
                                             </div>
                                             <div class="mb-2 form-group">
@@ -402,6 +434,13 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-9">
+                                <div class="mb-2 col-md-3">
+                                    <select class="form-control" data-width="100%" v-model="anioTablDx611" @change="tableResumDxAnemia">
+                                        <option value="2021">2021</option>
+                                        <option value="2022">2022</option>
+                                        <option value="TODOS">TODOS</option>
+                                    </select>
+                                </div>
                                 <div class="table-responsive" id="cred_juntos">
                                     <table class="table table-hover table-bordered">
                                         <thead>
@@ -428,6 +467,7 @@
                                 </div>
                             </div>
                             <div class="col-md-3">
+                                <br><br>
                                 <div class="card" style="border-color: #198754;">
                                 <h5 class="card-header text-white text-center p-1 font-13" style="background: #198754;">6 a 11 Meses </h5>
                                     <div class="card-body p-2">
@@ -442,6 +482,14 @@
                                                 <select class="form-control select2 show-tick" data-width="100%" name="distdx6_11" v-select2 required>
                                                     <option value="">Seleccione Distrito</option>
                                                     <option v-for="format in listDistricts" :value="format.Distrito">[[ format.Distrito ]]</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-2 form-group">
+                                                <select class="form-control select2 show-tick" data-width="100%" name="aniodx6_11" v-select2 required>
+                                                    <option value="-">Seleccione Año</option>
+                                                    <option value="2021">2021</option>
+                                                    <option value="2022">2022</option>
+                                                    <option value="TODOS">TODOS</option>
                                                 </select>
                                             </div>
                                             <div class="mb-2 form-group">
@@ -462,7 +510,7 @@
             </div>
         </div>
 
-        <!-- MODAL NIÑOS DE 4 a 5 MESES PAQUETE -->
+        <!-- MODAL NIÑOS DE 6 A 11 MESES PAQUETE -->
         <div class="modal fade" id="modal4_5m" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
@@ -473,6 +521,13 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-9">
+                                <div class="mb-2 col-md-3">
+                                    <select class="form-control" data-width="100%" v-model="anioTabl45" @change="tableResumPack4_5">
+                                        <option value="2021">2021</option>
+                                        <option value="2022">2022</option>
+                                        <option value="TODOS">TODOS</option>
+                                    </select>
+                                </div>
                                 <div class="table-responsive" id="cred_juntos">
                                     <table class="table table-hover table-bordered">
                                         <thead>
@@ -499,6 +554,7 @@
                                 </div>
                             </div>
                             <div class="col-md-3">
+                                <br><br>
                                 <div class="card" style="border-color: #198754;">
                                 <h5 class="card-header text-white text-center p-1 font-13" style="background: #198754;">4 a 5 Meses </h5>
                                     <div class="card-body p-2">
@@ -513,6 +569,14 @@
                                                 <select class="form-control select2 show-tick" data-width="100%" name="dist4_5" v-select2 required>
                                                     <option value="">Seleccione Distrito</option>
                                                     <option v-for="format in listDistricts" :value="format.Distrito">[[ format.Distrito ]]</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-2 form-group">
+                                                <select class="form-control select2 show-tick" data-width="100%" name="anio4_5" v-select2 required>
+                                                    <option value="-">Seleccione Año</option>
+                                                    <option value="2021">2021</option>
+                                                    <option value="2022">2022</option>
+                                                    <option value="TODOS">TODOS</option>
                                                 </select>
                                             </div>
                                             <div class="mb-2 form-group">
@@ -1578,18 +1642,18 @@
         </div>
 
         <!-- MODAL TAMIZAJE 18 MESES -->
-        <div class="modal fade" id="modalTmz18meses" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="modalTmz18M" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Total de Niños de 1 a 2 Años</h5>
+                        <h5 class="modal-title" id="staticBackdropLabel">Tamizaje - 18 meses</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     </div>
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-9">
                                 <div class="mb-2 col-md-3">
-                                    <select class="form-control" data-width="100%" v-model="anioTableCred12" @change="tableResumCred12">
+                                    <select class="form-control" data-width="100%" v-model="anioTableTmz18M" @change="tableResumTmz18M">
                                         <option value="2021">2021</option>
                                         <option value="2022">2022</option>
                                         <option value="TODOS">TODOS</option>
@@ -1608,12 +1672,12 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr v-for="(format, key) in lisTableResumCred12" class="font-9">
+                                            <tr v-for="(format, key) in lisTablResumTmz18M" class="font-9">
                                                 <td class="align-middle text-center">[[ key+1 ]]</td>
                                                 <td class="align-middle">[[ format.PROVINCIA ]]</td>
                                                 <td class="align-middle">[[ format.DISTRITO ]]</td>
                                                 <td class="align-middle text-center">[[ format.DENOMINADOR ]]</td>
-                                                <td class="align-middle text-center">[[ format.RN_HIS_NUM ]]</td>
+                                                <td class="align-middle text-center">[[ format.TMZ_HIS ]]</td>
                                                 <td class="align-middle text-center">[[ Math.round(format.AVANCE_HIS) ]]%</td>
                                             </tr>
                                         </tbody>
@@ -1623,23 +1687,23 @@
                             <div class="col-md-3">
                                 <br><br>
                                 <div class="card" style="border-color: #198754;">
-                                <h5 class="card-header text-white text-center p-1 font-13" style="background: #198754;">Niños menores de 1 año</h5>
+                                <h5 class="card-header text-white text-center p-1 font-13" style="background: #198754;">Tamizaje</h5>
                                     <div class="card-body p-2">
-                                        <form method="POST" id="formCred12" @submit.prevent="PrintCred12">
+                                        <form method="POST" id="formTmz18M" @submit.prevent="PrintTmz18M">
                                             <div class="mb-2 form-group">
-                                                <select class="form-control select2 show-tick" data-width="100%" v-model="red" name="provCred12" @change="filtersDistricts" v-select2 required>
+                                                <select class="form-control select2 show-tick" data-width="100%" v-model="red" name="redTmz18M" @change="filtersDistricts" v-select2 required>
                                                     <option value="">Seleccione Red</option>
                                                     <option v-for="format in listProvinces" :value="format.Provincia">[[ format.Provincia ]]</option>
                                                 </select>
                                             </div>
                                             <div class="mb-2 form-group">
-                                                <select class="form-control select2 show-tick" data-width="100%" name="distCred12" v-select2 required>
+                                                <select class="form-control select2 show-tick" data-width="100%" name="distTmz18M" v-select2 required>
                                                     <option value="">Seleccione Distrito</option>
                                                     <option v-for="format in listDistricts" :value="format.Distrito">[[ format.Distrito ]]</option>
                                                 </select>
                                             </div>
                                             <div class="mb-2 form-group">
-                                                <select class="form-control select2 show-tick" data-width="100%" name="anioCred12" v-select2 required>
+                                                <select class="form-control select2 show-tick" data-width="100%" name="anioTmz18M" v-select2 required>
                                                     <option value="-">Seleccione Año</option>
                                                     <option value="2021">2021</option>
                                                     <option value="2022">2022</option>
@@ -1647,7 +1711,7 @@
                                                 </select>
                                             </div>
                                             <div class="mb-2 form-group">
-                                                <select class="form-control select2 show-tick" data-width="100%" name="typeCred12" v-select2 required>
+                                                <select class="form-control select2 show-tick" data-width="100%" name="typeTmz18M" v-select2 required>
                                                     <option value="" selected>Seleccione Tipo</option>
                                                     <option value="nominal">NOMINAL</option>
                                                     <option value="conteo">CONTEO</option>

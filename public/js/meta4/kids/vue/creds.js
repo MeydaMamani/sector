@@ -56,10 +56,16 @@ const appRecienNacidos = new Vue({
         lisTablResumTmz6M: [],
         anioTableTmz12M: 'TODOS',
         lisTablResumTmz12M: [],
+        anioTableTmz18M: 'TODOS',
+        lisTablResumTmz18M: [],
         // PARA NIÑOS DE 6 A 11 MESES
+        anioGraf6_11m: 'TODOS',
         lisTablResumPack6_11: [],
+        anioTabl611: 'TODOS',
+        anioTablDx611: 'TODOS',
         lisTablResumDX6_11: [],
 
+        anioGraf4_5m: 'TODOS',
         lisTablResumPack4_5: [],
         anioTabl45: 'TODOS',
         lisTablResumPack4_5: [],
@@ -507,6 +513,7 @@ const appRecienNacidos = new Vue({
             })
         },
 
+
         tableResumTmz18M: function(){
             axios({
                 method: 'POST',
@@ -520,12 +527,28 @@ const appRecienNacidos = new Vue({
                 this.errors.push(e)
             })
         },
+        PrintTmz6M: function(){
+            const formData = $("#formTmz6M").serialize();
+            url_ = window.location.origin + window.location.pathname + '/printTmz6M?' + formData;
+            window.open(url_,'_blank');
+        },
+        PrintTmz12M: function(){
+            const formData = $("#formTmz12M").serialize();
+            url_ = window.location.origin + window.location.pathname + '/printTmz12M?' + formData;
+            window.open(url_,'_blank');
+        },
+        PrintTmz18M: function(){
+            const formData = $("#formTmz18M").serialize();
+            url_ = window.location.origin + window.location.pathname + '/printTmz18M?' + formData;
+            window.open(url_,'_blank');
+        },
 
         // PARA GRAFICAS DE 6 A 11 MESES
         grafChilds6_11m: function(){
             axios({
                 method: 'POST',
                 url: 'met4kids/grafAgeMonth',
+                data: { "id": this.anioGraf6_11m },
             })
             .then(respuesta => {
                 $('#myChart6_11m').remove();
@@ -560,7 +583,7 @@ const appRecienNacidos = new Vue({
             axios({
                 method: 'POST',
                 url: 'met4kids/tableResumPackKids',
-                data: { "type": "6_11" },
+                data: { "id": this.anioTabl611, "type": "6_11" },
             })
             .then(response => {
                 this.lisTablResumPack6_11 = response.data[0];
@@ -580,7 +603,7 @@ const appRecienNacidos = new Vue({
             axios({
                 method: 'POST',
                 url: 'met4kids/tableResumPackKids',
-                data: { "type": "dx_ane" },
+                data: { "id": this.anioTablDx611, "type": "dx_ane" },
             })
             .then(response => {
                 this.lisTablResumDX6_11 = response.data[1];
@@ -601,6 +624,7 @@ const appRecienNacidos = new Vue({
             axios({
                 method: 'POST',
                 url: 'met4kids/grafAgeMonth',
+                data: { "id": this.anioGraf4_5m },
             })
             .then(respuesta => {
                 $('#myChart4_5m').remove();
@@ -635,7 +659,7 @@ const appRecienNacidos = new Vue({
             axios({
                 method: 'POST',
                 url: 'met4kids/tableResumPackKids',
-                data: { "type": "n4_5" },
+                data: { "id": this.anioTabl45, "type": "n4_5" },
             })
             .then(response => {
                 this.lisTablResumPack4_5 = response.data[2];
