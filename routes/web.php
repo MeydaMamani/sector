@@ -6,6 +6,7 @@ use App\Http\Controllers\main\DashboardController;
 use App\Http\Controllers\main\MainController;
 use App\Http\Controllers\fed\KidsController;
 use App\Http\Controllers\juntos\jKidsController;
+use App\Http\Controllers\juntos\jPregnantsController;
 use App\Http\Controllers\meta4\mKidsController;
 use App\Http\Controllers\cuna\SafController;
 use App\Http\Controllers\cuna\ScdController;
@@ -49,11 +50,10 @@ Route::get('/juntkids/printVaccine2M', [jKidsController::class, 'printVaccine2M'
 Route::get('/juntkids/printVaccine4M', [jKidsController::class, 'printVaccine4M']);
 Route::get('/juntkids/printVaccine6M', [jKidsController::class, 'printVaccine6M']);
 
-Route::post('/juntkids/grafTmz', [jKidsController::class, 'forGrafTmz']);
-Route::post('/juntkids/tableResumTmz', [jKidsController::class, 'tableResumTmz']);
-Route::get('/juntkids/printTmz6M', [jKidsController::class, 'printTmz6M']);
-Route::get('/juntkids/printTmz12M', [jKidsController::class, 'printTmz12M']);
-Route::get('/juntkids/printTmz18M', [jKidsController::class, 'printTmz18M']);
+Route::get('/juntpregnants', [jPregnantsController::class, 'indexPregnants']);
+Route::get('/juntpregnants/print', [jPregnantsController::class, 'printPregnants']);
+Route::post('/juntpregnants/list', [jPregnantsController::class, 'totalData']);
+Route::post('/juntpregnants/grafEA', [jPregnantsController::class, 'forGrafEA']);
 
 
 
@@ -80,6 +80,9 @@ Route::get('/met4kids/printVac6', [mKidsController::class, 'printVac6']);
 
 Route::post('/met4kids/grafTmz', [mKidsController::class, 'forGrafTmz']);
 Route::post('/met4kids/tableResumTmz', [mKidsController::class, 'tableResumTmz']);
+Route::get('/met4kids/printTmz6M', [mKidsController::class, 'printTmz6M']);
+Route::get('/met4kids/printTmz12M', [mKidsController::class, 'printTmz12M']);
+Route::get('/met4kids/printTmz18M', [mKidsController::class, 'printTmz18M']);
 
 Route::post('/met4kids/grafAgeMonth', [mKidsController::class, 'forGrafAgeMonth']);
 Route::post('/met4kids/tableResumPackKids', [mKidsController::class, 'tableResumPackKids']);
