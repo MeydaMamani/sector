@@ -319,13 +319,13 @@
                                                 <td class="align-middle text-center">[[ Math.round(format.AVANCE_JUNT) ]]%</td>
                                                 <td class="align-middle text-center">[[ format.RN_HIS_NUM ]]</td>
                                                 <td class="align-middle text-center">[[ Math.round(format.AVANCE_HIS) ]]%</td>
-                                                <template v-if="format.AVANCE_JUNT == format.AVANCE_HIS">
+                                                <template v-if="Math.round(format.AVANCE_JUNT) == Math.round(format.AVANCE_HIS)">
                                                     <td class="align-middle text-center" style="background: #bbedbb;"></td>
                                                 </template>
-                                                <template v-else-if="format.AVANCE_JUNT < format.AVANCE_HIS">
+                                                <template v-else-if="Math.round(format.AVANCE_JUNT) < Math.round(format.AVANCE_HIS)">
                                                     <td class="align-middle text-center" style="background: #b5d3fa;"></td>
                                                 </template>
-                                                <template v-else-if="format.AVANCE_JUNT > format.AVANCE_HIS">
+                                                <template v-else-if="Math.round(format.AVANCE_JUNT) > Math.round(format.AVANCE_HIS)">
                                                     <td class="align-middle text-center" style="background: #f6c3cf;"></td>
                                                 </template>
                                             </tr>
@@ -422,13 +422,13 @@
                                                 <td class="align-middle text-center">[[ Math.round(format.AVANCE_JUNT) ]]%</td>
                                                 <td class="align-middle text-center">[[ format.RN_HIS_NUM ]]</td>
                                                 <td class="align-middle text-center">[[ Math.round(format.AVANCE_HIS) ]]%</td>
-                                                <template v-if="format.AVANCE_JUNT == format.AVANCE_HIS">
+                                                <template v-if="Math.round(format.AVANCE_JUNT) == Math.round(format.AVANCE_HIS)">
                                                     <td class="align-middle text-center" style="background: #bbedbb;"></td>
                                                 </template>
-                                                <template v-else-if="format.AVANCE_JUNT < format.AVANCE_HIS">
+                                                <template v-else-if="Math.round(format.AVANCE_JUNT) < Math.round(format.AVANCE_HIS)">
                                                     <td class="align-middle text-center" style="background: #b5d3fa;"></td>
                                                 </template>
-                                                <template v-else-if="format.AVANCE_JUNT > format.AVANCE_HIS">
+                                                <template v-else-if="Math.round(format.AVANCE_JUNT) > Math.round(format.AVANCE_HIS)">
                                                     <td class="align-middle text-center" style="background: #f6c3cf;"></td>
                                                 </template>
                                             </tr>
@@ -525,13 +525,13 @@
                                                 <td class="align-middle text-center">[[ Math.round(format.AVANCE_JUNT) ]]%</td>
                                                 <td class="align-middle text-center">[[ format.RN_HIS_NUM ]]</td>
                                                 <td class="align-middle text-center">[[ Math.round(format.AVANCE_HIS) ]]%</td>
-                                                <template v-if="format.AVANCE_JUNT == format.AVANCE_HIS">
+                                                <template v-if="Math.round(format.AVANCE_JUNT) == Math.round(format.AVANCE_HIS)">
                                                     <td class="align-middle text-center" style="background: #bbedbb;"></td>
                                                 </template>
-                                                <template v-else-if="format.AVANCE_JUNT < format.AVANCE_HIS">
+                                                <template v-else-if="Math.round(format.AVANCE_JUNT) < Math.round(format.AVANCE_HIS)">
                                                     <td class="align-middle text-center" style="background: #b5d3fa;"></td>
                                                 </template>
-                                                <template v-else-if="format.AVANCE_JUNT > format.AVANCE_HIS">
+                                                <template v-else-if="Math.round(format.AVANCE_JUNT) > Math.round(format.AVANCE_HIS)">
                                                     <td class="align-middle text-center" style="background: #f6c3cf;"></td>
                                                 </template>
                                             </tr>
@@ -731,13 +731,13 @@
                                                 <td class="align-middle text-center">[[ Math.round(format.AVANCE_JUNT)]]%</td>
                                                 <td class="align-middle text-center">[[ format.SUPLE4_5_HIS ]]</td>
                                                 <td class="align-middle text-center">[[ Math.round(format.AVANCE_HIS) ]]%</td>
-                                                <template v-if="format.AVANCE_JUNT == format.AVANCE_HIS">
+                                                <template v-if="Math.round(format.AVANCE_JUNT) == Math.round(format.AVANCE_HIS)">
                                                     <td class="align-middle text-center" style="background: #bbedbb;"></td>
                                                 </template>
-                                                <template v-else-if="format.AVANCE_JUNT < format.AVANCE_HIS">
+                                                <template v-else-if="Math.round(format.AVANCE_JUNT) < Math.round(format.AVANCE_HIS)">
                                                     <td class="align-middle text-center" style="background: #b5d3fa;"></td>
                                                 </template>
-                                                <template v-else-if="format.AVANCE_JUNT > format.AVANCE_HIS">
+                                                <template v-else-if="Math.round(format.AVANCE_JUNT) > Math.round(format.AVANCE_HIS)">
                                                     <td class="align-middle text-center" style="background: #f6c3cf;"></td>
                                                 </template>
                                             </tr>
@@ -834,13 +834,13 @@
                                                 <td class="align-middle text-center">[[ Math.round(format.AVANCE_JUNT)]]%</td>
                                                 <td class="align-middle text-center">[[ format.SUPLE6_11_HIS ]]</td>
                                                 <td class="align-middle text-center">[[ Math.round(format.AVANCE_HIS) ]]%</td>
-                                                <template v-if="format.AVANCE_JUNT == format.AVANCE_HIS">
+                                                <template v-if="Math.round(format.AVANCE_JUNT) == Math.round(format.AVANCE_HIS)">
                                                     <td class="align-middle text-center" style="background: #bbedbb;"></td>
                                                 </template>
-                                                <template v-else-if="format.AVANCE_JUNT < format.AVANCE_HIS">
+                                                <template v-else-if="Math.round(format.AVANCE_JUNT) < Math.round(format.AVANCE_HIS)">
                                                     <td class="align-middle text-center" style="background: #b5d3fa;"></td>
                                                 </template>
-                                                <template v-else-if="format.AVANCE_JUNT > format.AVANCE_HIS">
+                                                <template v-else-if="Math.round(format.AVANCE_JUNT) > Math.round(format.AVANCE_HIS)">
                                                     <td class="align-middle text-center" style="background: #f6c3cf;"></td>
                                                 </template>
                                             </tr>
@@ -937,13 +937,13 @@
                                                 <td class="align-middle text-center">[[ Math.round(format.AVANCE_JUNT)]]%</td>
                                                 <td class="align-middle text-center">[[ format.NUM_HIS ]]</td>
                                                 <td class="align-middle text-center">[[ Math.round(format.AVANCE_HIS) ]]%</td>
-                                                <template v-if="format.AVANCE_JUNT == format.AVANCE_HIS">
+                                                <template v-if="Math.round(format.AVANCE_JUNT) == Math.round(format.AVANCE_HIS)">
                                                     <td class="align-middle text-center" style="background: #bbedbb;"></td>
                                                 </template>
-                                                <template v-else-if="format.AVANCE_JUNT < format.AVANCE_HIS">
+                                                <template v-else-if="Math.round(format.AVANCE_JUNT) < Math.round(format.AVANCE_HIS)">
                                                     <td class="align-middle text-center" style="background: #b5d3fa;"></td>
                                                 </template>
-                                                <template v-else-if="format.AVANCE_JUNT > format.AVANCE_HIS">
+                                                <template v-else-if="Math.round(format.AVANCE_JUNT) > Math.round(format.AVANCE_HIS)">
                                                     <td class="align-middle text-center" style="background: #f6c3cf;"></td>
                                                 </template>
                                             </tr>
@@ -1040,13 +1040,13 @@
                                                 <td class="align-middle text-center">[[ Math.round(format.AVANCE_JUNT)]]%</td>
                                                 <td class="align-middle text-center">[[ format.VACUNAS_HIS ]]</td>
                                                 <td class="align-middle text-center">[[ Math.round(format.AVANCE_HIS) ]]%</td>
-                                                <template v-if="format.AVANCE_JUNT == format.AVANCE_HIS">
+                                                <template v-if="Math.round(format.AVANCE_JUNT) == Math.round(format.AVANCE_HIS)">
                                                     <td class="align-middle text-center" style="background: #bbedbb;"></td>
                                                 </template>
-                                                <template v-else-if="format.AVANCE_JUNT < format.AVANCE_HIS">
+                                                <template v-else-if="Math.round(format.AVANCE_JUNT) < Math.round(format.AVANCE_HIS)">
                                                     <td class="align-middle text-center" style="background: #b5d3fa;"></td>
                                                 </template>
-                                                <template v-else-if="format.AVANCE_JUNT > format.AVANCE_HIS">
+                                                <template v-else-if="Math.round(format.AVANCE_JUNT) > Math.round(format.AVANCE_HIS)">
                                                     <td class="align-middle text-center" style="background: #f6c3cf;"></td>
                                                 </template>
                                             </tr>
@@ -1143,13 +1143,13 @@
                                                 <td class="align-middle text-center">[[ Math.round(format.AVANCE_JUNT)]]%</td>
                                                 <td class="align-middle text-center">[[ format.VACUNAS_HIS ]]</td>
                                                 <td class="align-middle text-center">[[ Math.round(format.AVANCE_HIS) ]]%</td>
-                                                <template v-if="format.AVANCE_JUNT == format.AVANCE_HIS">
+                                                <template v-if="Math.round(format.AVANCE_JUNT) == Math.round(format.AVANCE_HIS)">
                                                     <td class="align-middle text-center" style="background: #bbedbb;"></td>
                                                 </template>
-                                                <template v-else-if="format.AVANCE_JUNT < format.AVANCE_HIS">
+                                                <template v-else-if="Math.round(format.AVANCE_JUNT) < Math.round(format.AVANCE_HIS)">
                                                     <td class="align-middle text-center" style="background: #b5d3fa;"></td>
                                                 </template>
-                                                <template v-else-if="format.AVANCE_JUNT > format.AVANCE_HIS">
+                                                <template v-else-if="Math.round(format.AVANCE_JUNT) > Math.round(format.AVANCE_HIS)">
                                                     <td class="align-middle text-center" style="background: #f6c3cf;"></td>
                                                 </template>
                                             </tr>
@@ -1246,13 +1246,13 @@
                                                 <td class="align-middle text-center">[[ Math.round(format.AVANCE_JUNT)]]%</td>
                                                 <td class="align-middle text-center">[[ format.VACUNAS_HIS ]]</td>
                                                 <td class="align-middle text-center">[[ Math.round(format.AVANCE_HIS) ]]%</td>
-                                                <template v-if="format.AVANCE_JUNT == format.AVANCE_HIS">
+                                                <template v-if="Math.round(format.AVANCE_JUNT) == Math.round(format.AVANCE_HIS)">
                                                     <td class="align-middle text-center" style="background: #bbedbb;"></td>
                                                 </template>
-                                                <template v-else-if="format.AVANCE_JUNT < format.AVANCE_HIS">
+                                                <template v-else-if="Math.round(format.AVANCE_JUNT) < Math.round(format.AVANCE_HIS)">
                                                     <td class="align-middle text-center" style="background: #b5d3fa;"></td>
                                                 </template>
-                                                <template v-else-if="format.AVANCE_JUNT > format.AVANCE_HIS">
+                                                <template v-else-if="Math.round(format.AVANCE_JUNT) > Math.round(format.AVANCE_HIS)">
                                                     <td class="align-middle text-center" style="background: #f6c3cf;"></td>
                                                 </template>
                                             </tr>
@@ -1349,13 +1349,13 @@
                                                 <td class="align-middle text-center">[[ Math.round(format.AVANCE_JUNT)]]%</td>
                                                 <td class="align-middle text-center">[[ format.TMZ_HIS ]]</td>
                                                 <td class="align-middle text-center">[[ Math.round(format.AVANCE_HIS) ]]%</td>
-                                                <template v-if="format.AVANCE_JUNT == format.AVANCE_HIS">
+                                                <template v-if="Math.round(format.AVANCE_JUNT) == Math.round(format.AVANCE_HIS)">
                                                     <td class="align-middle text-center" style="background: #bbedbb;"></td>
                                                 </template>
-                                                <template v-else-if="format.AVANCE_JUNT < format.AVANCE_HIS">
+                                                <template v-else-if="Math.round(format.AVANCE_JUNT) < Math.round(format.AVANCE_HIS)">
                                                     <td class="align-middle text-center" style="background: #b5d3fa;"></td>
                                                 </template>
-                                                <template v-else-if="format.AVANCE_JUNT > format.AVANCE_HIS">
+                                                <template v-else-if="Math.round(format.AVANCE_JUNT) > Math.round(format.AVANCE_HIS)">
                                                     <td class="align-middle text-center" style="background: #f6c3cf;"></td>
                                                 </template>
                                             </tr>
@@ -1452,13 +1452,13 @@
                                                 <td class="align-middle text-center">[[ Math.round(format.AVANCE_JUNT)]]%</td>
                                                 <td class="align-middle text-center">[[ format.TMZ_HIS ]]</td>
                                                 <td class="align-middle text-center">[[ Math.round(format.AVANCE_HIS) ]]%</td>
-                                                <template v-if="format.AVANCE_JUNT == format.AVANCE_HIS">
+                                                <template v-if="Math.round(format.AVANCE_JUNT) == Math.round(format.AVANCE_HIS)">
                                                     <td class="align-middle text-center" style="background: #bbedbb;"></td>
                                                 </template>
-                                                <template v-else-if="format.AVANCE_JUNT < format.AVANCE_HIS">
+                                                <template v-else-if="Math.round(format.AVANCE_JUNT) < Math.round(format.AVANCE_HIS)">
                                                     <td class="align-middle text-center" style="background: #b5d3fa;"></td>
                                                 </template>
-                                                <template v-else-if="format.AVANCE_JUNT > format.AVANCE_HIS">
+                                                <template v-else-if="Math.round(format.AVANCE_JUNT) > Math.round(format.AVANCE_HIS)">
                                                     <td class="align-middle text-center" style="background: #f6c3cf;"></td>
                                                 </template>
                                             </tr>
@@ -1555,13 +1555,13 @@
                                                 <td class="align-middle text-center">[[ Math.round(format.AVANCE_JUNT)]]%</td>
                                                 <td class="align-middle text-center">[[ format.TMZ_HIS ]]</td>
                                                 <td class="align-middle text-center">[[ Math.round(format.AVANCE_HIS) ]]%</td>
-                                                <template v-if="format.AVANCE_JUNT == format.AVANCE_HIS">
+                                                <template v-if="Math.round(format.AVANCE_JUNT) == Math.round(format.AVANCE_HIS)">
                                                     <td class="align-middle text-center" style="background: #bbedbb;"></td>
                                                 </template>
-                                                <template v-else-if="format.AVANCE_JUNT < format.AVANCE_HIS">
+                                                <template v-else-if="Math.round(format.AVANCE_JUNT) < Math.round(format.AVANCE_HIS)">
                                                     <td class="align-middle text-center" style="background: #b5d3fa;"></td>
                                                 </template>
-                                                <template v-else-if="format.AVANCE_JUNT > format.AVANCE_HIS">
+                                                <template v-else-if="Math.round(format.AVANCE_JUNT) > Math.round(format.AVANCE_HIS)">
                                                     <td class="align-middle text-center" style="background: #f6c3cf;"></td>
                                                 </template>
                                             </tr>

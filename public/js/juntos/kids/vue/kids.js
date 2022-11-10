@@ -219,6 +219,7 @@ const appRecienNacidos = new Vue({
             })
             .then(response => {
                 this.lisTableResumRn = response.data[0];
+                this.red = '';
 
             }).catch(e => {
                 this.errors.push(e)
@@ -239,6 +240,7 @@ const appRecienNacidos = new Vue({
             })
             .then(response => {
                 this.lisTableResumCredMes = response.data[1];
+                this.red = '';
 
             }).catch(e => {
                 this.errors.push(e)
@@ -259,6 +261,7 @@ const appRecienNacidos = new Vue({
             })
             .then(response => {
                 this.lisTableResumCred12 = response.data[2];
+                this.red = '';
 
             }).catch(e => {
                 this.errors.push(e)
@@ -278,6 +281,7 @@ const appRecienNacidos = new Vue({
                 data: { "id": this.anioTablePaquete, "type": "paquete" },
             })
             .then(response => {
+                this.red = '';
                 this.lisTableResumPaquete = response.data[3];
                 for(i=0;i<this.lisTableResumPaquete.length;i++){
                     this.lisTableResumPaquete[i].AVAN_JUNT = ((this.lisTableResumPaquete[i].NUM_JUNTOS / this.lisTableResumPaquete[i].DENOMINADOR)*100).toFixed(1);
@@ -348,6 +352,7 @@ const appRecienNacidos = new Vue({
             })
             .then(response => {
                 this.lisTabResumSuple45 = response.data[0];
+                this.red = '';
 
             }).catch(e => {
                 this.errors.push(e)
@@ -368,6 +373,7 @@ const appRecienNacidos = new Vue({
             })
             .then(response => {
                 this.lisTabResumSuple611 = response.data[1];
+                this.red = '';
 
             }).catch(e => {
                 this.errors.push(e)
@@ -388,6 +394,7 @@ const appRecienNacidos = new Vue({
             })
             .then(response => {
                 this.lisTabResumSuple12 = response.data[2];
+                this.red = '';
 
             }).catch(e => {
                 this.errors.push(e)
@@ -453,6 +460,7 @@ const appRecienNacidos = new Vue({
             })
             .then(response => {
                 this.lisTabResumVacc2M = response.data[0];
+                this.red = '';
 
             }).catch(e => {
                 this.errors.push(e)
@@ -473,6 +481,7 @@ const appRecienNacidos = new Vue({
             })
             .then(response => {
                 this.lisTabResumVacc4M = response.data[1];
+                this.red = '';
 
             }).catch(e => {
                 this.errors.push(e)
@@ -493,6 +502,7 @@ const appRecienNacidos = new Vue({
             })
             .then(response => {
                 this.lisTabResumVacc6M = response.data[2];
+                this.red = '';
 
             }).catch(e => {
                 this.errors.push(e)
@@ -558,6 +568,7 @@ const appRecienNacidos = new Vue({
             })
             .then(response => {
                 this.lisTabResumTmz6M = response.data[0];
+                this.red = '';
 
             }).catch(e => {
                 this.errors.push(e)
@@ -578,6 +589,7 @@ const appRecienNacidos = new Vue({
             })
             .then(response => {
                 this.lisTabResumTmz12M = response.data[1];
+                this.red = '';
 
             }).catch(e => {
                 this.errors.push(e)
@@ -598,6 +610,7 @@ const appRecienNacidos = new Vue({
             })
             .then(response => {
                 this.lisTabResumTmz18M = response.data[2];
+                this.red = '';
 
             }).catch(e => {
                 this.errors.push(e)
