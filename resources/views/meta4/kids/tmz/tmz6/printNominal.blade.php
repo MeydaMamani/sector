@@ -15,16 +15,16 @@
 <body>
     <table>
         <thead>
-            <tr><td colspan="12"></td></tr>
+            <tr><td colspan="7"></td></tr>
             <tr>
-                <td colspan="12" style="font-size: 20px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">DIRESA PASCO DEIT</td>
+                <td colspan="7" style="font-size: 20px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">DIRESA PASCO DEIT</td>
             </tr>
-            <tr><td colspan="12"></td></tr>
+            <tr><td colspan="7"></td></tr>
             <tr>
-                <td colspan="12" style="font-size: 17px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">Reporte Nominal de Tamizaje en Niños de 6 Meses {{ $anio }}</td>
+                <td colspan="7" style="font-size: 17px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">Reporte Nominal de Tamizaje en Niños de 6 Meses {{ $anio }}</td>
             </tr>
-            <tr><td colspan="12"></td></tr>
-            <tr><td colspan="12"></td></tr>
+            <tr><td colspan="7"></td></tr>
+            <tr><td colspan="7"></td></tr>
         </thead>
         <thead>
             <tr>
