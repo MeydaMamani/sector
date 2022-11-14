@@ -40,6 +40,7 @@ class Suple611Export implements FromView, ShouldAutoSize
                                 DB::raw("round((cast(SUM(CASE WHEN ([EH_6M] IS NOT NULL AND [EH_7M] IS NOT NULL AND [EH_8M] IS NOT NULL
                                 AND [EH_9M] IS NOT NULL AND [EH_10M] IS NOT NULL AND [EH_11M] IS NOT NULL) THEN 1 ELSE 0 END) as float) /
                                 cast(COUNT(DISTRITO) as float) * 100), 2) 'AVANCE_HIS'"))
+                                ->whereRaw('PERIODO = (SELECT MAX(PERIODO) FROM META4_CONSOLIDADO)')
                                 ->groupBy('PROVINCIA') ->groupBy('DISTRITO')
                                 ->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
 
@@ -51,6 +52,7 @@ class Suple611Export implements FromView, ShouldAutoSize
                                 DB::raw("round((cast(SUM(CASE WHEN ([EH_6M] IS NOT NULL AND [EH_7M] IS NOT NULL AND [EH_8M] IS NOT NULL
                                 AND [EH_9M] IS NOT NULL AND [EH_10M] IS NOT NULL AND [EH_11M] IS NOT NULL) THEN 1 ELSE 0 END) as float) /
                                 cast(COUNT(DISTRITO) as float) * 100), 2) 'AVANCE_HIS'"))
+                                ->whereRaw('PERIODO = (SELECT MAX(PERIODO) FROM META4_CONSOLIDADO)')
                                 ->whereYear('FECHA_DE_NACIMIENTO', $anio)
                                 ->groupBy('PROVINCIA') ->groupBy('DISTRITO') ->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
                 }
@@ -65,6 +67,7 @@ class Suple611Export implements FromView, ShouldAutoSize
                                 DB::raw("round((cast(SUM(CASE WHEN ([EH_6M] IS NOT NULL AND [EH_7M] IS NOT NULL AND [EH_8M] IS NOT NULL
                                 AND [EH_9M] IS NOT NULL AND [EH_10M] IS NOT NULL AND [EH_11M] IS NOT NULL) THEN 1 ELSE 0 END) as float) /
                                 cast(COUNT(DISTRITO) as float) * 100), 2) 'AVANCE_HIS'"))
+                                ->whereRaw('PERIODO = (SELECT MAX(PERIODO) FROM META4_CONSOLIDADO)')
                                 ->where('PROVINCIA', $red) ->groupBy('PROVINCIA')
                                 ->groupBy('DISTRITO') ->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
 
@@ -76,7 +79,7 @@ class Suple611Export implements FromView, ShouldAutoSize
                                 DB::raw("round((cast(SUM(CASE WHEN ([EH_6M] IS NOT NULL AND [EH_7M] IS NOT NULL AND [EH_8M] IS NOT NULL
                                 AND [EH_9M] IS NOT NULL AND [EH_10M] IS NOT NULL AND [EH_11M] IS NOT NULL) THEN 1 ELSE 0 END) as float) /
                                 cast(COUNT(DISTRITO) as float) * 100), 2) 'AVANCE_HIS'"))
-                                ->where('PROVINCIA', $red)
+                                ->whereRaw('PERIODO = (SELECT MAX(PERIODO) FROM META4_CONSOLIDADO)') ->where('PROVINCIA', $red)
                                 ->whereYear('FECHA_DE_NACIMIENTO', $anio) ->groupBy('PROVINCIA') ->groupBy('DISTRITO')
                                 ->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
                 }
@@ -91,6 +94,7 @@ class Suple611Export implements FromView, ShouldAutoSize
                                 DB::raw("round((cast(SUM(CASE WHEN ([EH_6M] IS NOT NULL AND [EH_7M] IS NOT NULL AND [EH_8M] IS NOT NULL
                                 AND [EH_9M] IS NOT NULL AND [EH_10M] IS NOT NULL AND [EH_11M] IS NOT NULL) THEN 1 ELSE 0 END) as float) /
                                 cast(COUNT(DISTRITO) as float) * 100), 2) 'AVANCE_HIS'"))
+                                ->whereRaw('PERIODO = (SELECT MAX(PERIODO) FROM META4_CONSOLIDADO)')
                                 ->where('DISTRITO', $dist) ->groupBy('PROVINCIA')
                                 ->groupBy('DISTRITO') ->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
 
@@ -102,7 +106,7 @@ class Suple611Export implements FromView, ShouldAutoSize
                                 DB::raw("round((cast(SUM(CASE WHEN ([EH_6M] IS NOT NULL AND [EH_7M] IS NOT NULL AND [EH_8M] IS NOT NULL
                                 AND [EH_9M] IS NOT NULL AND [EH_10M] IS NOT NULL AND [EH_11M] IS NOT NULL) THEN 1 ELSE 0 END) as float) /
                                 cast(COUNT(DISTRITO) as float) * 100), 2) 'AVANCE_HIS'"))
-                                ->where('DISTRITO', $dist)
+                                ->whereRaw('PERIODO = (SELECT MAX(PERIODO) FROM META4_CONSOLIDADO)') ->where('DISTRITO', $dist)
                                 ->whereYear('FECHA_DE_NACIMIENTO', $anio) ->groupBy('PROVINCIA') ->groupBy('DISTRITO')
                                 ->orderBy('PROVINCIA') ->orderBy('DISTRITO') ->get();
                 }
