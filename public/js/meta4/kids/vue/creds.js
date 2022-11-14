@@ -65,6 +65,9 @@ const appRecienNacidos = new Vue({
         anioTablDx611: 'TODOS',
         lisTablResumDX6_11: [],
 
+        lisTablResumDX611Month: [],
+
+        // PARA NIÑOS DE 4 A 5 MESES
         anioGraf4_5m: 'TODOS',
         lisTablResumPack4_5: [],
         anioTabl45: 'TODOS',
@@ -179,6 +182,7 @@ const appRecienNacidos = new Vue({
             })
             .then(response => {
                 this.lisTableResumRn = response.data[0];
+                this.red = '';
 
             }).catch(e => {
                 this.errors.push(e)
@@ -199,6 +203,7 @@ const appRecienNacidos = new Vue({
             })
             .then(response => {
                 this.lisTableResumCredMes = response.data[1];
+                this.red = '';
 
             }).catch(e => {
                 this.errors.push(e)
@@ -219,6 +224,7 @@ const appRecienNacidos = new Vue({
             })
             .then(response => {
                 this.lisTableResumCred12 = response.data[2];
+                this.red = '';
 
             }).catch(e => {
                 this.errors.push(e)
@@ -239,6 +245,7 @@ const appRecienNacidos = new Vue({
             })
             .then(response => {
                 this.lisTableResumCredPack = response.data[0];
+                this.red = '';
 
             }).catch(e => {
                 this.errors.push(e)
@@ -297,6 +304,7 @@ const appRecienNacidos = new Vue({
             })
             .then(response => {
                 this.lisTablResumSuple45 = response.data[0];
+                this.red = '';
 
             }).catch(e => {
                 this.errors.push(e)
@@ -317,6 +325,7 @@ const appRecienNacidos = new Vue({
             })
             .then(response => {
                 this.lisTablResumSuple611 = response.data[1];
+                this.red = '';
 
             }).catch(e => {
                 this.errors.push(e)
@@ -337,6 +346,7 @@ const appRecienNacidos = new Vue({
             })
             .then(response => {
                 this.lisTablResumSuple12 = response.data[2];
+                this.red = '';
 
             }).catch(e => {
                 this.errors.push(e)
@@ -395,6 +405,7 @@ const appRecienNacidos = new Vue({
             })
             .then(response => {
                 this.lisTablResumVac2M = response.data[0];
+                this.red = '';
 
             }).catch(e => {
                 this.errors.push(e)
@@ -415,6 +426,7 @@ const appRecienNacidos = new Vue({
             })
             .then(response => {
                 this.lisTablResumVac4M = response.data[1];
+                this.red = '';
 
             }).catch(e => {
                 this.errors.push(e)
@@ -435,6 +447,7 @@ const appRecienNacidos = new Vue({
             })
             .then(response => {
                 this.lisTablResumVac6M = response.data[2];
+                this.red = '';
 
             }).catch(e => {
                 this.errors.push(e)
@@ -493,6 +506,7 @@ const appRecienNacidos = new Vue({
             })
             .then(response => {
                 this.lisTablResumTmz6M = response.data[0];
+                this.red = '';
 
             }).catch(e => {
                 this.errors.push(e)
@@ -507,12 +521,12 @@ const appRecienNacidos = new Vue({
             })
             .then(response => {
                 this.lisTablResumTmz12M = response.data[1];
+                this.red = '';
 
             }).catch(e => {
                 this.errors.push(e)
             })
         },
-
 
         tableResumTmz18M: function(){
             axios({
@@ -522,21 +536,25 @@ const appRecienNacidos = new Vue({
             })
             .then(response => {
                 this.lisTablResumTmz18M = response.data[2];
+                this.red = '';
 
             }).catch(e => {
                 this.errors.push(e)
             })
         },
+
         PrintTmz6M: function(){
             const formData = $("#formTmz6M").serialize();
             url_ = window.location.origin + window.location.pathname + '/printTmz6M?' + formData;
             window.open(url_,'_blank');
         },
+
         PrintTmz12M: function(){
             const formData = $("#formTmz12M").serialize();
             url_ = window.location.origin + window.location.pathname + '/printTmz12M?' + formData;
             window.open(url_,'_blank');
         },
+
         PrintTmz18M: function(){
             const formData = $("#formTmz18M").serialize();
             url_ = window.location.origin + window.location.pathname + '/printTmz18M?' + formData;
@@ -587,6 +605,7 @@ const appRecienNacidos = new Vue({
             })
             .then(response => {
                 this.lisTablResumPack6_11 = response.data[0];
+                this.red = '';
 
             }).catch(e => {
                 this.errors.push(e)
@@ -607,6 +626,7 @@ const appRecienNacidos = new Vue({
             })
             .then(response => {
                 this.lisTablResumDX6_11 = response.data[1];
+                this.red = '';
 
             }).catch(e => {
                 this.errors.push(e)
@@ -616,6 +636,27 @@ const appRecienNacidos = new Vue({
         PrintDx611: function(){
             const formData = $("#formDx611").serialize();
             url_ = window.location.origin + window.location.pathname + '/printDx611?' + formData;
+            window.open(url_,'_blank');
+        },
+
+        tableResumDxAnemiaXMonth: function(){
+            axios({
+                method: 'POST',
+                url: 'met4kids/tableResumPackKids',
+                data: { "id": this.anioTabl611, "type": "dxAne611Month" },
+            })
+            .then(response => {
+                this.lisTablResumDX611Month = response.data[2];
+                this.red = '';
+
+            }).catch(e => {
+                this.errors.push(e)
+            })
+        },
+
+        PrintDx611Month: function(){
+            const formData = $("#formDx611Month").serialize();
+            url_ = window.location.origin + window.location.pathname + '/printDx611M?' + formData;
             window.open(url_,'_blank');
         },
 
@@ -662,7 +703,8 @@ const appRecienNacidos = new Vue({
                 data: { "id": this.anioTabl45, "type": "n4_5" },
             })
             .then(response => {
-                this.lisTablResumPack4_5 = response.data[2];
+                this.lisTablResumPack4_5 = response.data[3];
+                this.red = '';
 
             }).catch(e => {
                 this.errors.push(e)
@@ -674,5 +716,6 @@ const appRecienNacidos = new Vue({
             url_ = window.location.origin + window.location.pathname + '/printPack45?' + formData;
             window.open(url_,'_blank');
         },
+
     }
 })
