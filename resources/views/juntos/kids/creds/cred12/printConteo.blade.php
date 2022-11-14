@@ -46,9 +46,9 @@
                     <td style="border: 3px solid #A6A6A6;">{{ $list->DISTRITO_RES }}</td>
                     <td style="text-align: center; border: 3px solid #A6A6A6;">{{ $list->DENOMINADOR }}</td>
                     <td style="text-align: center; border: 3px solid #A6A6A6;">{{ $list->RN_JUNT_NUM }}</td>
-                    <td style="text-align: center; border: 3px solid #A6A6A6;">{{ round($list->AVANCE_JUNT, 0) }}%</td>
+                    <td style="text-align: center; border: 3px solid #A6A6A6;">{{ round($list->AVANCE_JUNT, 1) }}%</td>
                     <td style="text-align: center; border: 3px solid #A6A6A6;">{{ $list->RN_HIS_NUM }}</td>
-                    <td style="text-align: center; border: 3px solid #A6A6A6;">{{ round($list->AVANCE_HIS, 0) }}%</td>
+                    <td style="text-align: center; border: 3px solid #A6A6A6;">{{ round($list->AVANCE_HIS, 1) }}%</td>
                 </tr>
             @endforeach
         </tbody>
