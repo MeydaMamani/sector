@@ -56,10 +56,20 @@ Route::get('/juntkids/printTmz6M', [jKidsController::class, 'printTmz6M']);
 Route::get('/juntkids/printTmz12M', [jKidsController::class, 'printTmz12M']);
 Route::get('/juntkids/printTmz18M', [jKidsController::class, 'printTmz18M']);
 
+
 Route::get('/juntpregnants', [jPregnantsController::class, 'indexPregnants']);
 Route::get('/juntpregnants/print', [jPregnantsController::class, 'printPregnants']);
 Route::post('/juntpregnants/list', [jPregnantsController::class, 'totalData']);
 Route::post('/juntpregnants/grafEA', [jPregnantsController::class, 'forGrafEA']);
+Route::post('/juntpregnants/tableResumEA', [jPregnantsController::class, 'tableResumEA']);
+Route::get('/juntpregnants/printEA', [jPregnantsController::class, 'printEA']);
+
+Route::post('/juntpregnants/grafAP', [jPregnantsController::class, 'forGrafAP']);
+Route::post('/juntpregnants/tableResumAP', [jPregnantsController::class, 'tableResumAP']);
+Route::get('/juntpregnants/printAP', [jPregnantsController::class, 'printAP']);
+
+
+
 
 Route::get('/met4kids', [mKidsController::class, 'indexKids']);
 Route::get('/met4kids/print', [mKidsController::class, 'printKids']);

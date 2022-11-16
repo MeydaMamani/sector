@@ -107,9 +107,9 @@ class EAExport implements FromView, ShouldAutoSize
                                 ->where('DISTRITO_RES', $dist) ->whereYear('FECHA_DE_NAC_MO', $anio)
                                 ->groupBy('PROVINCIA_RES') ->groupBy('DISTRITO_RES') ->orderBy('PROVINCIA_RES') ->orderBy('DISTRITO_RES') ->get();
                 }
-            } 
+            }
 
-            return view('juntos.pregnants.EA.printPlantilla', [ 'nominal' => $resum2, 'anio' => $anio ]);
+            return view('juntos.pregnants.EA.printConteo', [ 'nominal' => $resum2, 'anio' => $anio ]);
         }
         else if($type == 'nominal'){
             if($red == 'TODOS'){
