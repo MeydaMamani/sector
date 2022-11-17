@@ -21,7 +21,7 @@
             </tr>
             <tr><td colspan="14"></td></tr>
             <tr>
-                <td colspan="14" style="font-size: 18px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">Reporte Nominal de Exámenes Auxiliares - {{ $anio }}</td>
+                <td colspan="14" style="font-size: 18px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">Reporte Nominal de Exámenes Auxiliares</td>
             </tr>
             <tr><td colspan="14"></td></tr>
             <tr><td colspan="14"></td></tr>
@@ -37,15 +37,15 @@
                 <th style="background: #DDEBF7; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Provincia</th>
                 <th style="background: #DDEBF7; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Distrito</th>
                 <th style="background: #DDEBF7; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Documento</th>
-                <th style="background: #F6C3CF; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Examen_HB</th>
-                <th style="background: #F6C3CF; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Examen_VIH</th>
-                <th style="background: #F6C3CF; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Examen_SIFILIS</th>
-                <th style="background: #F6C3CF; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Examen_ORINA</th>
+                <th style="background: #F6C3CF; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Examen HB</th>
+                <th style="background: #F6C3CF; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Examen VIH</th>
+                <th style="background: #F6C3CF; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Examen Sifilis</th>
+                <th style="background: #F6C3CF; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Examen Orina</th>
                 <th style="background: #FFFF00; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Avance Juntos</th>
-                <th style="background: #B5D3FA; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Examen_HB_HIS</th>
-                <th style="background: #B5D3FA; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Examen_VIH_HIS</th>
-                <th style="background: #B5D3FA; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Examen_SIFILIS_HIS</th>
-                <th style="background: #B5D3FA; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Examen_ORINA_HIS</th>
+                <th style="background: #B5D3FA; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Examen HB</th>
+                <th style="background: #B5D3FA; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Examen VIH</th>
+                <th style="background: #B5D3FA; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Examen Sifilis</th>
+                <th style="background: #B5D3FA; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Examen Orina</th>
                 <th style="background: #FFFF00; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Avance His</th>
             </tr>
         </thead>

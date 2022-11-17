@@ -6,25 +6,20 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    {{-- <style type="text/css">
-        .cabecera {
-            background: #e0eff5; font-weight: 500; text-align: center;
-        }
-    </style> --}}
 </head>
 <body>
     <table>
         <thead>
-            <tr><td colspan="14"></td></tr>
+            <tr><td colspan="29"></td></tr>
             <tr>
-                <td colspan="14" style="font-size: 20px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">DIRESA PASCO DEIT</td>
+                <td colspan="29" style="font-size: 20px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">DIRESA PASCO DEIT</td>
             </tr>
-            <tr><td colspan="14"></td></tr>
+            <tr><td colspan="29"></td></tr>
             <tr>
-                <td colspan="14" style="font-size: 18px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">Reporte Nominal de Atenciones Prenatales - {{ $anio }}</td>
+                <td colspan="29" style="font-size: 18px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">Reporte Nominal de Atenciones Prenatales</td>
             </tr>
-            <tr><td colspan="14"></td></tr>
-            <tr><td colspan="14"></td></tr>
+            <tr><td colspan="29"></td></tr>
+            <tr><td colspan="29"></td></tr>
         </thead>
         <thead>
             <tr>

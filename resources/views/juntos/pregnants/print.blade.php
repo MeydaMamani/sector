@@ -21,7 +21,7 @@
             </tr>
             <tr><td colspan="83"></td></tr>
             <tr>
-                <td colspan="83" style="font-size: 16px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">PADRÓN DE GESTANTES PARA LA ATENCION AL HOGAR Y SEG. NOMINAL - {{ $nameProv }} / {{ $nameDist }}</td>
+                <td colspan="83" style="font-size: 16px; border: 3px solid #807d7d; font-weight: 500; text-align: center;">Padrón de Gestantes Para La Atención Al Hogar y Seg. Nominal - {{ $nameProv }} / {{ $nameDist }}</td>
             </tr>
             <tr><td colspan="83"></td></tr>
             <tr><td colspan="83"></td></tr>
@@ -29,12 +29,10 @@
         <thead>
             <tr>
                 <th colspan="29" style="background: #DDEBF7; font-weight: 500; text-align: center; font-size:12px; border: 3px solid #A6A6A6;">Padrón de Hogares Afiliados/P. Transaccional</th>
+                <th colspan="2" style="background: #FFC1FF; font-weight: 500; text-align: center; font-size:12px; border: 3px solid #A6A6A6;">Datos Gestor</th>
                 <th colspan="10" style="background: #fbbcb6; font-weight: 500; text-align: center; font-size:12px; border: 3px solid #A6A6A6;">Exámenes Auxiliares</th>
                 <th colspan="21" style="background: #9AF4C5; font-weight: 500; text-align: center; font-size:12px; border: 3px solid #A6A6A6;">Atenciones Prenatales</th>
                 <th colspan="21" style="background: #e8faa3; font-weight: 500; text-align: center; font-size:12px; border: 3px solid #A6A6A6;">Suplementacion</th>
-                
-                <th colspan="2" style="background: #FFC1FF; font-weight: 500; text-align: center; font-size:12px; border: 3px solid #A6A6A6;">Datos Gestor</th>
-                
             </tr>
             <tr>
                 <th style="background: #DDEBF7; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">#</th>
@@ -65,75 +63,68 @@
                 <th style="background: #DDEBF7; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Establecimiento</th>
                 <th style="background: #DDEBF7; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Renaes</th>
 
-                <th style="background: #DDEBF7; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Fecha Probable de Parto</th>
+                <th style="background: #DDEBF7; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Fecha Prob. Parto</th>
                 <th style="background: #DDEBF7; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Etapa de Vida</th>
-                <th style="background: #DDEBF7; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Aproximado inicio de embarazo</th>
+                <th style="background: #DDEBF7; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Aprox. Inicio Embarazo</th>
 
+                <th style="background: #FFE6FF; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Gestor Local</th>
+                <th style="background: #FFE6FF; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Unidad Territorial</th>
 
-                <th style="background: #eec8c4; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">EXAMEN HB</th>
-                <th style="background: #FA9890; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">EXAMEN HB HIS</th>
-                <th style="background: #eec8c4; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">EXAMEN VIH</th>
-                <th style="background: #FA9890; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">VIH HIS</th>
-                <th style="background: #eec8c4; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">EXAMEN SIFILIS</th>
-                <th style="background: #FA9890; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">SIFILIS HIS</th>
-                <th style="background: #eec8c4; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">EXAMEN ORINA</th>
-                <th style="background: #FA9890; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">EXAMEN ORINA HIS</th>
+                <th style="background: #eec8c4; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Examen HB</th>
+                <th style="background: #FA9890; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Examen HB His</th>
+                <th style="background: #eec8c4; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Examen VIH</th>
+                <th style="background: #FA9890; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">VIH His</th>
+                <th style="background: #eec8c4; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Examen SifilisS</th>
+                <th style="background: #FA9890; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Sifilis His</th>
+                <th style="background: #eec8c4; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Examen Orina</th>
+                <th style="background: #FA9890; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Examen Orina His</th>
 
-                <th style="background: #eec8c4; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">ATENCION PRE NATAL</th>
-                <th style="background: #FA9890; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">CONTROL PRE NATAL HIS</th>
+                <th style="background: #eec8c4; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Atención Prenatal</th>
+                <th style="background: #FA9890; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Control Prenatal His</th>
 
-
-
-
-                <th style="background: #E7FCE3; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">0 Mes</th>
-                <th style="background: #9AF4C5; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">1° Mes</th>
+                <th style="background: #E7FCE3; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Ctrl 0</th>
                 <th style="background: #E7FCE3; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Ctrl 1</th>
-                <th style="background: #9AF4C5; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">2° Mes</th>
+                <th style="background: #9AF4C5; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Ctrl 1 His</th>
                 <th style="background: #E7FCE3; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Ctrl 2</th>
-                <th style="background: #9AF4C5; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">3° Mes</th>
+                <th style="background: #9AF4C5; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Ctrl 2 His</th>
                 <th style="background: #E7FCE3; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Ctrl 3</th>
-                <th style="background: #9AF4C5; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">4° Mes</th>
+                <th style="background: #9AF4C5; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Ctrl 3 His</th>
                 <th style="background: #E7FCE3; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Ctrl 4</th>
-                <th style="background: #9AF4C5; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">5° Mes</th>
+                <th style="background: #9AF4C5; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Ctrl 4 His</th>
                 <th style="background: #E7FCE3; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Ctrl 5</th>
-                <th style="background: #9AF4C5; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">6° Mes</th>
+                <th style="background: #9AF4C5; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Ctrl 5 His</th>
                 <th style="background: #E7FCE3; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Ctrl 6</th>
-                <th style="background: #9AF4C5; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">7° Mes</th>
+                <th style="background: #9AF4C5; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Ctrl 6 His</th>
                 <th style="background: #E7FCE3; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Ctrl 7</th>
-                <th style="background: #9AF4C5; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">8° Mes</th>
+                <th style="background: #9AF4C5; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Ctrl 7 His</th>
                 <th style="background: #E7FCE3; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Ctrl 8</th>
-                <th style="background: #9AF4C5; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">9° Mes</th>
+                <th style="background: #9AF4C5; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Ctrl 8 His</th>
                 <th style="background: #E7FCE3; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Ctrl 9</th>
-                <th style="background: #9AF4C5; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">10° Mes</th>
+                <th style="background: #9AF4C5; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Ctrl 9 His</th>
                 <th style="background: #E7FCE3; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Ctrl 10</th>
+                <th style="background: #9AF4C5; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Ctrl 10 His</th>
 
-
-                <th style="background: #e8faa3; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">0 Mes</th>
-                <th style="background: #e8faa3; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">1° Mes</th>
-                <th style="background: #f8ffed; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">SUPLE 1</th>
-                <th style="background: #e8faa3; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">2° Mes</th>
-                <th style="background: #f8ffed; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">SUPLE 2</th>
-                <th style="background: #e8faa3; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">3° Mes</th>
-                <th style="background: #f8ffed; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">SUPLE 3</th>
-                <th style="background: #e8faa3; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">4° Mes</th>
-                <th style="background: #f8ffed; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">SUPLE 4</th>
-                <th style="background: #e8faa3; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">5° Mes</th>
-                <th style="background: #f8ffed; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">SUPLE 5</th>
-                <th style="background: #e8faa3; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">6° Mes</th>
-                <th style="background: #f8ffed; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">SUPLE 6</th>
-                <th style="background: #e8faa3; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">7° Mes</th>
-                <th style="background: #f8ffed; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">SUPLE 7</th>
-                <th style="background: #e8faa3; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">8° Mes</th>
-                <th style="background: #f8ffed; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">SUPLE 8</th>
-                <th style="background: #e8faa3; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">9° Mes</th>
-                <th style="background: #f8ffed; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">SUPLE 9</th>
-                <th style="background: #e8faa3; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">10° Mes</th>
-                <th style="background: #f8ffed; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">SUPLE 10</th>
-
-
-                <th style="background: #FFE6FF; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">NOMBRE DE GESTOR LOCAL</th>
-                <th style="background: #FFE6FF; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">UNIDAD TERRITORIAL</th>
-
+                <th style="background: #f8ffed; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Suple 0</th>
+                <th style="background: #f8ffed; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Suple 1</th>
+                <th style="background: #e8faa3; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Suple 1 His</th>
+                <th style="background: #f8ffed; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Suple 2</th>
+                <th style="background: #e8faa3; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Suple 2 His</th>
+                <th style="background: #f8ffed; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Suple 3</th>
+                <th style="background: #e8faa3; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Suple 3 His</th>
+                <th style="background: #f8ffed; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Suple 4</th>
+                <th style="background: #e8faa3; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Suple 4 His</th>
+                <th style="background: #f8ffed; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Suple 5</th>
+                <th style="background: #e8faa3; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Suple 5 His</th>
+                <th style="background: #f8ffed; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Suple 6</th>
+                <th style="background: #e8faa3; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Suple 6 His</th>
+                <th style="background: #f8ffed; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Suple 7</th>
+                <th style="background: #e8faa3; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Suple 7 His</th>
+                <th style="background: #f8ffed; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Suple 8</th>
+                <th style="background: #e8faa3; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Suple 8 His</th>
+                <th style="background: #f8ffed; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Suple 9</th>
+                <th style="background: #e8faa3; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Suple 9 His</th>
+                <th style="background: #f8ffed; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Suple 10</th>
+                <th style="background: #e8faa3; font-weight: 500; text-align: center; border: 3px solid #A6A6A6;">Suple 10 His</th>
             </tr>
         </thead>
         <tbody>
@@ -169,6 +160,8 @@
                     <td>{{ $list->F_PROB_PARTO_MO }}</td>
                     <td>{{ $list->ETAPA_DE_VIDA}}</td>
                     <td>{{ $list->APROXIMANDO_INICIO_DE_EMBARAZO }}</td>
+                    <td>{{ $list->NOMBRE_DE_GESTOR_LOCAL}}</td>
+                    <td>{{ $list->UNIDAD_TERROTRIAL_GL}}</td>
 
                     <td>{{ $list->EXAMEN_HB }}</td>
                     <td>{{ $list->EXAMEN_HB_HIS }}</td>
@@ -181,7 +174,6 @@
 
                     <td>{{ $list->ATENCIÓN_PRE_NATAL }}</td>
                     <td>{{ $list->CONTROL_PRE_NATAL_HIS}}</td>
-                   
 
                     <td>{{ $list->_0_mes }}</td>
                     <td>{{ $list->_1_mes }}</td>
@@ -191,7 +183,7 @@
                     <td>{{ $list->_3_mes }}</td>
                     <td>{{ $list->CONTROL3 }}</td>
                     <td>{{ $list->_4_mes }}</td>
-                    <td>{{ $list->CONTROL4 }}</td>            
+                    <td>{{ $list->CONTROL4 }}</td>
                     <td>{{ $list->_5_mes }}</td>
                     <td>{{ $list->CONTROL5 }}</td>
                     <td>{{ $list->_6_mes }}</td>
@@ -205,7 +197,6 @@
                     <td>{{ $list->_10_mes }}</td>
                     <td>{{ $list->CONTROL10 }}</td>
 
-
                     <td>{{ $list->_0_meses }}</td>
                     <td>{{ $list->_1_meses }}</td>
                     <td>{{ $list->SUPLE1 }}</td>
@@ -214,7 +205,7 @@
                     <td>{{ $list->_3_meses }}</td>
                     <td>{{ $list->SUPLE3 }}</td>
                     <td>{{ $list->_4_meses }}</td>
-                    <td>{{ $list->SUPLE4 }}</td>            
+                    <td>{{ $list->SUPLE4 }}</td>
                     <td>{{ $list->_5_meses }}</td>
                     <td>{{ $list->SUPLE5 }}</td>
                     <td>{{ $list->_6_meses }}</td>
@@ -227,11 +218,6 @@
                     <td>{{ $list->SUPLE9 }}</td>
                     <td>{{ $list->_10_meses }}</td>
                     <td>{{ $list->SUPLE10 }}</td>
-
-
-                    <td>{{ $list->NOMBRE_DE_GESTOR_LOCAL}}</td>
-                    <td>{{ $list->UNIDAD_TERROTRIAL_GL}}</td>
-
                 </tr>
             @endforeach
         </tbody>
