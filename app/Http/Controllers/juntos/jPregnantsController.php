@@ -26,7 +26,7 @@ class jPregnantsController extends Controller
 
     public function totalData()
     {
-        $nominal = DB::table('dbo.CONSOLIDADO_GESTANTE_PAQUETE_JUNTOS')->count();
+        $nominal = DB::table('dbo.CONSOLIDADO_GESTANTE_PAQUETE_JUNTOS') ->where('DEPARTAMENTO_RES', 'PASCO') ->count();
         return response(($nominal), 200);
     }
 
