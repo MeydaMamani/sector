@@ -10,6 +10,7 @@ use App\Http\Controllers\juntos\jPregnantsController;
 use App\Http\Controllers\meta4\mKidsController;
 use App\Http\Controllers\cuna\SafController;
 use App\Http\Controllers\cuna\ScdController;
+use App\Http\Controllers\cuna\pregnant\ScdPregController;
 
 use App\Http\Controllers\PaqueteController;
 
@@ -106,6 +107,8 @@ Route::get('/cunaSaf/print', [SafController::class, 'printNominal']);
 
 Route::get('/cunaScd', [ScdController::class, 'indexScd']);
 Route::get('/cunaScd/print', [ScdController::class, 'printNominal']);
+
+Route::get('/cunaPregnant', [ScdPregController::class, 'indexPregnants']);
 
 Route::get('/patients', [PaqueteController::class, 'index']);
 Route::post('/patients/kids', [PaqueteController::class, 'searchKids']);
