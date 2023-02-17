@@ -67,6 +67,9 @@ const appRecienNacidos = new Vue({
         this.grafChildsSuple();
         this.grafChildsVaccine();
         this.grafChildsTmz();
+
+        this.grafPack();
+        this.grafPackMonth();
     },
     methods: {
         filtersProv: function() {
@@ -622,5 +625,92 @@ const appRecienNacidos = new Vue({
             url_ = window.location.origin + window.location.pathname + '/printTmz18M?' + formData;
             window.open(url_,'_blank');
         },
+
+        // PARA PAQUETE NINIO OCTUBRE
+        grafPack: function(){
+            axios({
+                method: 'POST',
+                url: 'juntkids/graPack',
+                data: '',
+            })
+            .then(respuesta => {
+                $('#myChartPack').remove();
+                $('.barChartPack').append("<canvas id='myChartPack'></canvas>");
+                var data = respuesta.data[0];
+                console.log(data);
+                var areaChartData = {
+                    labels  : ['D. A. C.', 'Oxapampa', 'Pasco'],
+                    datasets: [
+                        {
+                            label: 'HisMinsa',
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                            pointRadius: false,
+                            data: [ data[0].AVANCE, data[1].AVANCE, data[2].AVANCE ]
+                        },
+                    ]
+                }
+
+                var barChartCanvas = $('#myChartPack').get(0).getContext('2d');
+                var barChartData = $.extend(true, {}, areaChartData);
+                new Chart(barChartCanvas, {
+                    type: 'bar',
+                    data: barChartData,
+                    options: barChartOptions
+                })
+
+            }).catch(e => {
+                this.errors.push(e)
+            })
+        },
+
+        PrintPack: function(){
+            // const formData = $("#formTmz18M").serialize();
+            url_ = window.location.origin + window.location.pathname + '/printPack';
+            window.open(url_,'_blank');
+        },
+
+        PrintPackObserved: function(){
+            // const formData = $("#formTmz18M").serialize();
+            url_ = window.location.origin + window.location.pathname + '/printPackObs';
+            window.open(url_,'_blank');
+        },
+
+        // PARA PAQUETE NINIO POR MESES
+        grafPackMonth: function(){
+            axios({
+                method: 'POST',
+                url: 'juntkids/graPackMonth',
+                data: '',
+            })
+            .then(respuesta => {
+                $('#myChartPackMonth').remove();
+                $('.barChartPackMonth').append("<canvas id='myChartPackMonth'></canvas>");
+                var data = respuesta.data[0];
+                console.log(data);
+                var areaChartData = {
+                    labels  : ['Octubre', 'Noviembre', 'Diciembre', 'Enero', 'Febrero'],
+                    datasets: [
+                        {
+                            label: 'HisMinsa',
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                            pointRadius: false,
+                            data: [ data[4].AVANCE, data[3].AVANCE, data[2].AVANCE, data[1].AVANCE, data[0].AVANCE ]
+                        },
+                    ]
+                }
+
+                var barChartCanvas = $('#myChartPackMonth').get(0).getContext('2d');
+                var barChartData = $.extend(true, {}, areaChartData);
+                new Chart(barChartCanvas, {
+                    type: 'bar',
+                    data: barChartData,
+                    options: barChartOptions
+                })
+
+            }).catch(e => {
+                this.errors.push(e)
+            })
+        },
+
     }
 })

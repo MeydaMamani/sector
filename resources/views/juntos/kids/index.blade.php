@@ -85,6 +85,58 @@
                         <div class="col-md-10">
                             <div class="row">
                                 <div class="col-md-6">
+                                    <div class="card card-outline card-success">
+                                        <div class="card-header">
+                                            <h3 class="card-title">Paquete</h3>
+                                            <div class="card-tools">
+                                                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                                    <i class="fas fa-minus"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="card-body p-3">
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <div class="border border-secondary">
+                                                        <div class="d-flex">
+                                                            <h6 class="p-2 mb-0 text-center col-md-11">Avance</h6>
+                                                        </div>
+                                                        <div class="barChartPack" style="height: 160px; padding: 0px 10px 2px 0px;"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <button class="btn btn-outline-success w-100 btn-sm mb-2" @click="PrintPack">Paquete</button>
+                                                    <button class="btn btn-outline-success w-100 btn-sm mb-2" @click="PrintPackObserved">Observados</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card card-outline card-primary">
+                                        <div class="card-header">
+                                            <h3 class="card-title">Avance por Mes</h3>
+                                            <div class="card-tools">
+                                                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                                    <i class="fas fa-minus"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="card-body p-3">
+                                            <div class="col-md-12">
+                                                <div class="border border-secondary">
+                                                    <div class="d-flex">
+                                                        <h6 class="p-2 mb-0 text-center col-md-11">Avance</h6>
+                                                    </div>
+                                                    <div class="barChartPackMonth" style="height: 160px; padding: 0px 10px 2px 0px;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                      </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
                                     <div class="card card-outline card-danger">
                                         <div class="card-header">
                                             <h3 class="card-title">Controles Creds (Según Ficha Fed)</h3>
@@ -132,7 +184,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                      </div>
+                                    </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="card card-outline card-warning">

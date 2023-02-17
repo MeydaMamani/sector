@@ -253,7 +253,7 @@
                     <td>{{ $list->_CRED_8_mes }}</td>
                     <td>{{ $list->CTRL8 }}</td>
                     <td>{{ $list->_CRED_9_mes }}</td>
-                    <td>{{ $list->CTRL9 }}</td>
+                    <td>{{ $list->CTRL9 }}</td> 
                     <td>{{ $list->_CRED_10_mes }}</td>
                     <td>{{ $list->CTRL10 }}</td>
                     <td>{{ $list->_CRED_11_mes }}</td>

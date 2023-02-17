@@ -24,6 +24,9 @@ use App\Exports\juntos\kids\tmz\tmz6MExport;
 use App\Exports\juntos\kids\tmz\tmz12MExport;
 use App\Exports\juntos\kids\tmz\tmz18MExport;
 
+use App\Exports\juntos\kids\pack\packExport;
+use App\Exports\juntos\kids\pack\packObservedExport;
+
 use Illuminate\Http\Request;
 
 class jKidsController extends Controller
@@ -40,7 +43,7 @@ class jKidsController extends Controller
 
     public function totalData()
     {
-        $nominal = DB::table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')->count();
+        $nominal = DB::table('dbo.PAQUETE_NINIO_OCTUBRE')->count();
         return response(($nominal), 200);
     }
 
@@ -57,18 +60,18 @@ class jKidsController extends Controller
         $anio = $request->id;
         $resultPack = DB::table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
             ->select(DB::raw("COUNT(*) DENOMINADOR"), DB::raw("SUM(CASE
-                    WHEN EDADMESES='0' AND CUMPLECRED_RNHIS IS NOT NULL  THEN 1
-                        WHEN EDADMESES='1' AND CUMPLECRED_RNHIS IS NOT NULL AND  [1CTRL] IS NOT NULL THEN 1
-                        WHEN EDADMESES='2' AND CUMPLECRED_RNHIS IS NOT NULL AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL THEN 1
-                        WHEN EDADMESES='3' AND CUMPLECRED_RNHIS IS NOT NULL AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL THEN 1
-                        WHEN EDADMESES='4' AND CUMPLECRED_RNHIS IS NOT NULL AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL AND  [4CTRL] IS NOT NULL THEN 1
-                        WHEN EDADMESES='5' AND CUMPLECRED_RNHIS IS NOT NULL AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL AND  [4CTRL] IS NOT NULL AND  [5CTRL] IS NOT NULL THEN 1
-                        WHEN EDADMESES='6' AND CUMPLECRED_RNHIS IS NOT NULL AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL AND  [4CTRL] IS NOT NULL AND  [5CTRL] IS NOT NULL AND  [6CTRL] IS NOT NULL THEN 1
-                        WHEN EDADMESES='7' AND CUMPLECRED_RNHIS IS NOT NULL AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL AND  [4CTRL] IS NOT NULL AND  [5CTRL] IS NOT NULL AND  [6CTRL] IS NOT NULL AND  [7CTRL] IS NOT NULL THEN 1
-                        WHEN EDADMESES='8' AND CUMPLECRED_RNHIS IS NOT NULL AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL AND  [4CTRL] IS NOT NULL AND  [5CTRL] IS NOT NULL AND  [6CTRL] IS NOT NULL AND  [7CTRL] IS NOT NULL  AND  [8CTRL] IS NOT NULL THEN 1
-                        WHEN EDADMESES='9' AND CUMPLECRED_RNHIS IS NOT NULL AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL AND  [4CTRL] IS NOT NULL AND  [5CTRL] IS NOT NULL AND  [6CTRL] IS NOT NULL AND  [7CTRL] IS NOT NULL  AND  [8CTRL] IS NOT NULL  AND  [9CTRL] IS NOT NULL THEN 1
-                        WHEN EDADMESES='10' AND CUMPLECRED_RNHIS IS NOT NULL AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL AND  [4CTRL] IS NOT NULL AND  [5CTRL] IS NOT NULL AND  [6CTRL] IS NOT NULL AND  [7CTRL] IS NOT NULL  AND  [8CTRL] IS NOT NULL  AND  [9CTRL] IS NOT NULL AND  [10CTRL] IS NOT NULL THEN 1
-                        WHEN EDADMESES='11' AND CUMPLECRED_RNHIS IS NOT NULL AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL AND  [4CTRL] IS NOT NULL AND  [5CTRL] IS NOT NULL AND  [6CTRL] IS NOT NULL AND  [7CTRL] IS NOT NULL  AND  [8CTRL] IS NOT NULL  AND  [9CTRL] IS NOT NULL AND  [10CTRL] IS NOT NULL AND  [11CTRL] IS NOT NULL THEN 1
+                    WHEN EDADMESES='0' AND CUMPLECRED_RNHIS='CUMPLE'  THEN 1
+                        WHEN EDADMESES='1' AND CUMPLECRED_RNHIS='CUMPLE' AND  [1CTRL] IS NOT NULL THEN 1
+                        WHEN EDADMESES='2' AND CUMPLECRED_RNHIS='CUMPLE' AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL THEN 1
+                        WHEN EDADMESES='3' AND CUMPLECRED_RNHIS='CUMPLE' AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL THEN 1
+                        WHEN EDADMESES='4' AND CUMPLECRED_RNHIS='CUMPLE' AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL AND  [4CTRL] IS NOT NULL THEN 1
+                        WHEN EDADMESES='5' AND CUMPLECRED_RNHIS='CUMPLE' AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL AND  [4CTRL] IS NOT NULL AND  [5CTRL] IS NOT NULL THEN 1
+                        WHEN EDADMESES='6' AND CUMPLECRED_RNHIS='CUMPLE' AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL AND  [4CTRL] IS NOT NULL AND  [5CTRL] IS NOT NULL AND  [6CTRL] IS NOT NULL THEN 1
+                        WHEN EDADMESES='7' AND CUMPLECRED_RNHIS='CUMPLE' AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL AND  [4CTRL] IS NOT NULL AND  [5CTRL] IS NOT NULL AND  [6CTRL] IS NOT NULL AND  [7CTRL] IS NOT NULL THEN 1
+                        WHEN EDADMESES='8' AND CUMPLECRED_RNHIS='CUMPLE' AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL AND  [4CTRL] IS NOT NULL AND  [5CTRL] IS NOT NULL AND  [6CTRL] IS NOT NULL AND  [7CTRL] IS NOT NULL  AND  [8CTRL] IS NOT NULL THEN 1
+                        WHEN EDADMESES='9' AND CUMPLECRED_RNHIS='CUMPLE' AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL AND  [4CTRL] IS NOT NULL AND  [5CTRL] IS NOT NULL AND  [6CTRL] IS NOT NULL AND  [7CTRL] IS NOT NULL  AND  [8CTRL] IS NOT NULL  AND  [9CTRL] IS NOT NULL THEN 1
+                        WHEN EDADMESES='10' AND CUMPLECRED_RNHIS='CUMPLE' AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL AND  [4CTRL] IS NOT NULL AND  [5CTRL] IS NOT NULL AND  [6CTRL] IS NOT NULL AND  [7CTRL] IS NOT NULL  AND  [8CTRL] IS NOT NULL  AND  [9CTRL] IS NOT NULL AND  [10CTRL] IS NOT NULL THEN 1
+                        WHEN EDADMESES='11' AND CUMPLECRED_RNHIS='CUMPLE' AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL AND  [4CTRL] IS NOT NULL AND  [5CTRL] IS NOT NULL AND  [6CTRL] IS NOT NULL AND  [7CTRL] IS NOT NULL  AND  [8CTRL] IS NOT NULL  AND  [9CTRL] IS NOT NULL AND  [10CTRL] IS NOT NULL AND  [11CTRL] IS NOT NULL THEN 1
                         WHEN EDADMESES='12' AND [12CTRL] IS NOT NULL THEN 1
                         WHEN EDADMESES='14' AND [12CTRL] IS NOT NULL AND [14CTRL] IS NOT NULL THEN 1
                         WHEN EDADMESES='16' AND [12CTRL] IS NOT NULL AND [14CTRL] IS NOT NULL AND [16CTRL] IS NOT NULL THEN 1
@@ -100,18 +103,18 @@ class jKidsController extends Controller
         if ($anio == 'TODOS') {
             $resultCred = DB::table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
                         ->select(DB::raw("COUNT(*) DENOMINADOR"), DB::raw("round((cast(SUM(CASE WHEN (CRN1 IS NOT NULL AND CRN2 IS NOT NULL) THEN 1
-                            ELSE 0 END) as float) / cast(COUNT(*) as float) * 100), 1) 'AVANCE_JUNT'"), DB::raw("round((cast(SUM(CASE WHEN
-                            (CASE WHEN ([1CTRL_RN] IS NOT NULL) THEN 1 ELSE 0 END + CASE WHEN ([2CTRL_RN] IS NOT NULL) THEN 1 ELSE 0 END +
-                            CASE WHEN ([3CTRL_RN] IS NOT NULL) THEN 1 ELSE 0 END + CASE WHEN ([4CTRL_RN] IS NOT NULL) THEN 1 ELSE 0 END) >= 2
-                            THEN 1 ELSE 0 END) as float) / cast(COUNT(*) as float) * 100), 1) 'AVANCE_HIS'"))->get();
+                            ELSE 0 END) as float) / cast(COUNT(*) as float) * 100), 1) 'AVANCE_JUNT'"), DB::raw("round((cast(SUM(CASE WHEN ([1CTRL_RN]
+                            IS NOT NULL AND [2CTRL_RN] IS NOT NULL AND [3CTRL_RN] IS NOT NULL AND [4CTRL_RN] IS NOT NULL) THEN 1 ELSE 0 END)
+                            as float) / cast(COUNT(*) as float) * 100), 1) 'AVANCE_HIS'"))->get();
 
             $resultCredMes = DB::table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
                             ->select(DB::raw("COUNT(*) DENOMINADOR"), DB::raw("round((cast(SUM(CASE WHEN (_CRED_1_mes IS NOT NULL AND _CRED_2_mes
-                                IS NOT NULL AND _CRED_4_mes IS NOT NULL AND
-                                _CRED_6_mes IS NOT NULL AND _CRED_9_mes IS NOT NULL) THEN 1 ELSE 0 END) as float) / cast(COUNT(*) as float) * 100), 1)
-                                'AVANCE_JUNT'"), DB::raw("round((cast(SUM(CASE WHEN
-                                ([1CTRL] IS NOT NULL AND [2CTRL] IS NOT NULL AND [4CTRL] IS NOT NULL AND [6CTRL] IS NOT NULL AND [9CTRL] IS NOT NULL) THEN 1
-                            ELSE 0 END) as float) / cast(COUNT(*) as float) * 100), 1) 'AVANCE_HIS'"))->get();
+                            IS NOT NULL AND _CRED_3_mes IS NOT NULL AND _CRED_4_mes IS NOT NULL AND _CRED_5_mes IS NOT NULL AND _CRED_6_mes IS NOT NULL
+                            AND _CRED_7_mes IS NOT NULL AND _CRED_8_mes IS NOT NULL AND _CRED_9_mes IS NOT NULL AND _CRED_10_mes IS NOT NULL AND
+                            _CRED_11_mes IS NOT NULL) THEN 1 ELSE 0 END) as float) / cast(COUNT(*) as float) * 100), 1) 'AVANCE_JUNT'"),
+                            DB::raw("round((cast(SUM(CASE WHEN ([1CTRL] IS NOT NULL AND [2CTRL] IS NOT NULL AND [3CTRL] IS NOT NULL AND [4CTRL] IS NOT NULL
+                            AND [5CTRL] IS NOT NULL AND [6CTRL] IS NOT NULL AND [7CTRL] IS NOT NULL AND [8CTRL] IS NOT NULL AND [9CTRL] IS NOT NULL
+                            AND [10CTRL] IS NOT NULL AND [11CTRL] IS NOT NULL) THEN 1 ELSE 0 END) as float) / cast(COUNT(*) as float) * 100), 1) 'AVANCE_HIS'"))->get();
 
             $resultCred12 = DB::table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
                             ->select( DB::raw("COUNT(*) DENOMINADOR"), DB::raw("round((cast(SUM(CASE WHEN (_CRED_12_mes IS NOT NULL AND _CRED_14_mes
@@ -123,35 +126,29 @@ class jKidsController extends Controller
                 )->get();
         } else {
             $resultCred = DB::table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
-                ->select(DB::raw("COUNT(*) DENOMINADOR"), DB::raw("round((cast(SUM(CASE WHEN (CRN1 IS NOT NULL AND CRN2 IS NOT NULL) THEN 1
-                            ELSE 0 END) as float) / cast(COUNT(*) as float) * 100), 1) 'AVANCE_JUNT'"), DB::raw("round((cast(SUM(CASE WHEN
-                            (CASE WHEN ([1CTRL_RN] IS NOT NULL) THEN 1 ELSE 0 END + CASE WHEN ([2CTRL_RN] IS NOT NULL) THEN 1 ELSE 0 END +
-                            CASE WHEN ([3CTRL_RN] IS NOT NULL) THEN 1 ELSE 0 END + CASE WHEN ([4CTRL_RN] IS NOT NULL) THEN 1 ELSE 0 END) >= 2
-                            THEN 1 ELSE 0 END) as float) / cast(COUNT(*) as float) * 100), 1) 'AVANCE_HIS'"))
-                ->whereYear('FECHA_DE_NAC_MO', $anio)->get();
+                        ->select(DB::raw("COUNT(*) DENOMINADOR"), DB::raw("round((cast(SUM(CASE WHEN (CRN1 IS NOT NULL AND CRN2 IS NOT NULL) THEN 1
+                        ELSE 0 END) as float) / cast(COUNT(*) as float) * 100), 1) 'AVANCE_JUNT'"), DB::raw("round((cast(SUM(CASE WHEN ([1CTRL_RN]
+                        IS NOT NULL AND [2CTRL_RN] IS NOT NULL AND [3CTRL_RN] IS NOT NULL AND [4CTRL_RN] IS NOT NULL) THEN 1 ELSE 0 END)
+                        as float) / cast(COUNT(*) as float) * 100), 1) 'AVANCE_HIS'")) ->whereYear('FECHA_DE_NAC_MO', $anio)->get();
 
             $resultCredMes = DB::table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
-                ->select(
-                    DB::raw("COUNT(*) DENOMINADOR"),
-                    DB::raw("round((cast(SUM(CASE WHEN (_CRED_1_mes IS NOT NULL AND _CRED_2_mes IS NOT NULL AND _CRED_4_mes IS NOT NULL AND
-                            _CRED_6_mes IS NOT NULL AND _CRED_9_mes IS NOT NULL) THEN 1 ELSE 0 END) as float) / cast(COUNT(*) as float) * 100), 1)
-                            'AVANCE_JUNT'"),
-                    DB::raw("round((cast(SUM(CASE WHEN
-                            ([1CTRL] IS NOT NULL AND [2CTRL] IS NOT NULL AND [4CTRL] IS NOT NULL AND [6CTRL] IS NOT NULL AND [9CTRL] IS NOT NULL) THEN 1
-                        ELSE 0 END) as float) / cast(COUNT(*) as float) * 100), 1) 'AVANCE_HIS'")
-                )->whereYear('FECHA_DE_NAC_MO', $anio)->get();
+                            ->select(DB::raw("COUNT(*) DENOMINADOR"), DB::raw("round((cast(SUM(CASE WHEN (_CRED_1_mes IS NOT NULL AND _CRED_2_mes
+                            IS NOT NULL AND _CRED_3_mes IS NOT NULL AND _CRED_4_mes IS NOT NULL AND _CRED_5_mes IS NOT NULL AND _CRED_6_mes IS NOT NULL
+                            AND _CRED_7_mes IS NOT NULL AND _CRED_8_mes IS NOT NULL AND _CRED_9_mes IS NOT NULL AND _CRED_10_mes IS NOT NULL AND
+                            _CRED_11_mes IS NOT NULL) THEN 1 ELSE 0 END) as float) / cast(COUNT(*) as float) * 100), 1) 'AVANCE_JUNT'"),
+                            DB::raw("round((cast(SUM(CASE WHEN ([1CTRL] IS NOT NULL AND [2CTRL] IS NOT NULL AND [3CTRL] IS NOT NULL AND [4CTRL] IS NOT NULL
+                            AND [5CTRL] IS NOT NULL AND [6CTRL] IS NOT NULL AND [7CTRL] IS NOT NULL AND [8CTRL] IS NOT NULL AND [9CTRL] IS NOT NULL
+                            AND [10CTRL] IS NOT NULL AND [11CTRL] IS NOT NULL) THEN 1 ELSE 0 END) as float) / cast(COUNT(*) as float) * 100), 1) 'AVANCE_HIS'"))
+                            ->whereYear('FECHA_DE_NAC_MO', $anio)->get();
 
             $resultCred12 = DB::table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
-                ->select(
-                    DB::raw("COUNT(*) DENOMINADOR"),
-                    DB::raw("round((cast(SUM(CASE WHEN (_CRED_12_mes IS NOT NULL AND _CRED_14_mes
-                            IS NOT NULL AND _CRED_16_mes IS NOT NULL AND _CRED_18_mes IS NOT NULL AND _CRED_20_mes IS NOT NULL AND _CRED_22_mes
-                            IS NOT NULL) THEN 1 ELSE 0 END) as float) / cast(COUNT(*) as float) * 100), 1) 'AVANCE_JUNT'"),
-                    DB::raw("round((cast(SUM(CASE WHEN ([12CTRL] IS NOT NULL
-                            AND [14CTRL] IS NOT NULL AND [16CTRL] IS NOT NULL AND [18CTRL] IS NOT NULL AND [20CTRL] IS NOT NULL
-                            AND [22CTRL] IS NOT NULL) THEN 1 ELSE 0 END) as float) / cast(COUNT(*) as float) * 100), 1) 'AVANCE_HIS'")
-                )
-                ->whereYear('FECHA_DE_NAC_MO', $anio)->get();
+                            ->select( DB::raw("COUNT(*) DENOMINADOR"), DB::raw("round((cast(SUM(CASE WHEN (_CRED_12_mes IS NOT NULL AND _CRED_14_mes
+                                        IS NOT NULL AND _CRED_16_mes IS NOT NULL AND _CRED_18_mes IS NOT NULL AND _CRED_20_mes IS NOT NULL AND _CRED_22_mes
+                                        IS NOT NULL) THEN 1 ELSE 0 END) as float) / cast(COUNT(*) as float) * 100), 1) 'AVANCE_JUNT'"),
+                                        DB::raw("round((cast(SUM(CASE WHEN ([12CTRL] IS NOT NULL
+                                        AND [14CTRL] IS NOT NULL AND [16CTRL] IS NOT NULL AND [18CTRL] IS NOT NULL AND [20CTRL] IS NOT NULL
+                                        AND [22CTRL] IS NOT NULL) THEN 1 ELSE 0 END) as float) / cast(COUNT(*) as float) * 100), 1) 'AVANCE_HIS'"))
+                            ->whereYear('FECHA_DE_NAC_MO', $anio)->get();
         }
 
         $query[] = json_decode($resultPack, true);
@@ -173,42 +170,42 @@ class jKidsController extends Controller
         if ($type == 'rn') {
             if ($anio == 'TODOS') {
                 $resumRn = DB::table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
-                    ->select('PROVINCIA_RES', 'DISTRITO_RES', DB::raw("COUNT(DISTRITO_RES) DENOMINADOR"), DB::raw("SUM(CASE WHEN
+                            ->select('PROVINCIA_RES', 'DISTRITO_RES', DB::raw("COUNT(DISTRITO_RES) DENOMINADOR"), DB::raw("SUM(CASE WHEN
                                 (CRN1 IS NOT NULL AND CRN2 IS NOT NULL) THEN 1 ELSE 0 END) AS RN_JUNT_NUM"), DB::raw("round((cast(SUM(CASE WHEN
                                 (CRN1 IS NOT NULL AND CRN2 IS NOT NULL) THEN 1 ELSE 0 END) as float) / cast(COUNT(DISTRITO_RES) as float) * 100), 1)
-                                'AVANCE_JUNT'"), DB::raw("SUM(CASE WHEN (CASE WHEN ([1CTRL_RN] IS NOT NULL) THEN 1 ELSE 0 END + CASE WHEN ([2CTRL_RN]
-                                IS NOT NULL) THEN 1 ELSE 0 END + CASE WHEN ([3CTRL_RN] IS NOT NULL) THEN 1 ELSE 0 END + CASE WHEN ([4CTRL_RN]
-                                IS NOT NULL) THEN 1 ELSE 0 END) >= 2 THEN 1 ELSE 0 END) AS 'RN_HIS_NUM'"), DB::raw("round((cast(SUM(CASE WHEN
-                                (CASE WHEN ([1CTRL_RN] IS NOT NULL) THEN 1 ELSE 0 END + CASE WHEN ([2CTRL_RN] IS NOT NULL) THEN 1 ELSE 0 END +
-                                CASE WHEN ([3CTRL_RN] IS NOT NULL) THEN 1 ELSE 0 END + CASE WHEN ([4CTRL_RN] IS NOT NULL) THEN 1 ELSE 0 END) >= 2
-                            THEN 1 ELSE 0 END) as float) / cast(COUNT(DISTRITO_RES) as float) * 100), 1) 'AVANCE_HIS'"))
-                    ->groupBy('PROVINCIA_RES')->groupBy('DISTRITO_RES')->orderBy('PROVINCIA_RES')->orderBy('DISTRITO_RES')->get();
+                                'AVANCE_JUNT'"), DB::raw("SUM(CASE WHEN ([1CTRL_RN] IS NOT NULL AND [2CTRL_RN] IS NOT NULL AND [3CTRL_RN] IS NOT NULL
+                                AND [4CTRL_RN] IS NOT NULL) THEN 1 ELSE 0 END) AS 'RN_HIS_NUM'"), DB::raw("round((cast(SUM(CASE WHEN ([1CTRL_RN]
+                                IS NOT NULL AND [2CTRL_RN] IS NOT NULL AND [3CTRL_RN] IS NOT NULL AND [4CTRL_RN] IS NOT NULL) THEN 1 ELSE 0 END)
+                                as float) / cast(COUNT(DISTRITO_RES) as float) * 100), 1) 'AVANCE_HIS'"))
+                            ->groupBy('PROVINCIA_RES')->groupBy('DISTRITO_RES')->orderBy('PROVINCIA_RES')->orderBy('DISTRITO_RES')->get();
             } else {
                 $resumRn = DB::table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
-                    ->select('PROVINCIA_RES', 'DISTRITO_RES', DB::raw("COUNT(DISTRITO_RES) DENOMINADOR"), DB::raw("SUM(CASE WHEN
+                            ->select('PROVINCIA_RES', 'DISTRITO_RES', DB::raw("COUNT(DISTRITO_RES) DENOMINADOR"), DB::raw("SUM(CASE WHEN
                                 (CRN1 IS NOT NULL AND CRN2 IS NOT NULL) THEN 1 ELSE 0 END) AS RN_JUNT_NUM"), DB::raw("round((cast(SUM(CASE WHEN
                                 (CRN1 IS NOT NULL AND CRN2 IS NOT NULL) THEN 1 ELSE 0 END) as float) / cast(COUNT(DISTRITO_RES) as float) * 100), 1)
-                                'AVANCE_JUNT'"), DB::raw("SUM(CASE WHEN (CASE WHEN ([1CTRL_RN] IS NOT NULL) THEN 1 ELSE 0 END + CASE WHEN ([2CTRL_RN]
-                                IS NOT NULL) THEN 1 ELSE 0 END + CASE WHEN ([3CTRL_RN] IS NOT NULL) THEN 1 ELSE 0 END + CASE WHEN ([4CTRL_RN]
-                                IS NOT NULL) THEN 1 ELSE 0 END) >= 2 THEN 1 ELSE 0 END) AS 'RN_HIS_NUM'"), DB::raw("round((cast(SUM(CASE WHEN (CASE
-                                WHEN ([1CTRL_RN] IS NOT NULL) THEN 1 ELSE 0 END + CASE WHEN ([2CTRL_RN] IS NOT NULL) THEN 1 ELSE 0 END + CASE WHEN
-                                ([3CTRL_RN] IS NOT NULL) THEN 1 ELSE 0 END + CASE WHEN ([4CTRL_RN] IS NOT NULL) THEN 1 ELSE 0 END) >= 2 THEN 1
-                                ELSE 0 END) as float) / cast(COUNT(DISTRITO_RES) as float) * 100), 1) 'AVANCE_HIS'"))
-                    ->whereYear('FECHA_DE_NAC_MO', $anio)->groupBy('PROVINCIA_RES')->groupBy('DISTRITO_RES')
-                    ->orderBy('PROVINCIA_RES')->orderBy('DISTRITO_RES')->get();
+                                'AVANCE_JUNT'"), DB::raw("SUM(CASE WHEN ([1CTRL_RN] IS NOT NULL AND [2CTRL_RN] IS NOT NULL AND [3CTRL_RN] IS NOT NULL
+                                AND [4CTRL_RN] IS NOT NULL) THEN 1 ELSE 0 END) AS 'RN_HIS_NUM'"), DB::raw("round((cast(SUM(CASE WHEN ([1CTRL_RN]
+                                IS NOT NULL AND [2CTRL_RN] IS NOT NULL AND [3CTRL_RN] IS NOT NULL AND [4CTRL_RN] IS NOT NULL) THEN 1 ELSE 0 END)
+                                as float) / cast(COUNT(DISTRITO_RES) as float) * 100), 1) 'AVANCE_HIS'"))
+                                ->whereYear('FECHA_DE_NAC_MO', $anio)->groupBy('PROVINCIA_RES')->groupBy('DISTRITO_RES')
+                            ->orderBy('PROVINCIA_RES')->orderBy('DISTRITO_RES')->get();
             }
         } else if ($type == 'credMes') {
             if ($anio == 'TODOS') {
                 $resumCredMes = DB::table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
-                            ->select( 'PROVINCIA_RES', 'DISTRITO_RES', DB::raw("COUNT(DISTRITO_RES) DENOMINADOR"), DB::raw("SUM(CASE WHEN
-                                (_CRED_1_mes IS NOT NULL AND _CRED_2_mes IS NOT NULL AND _CRED_4_mes IS NOT NULL AND _CRED_6_mes IS NOT NULL AND
-                                _CRED_9_mes IS NOT NULL) THEN 1 ELSE 0 END) AS RN_JUNT_NUM"), DB::raw("round((cast(SUM(CASE WHEN (_CRED_1_mes
-                                IS NOT NULL AND _CRED_2_mes IS NOT NULL AND _CRED_4_mes IS NOT NULL AND _CRED_6_mes IS NOT NULL AND _CRED_9_mes
-                                IS NOT NULL) THEN 1 ELSE 0 END) as float) / cast(COUNT(DISTRITO_RES) as float) * 100), 2) 'AVANCE_JUNT'"),
-                                DB::raw("SUM(CASE WHEN ([1CTRL] IS NOT NULL AND [2CTRL] IS NOT NULL AND [4CTRL] IS NOT NULL AND [6CTRL] IS NOT NULL
-                                AND [9CTRL] IS NOT NULL) THEN 1 ELSE 0 END) AS RN_HIS_NUM"), DB::raw("round((cast(SUM(CASE WHEN ([1CTRL] IS NOT NULL
-                                AND [2CTRL] IS NOT NULL AND [4CTRL] IS NOT NULL AND [6CTRL] IS NOT NULL AND [9CTRL] IS NOT NULL) THEN 1 ELSE 0 END)
-                                as float) / cast(COUNT(DISTRITO_RES) as float) * 100), 2) 'AVANCE_HIS'"))
+                            ->select( 'PROVINCIA_RES', 'DISTRITO_RES', DB::raw("COUNT(DISTRITO_RES) DENOMINADOR"), DB::raw("SUM(CASE WHEN (_CRED_1_mes
+                            IS NOT NULL AND _CRED_2_mes IS NOT NULL AND _CRED_3_mes IS NOT NULL AND _CRED_4_mes IS NOT NULL AND _CRED_5_mes IS NOT NULL AND
+                            _CRED_6_mes IS NOT NULL AND _CRED_7_mes IS NOT NULL AND _CRED_8_mes IS NOT NULL AND _CRED_9_mes IS NOT NULL AND _CRED_10_mes
+                            IS NOT NULL AND _CRED_11_mes IS NOT NULL) THEN 1 ELSE 0 END) AS RN_JUNT_NUM"), DB::raw("round((cast(SUM(CASE WHEN (_CRED_1_mes
+                            IS NOT NULL AND _CRED_2_mes IS NOT NULL AND _CRED_3_mes IS NOT NULL AND _CRED_4_mes IS NOT NULL AND _CRED_5_mes IS NOT NULL AND
+                            _CRED_6_mes IS NOT NULL AND _CRED_7_mes IS NOT NULL AND _CRED_8_mes IS NOT NULL AND _CRED_9_mes IS NOT NULL AND _CRED_10_mes
+                            IS NOT NULL AND _CRED_11_mes IS NOT NULL) THEN 1 ELSE 0 END) as float) / cast(COUNT(DISTRITO_RES) as float) * 100), 2) 'AVANCE_JUNT'"),
+                            DB::raw("SUM(CASE WHEN ([1CTRL] IS NOT NULL AND [2CTRL] IS NOT NULL AND [3CTRL] IS NOT NULL AND [4CTRL] IS NOT NULL AND [5CTRL]
+                            IS NOT NULL AND [6CTRL] IS NOT NULL AND [7CTRL] IS NOT NULL AND [8CTRL] IS NOT NULL AND [9CTRL] IS NOT NULL AND [10CTRL] IS NOT NULL
+                            AND [11CTRL] IS NOT NULL) THEN 1 ELSE 0 END) AS RN_HIS_NUM"), DB::raw("round((cast(SUM(CASE WHEN ([1CTRL] IS NOT NULL AND
+                            [2CTRL] IS NOT NULL AND [3CTRL] IS NOT NULL AND [4CTRL] IS NOT NULL AND [5CTRL] IS NOT NULL AND [6CTRL] IS NOT NULL AND
+                            [7CTRL] IS NOT NULL AND [8CTRL] IS NOT NULL AND [9CTRL] IS NOT NULL AND [10CTRL] IS NOT NULL AND [11CTRL] IS NOT NULL)
+                            THEN 1 ELSE 0 END) as float) / cast(COUNT(DISTRITO_RES) as float) * 100), 2) 'AVANCE_HIS'"))
                             ->groupBy('PROVINCIA_RES')->groupBy('DISTRITO_RES')->orderBy('PROVINCIA_RES')->orderBy('DISTRITO_RES')->get();
             } else {
                 $resumCredMes = DB::table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
@@ -271,18 +268,18 @@ class jKidsController extends Controller
                         'DISTRITO_RES',
                         DB::raw("COUNT(DISTRITO_RES) DENOMINADOR"),
                         DB::raw("SUM(CASE
-                                WHEN EDADMESES='0' AND CUMPLECRED_RNHIS IS NOT NULL  THEN 1
-                                WHEN EDADMESES='1' AND CUMPLECRED_RNHIS IS NOT NULL AND  [1CTRL] IS NOT NULL THEN 1
-                                WHEN EDADMESES='2' AND CUMPLECRED_RNHIS IS NOT NULL AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL THEN 1
-                                WHEN EDADMESES='3' AND CUMPLECRED_RNHIS IS NOT NULL AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL THEN 1
-                                WHEN EDADMESES='4' AND CUMPLECRED_RNHIS IS NOT NULL AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL AND  [4CTRL] IS NOT NULL THEN 1
-                                WHEN EDADMESES='5' AND CUMPLECRED_RNHIS IS NOT NULL AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL AND  [4CTRL] IS NOT NULL AND  [5CTRL] IS NOT NULL THEN 1
-                                WHEN EDADMESES='6' AND CUMPLECRED_RNHIS IS NOT NULL AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL AND  [4CTRL] IS NOT NULL AND  [5CTRL] IS NOT NULL AND  [6CTRL] IS NOT NULL THEN 1
-                                WHEN EDADMESES='7' AND CUMPLECRED_RNHIS IS NOT NULL AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL AND  [4CTRL] IS NOT NULL AND  [5CTRL] IS NOT NULL AND  [6CTRL] IS NOT NULL AND  [7CTRL] IS NOT NULL THEN 1
-                                WHEN EDADMESES='8' AND CUMPLECRED_RNHIS IS NOT NULL AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL AND  [4CTRL] IS NOT NULL AND  [5CTRL] IS NOT NULL AND  [6CTRL] IS NOT NULL AND  [7CTRL] IS NOT NULL  AND  [8CTRL] IS NOT NULL THEN 1
-                                WHEN EDADMESES='9' AND CUMPLECRED_RNHIS IS NOT NULL AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL AND  [4CTRL] IS NOT NULL AND  [5CTRL] IS NOT NULL AND  [6CTRL] IS NOT NULL AND  [7CTRL] IS NOT NULL  AND  [8CTRL] IS NOT NULL  AND  [9CTRL] IS NOT NULL THEN 1
-                                WHEN EDADMESES='10' AND CUMPLECRED_RNHIS IS NOT NULL AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL AND  [4CTRL] IS NOT NULL AND  [5CTRL] IS NOT NULL AND  [6CTRL] IS NOT NULL AND  [7CTRL] IS NOT NULL  AND  [8CTRL] IS NOT NULL  AND  [9CTRL] IS NOT NULL AND  [10CTRL] IS NOT NULL THEN 1
-                                WHEN EDADMESES='11' AND CUMPLECRED_RNHIS IS NOT NULL AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL AND  [4CTRL] IS NOT NULL AND  [5CTRL] IS NOT NULL AND  [6CTRL] IS NOT NULL AND  [7CTRL] IS NOT NULL  AND  [8CTRL] IS NOT NULL  AND  [9CTRL] IS NOT NULL AND  [10CTRL] IS NOT NULL AND  [11CTRL] IS NOT NULL THEN 1
+                                WHEN EDADMESES='0' AND CUMPLECRED_RNHIS='CUMPLE'  THEN 1
+                                WHEN EDADMESES='1' AND CUMPLECRED_RNHIS='CUMPLE' AND  [1CTRL] IS NOT NULL THEN 1
+                                WHEN EDADMESES='2' AND CUMPLECRED_RNHIS='CUMPLE' AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL THEN 1
+                                WHEN EDADMESES='3' AND CUMPLECRED_RNHIS='CUMPLE' AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL THEN 1
+                                WHEN EDADMESES='4' AND CUMPLECRED_RNHIS='CUMPLE' AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL AND  [4CTRL] IS NOT NULL THEN 1
+                                WHEN EDADMESES='5' AND CUMPLECRED_RNHIS='CUMPLE' AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL AND  [4CTRL] IS NOT NULL AND  [5CTRL] IS NOT NULL THEN 1
+                                WHEN EDADMESES='6' AND CUMPLECRED_RNHIS='CUMPLE' AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL AND  [4CTRL] IS NOT NULL AND  [5CTRL] IS NOT NULL AND  [6CTRL] IS NOT NULL THEN 1
+                                WHEN EDADMESES='7' AND CUMPLECRED_RNHIS='CUMPLE' AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL AND  [4CTRL] IS NOT NULL AND  [5CTRL] IS NOT NULL AND  [6CTRL] IS NOT NULL AND  [7CTRL] IS NOT NULL THEN 1
+                                WHEN EDADMESES='8' AND CUMPLECRED_RNHIS='CUMPLE' AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL AND  [4CTRL] IS NOT NULL AND  [5CTRL] IS NOT NULL AND  [6CTRL] IS NOT NULL AND  [7CTRL] IS NOT NULL  AND  [8CTRL] IS NOT NULL THEN 1
+                                WHEN EDADMESES='9' AND CUMPLECRED_RNHIS='CUMPLE' AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL AND  [4CTRL] IS NOT NULL AND  [5CTRL] IS NOT NULL AND  [6CTRL] IS NOT NULL AND  [7CTRL] IS NOT NULL  AND  [8CTRL] IS NOT NULL  AND  [9CTRL] IS NOT NULL THEN 1
+                                WHEN EDADMESES='10' AND CUMPLECRED_RNHIS='CUMPLE' AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL AND  [4CTRL] IS NOT NULL AND  [5CTRL] IS NOT NULL AND  [6CTRL] IS NOT NULL AND  [7CTRL] IS NOT NULL  AND  [8CTRL] IS NOT NULL  AND  [9CTRL] IS NOT NULL AND  [10CTRL] IS NOT NULL THEN 1
+                                WHEN EDADMESES='11' AND CUMPLECRED_RNHIS='CUMPLE' AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL AND  [4CTRL] IS NOT NULL AND  [5CTRL] IS NOT NULL AND  [6CTRL] IS NOT NULL AND  [7CTRL] IS NOT NULL  AND  [8CTRL] IS NOT NULL  AND  [9CTRL] IS NOT NULL AND  [10CTRL] IS NOT NULL AND  [11CTRL] IS NOT NULL THEN 1
                                 WHEN EDADMESES='12' AND [12CTRL] IS NOT NULL THEN 1
                                 WHEN EDADMESES='14' AND [12CTRL] IS NOT NULL AND [14CTRL] IS NOT NULL THEN 1
                                 WHEN EDADMESES='16' AND [12CTRL] IS NOT NULL AND [14CTRL] IS NOT NULL AND [16CTRL] IS NOT NULL THEN 1
@@ -322,18 +319,18 @@ class jKidsController extends Controller
                         'DISTRITO_RES',
                         DB::raw("COUNT(DISTRITO_RES) DENOMINADOR"),
                         DB::raw("SUM(CASE
-                                WHEN EDADMESES='0' AND CUMPLECRED_RNHIS IS NOT NULL  THEN 1
-                                WHEN EDADMESES='1' AND CUMPLECRED_RNHIS IS NOT NULL AND  [1CTRL] IS NOT NULL THEN 1
-                                WHEN EDADMESES='2' AND CUMPLECRED_RNHIS IS NOT NULL AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL THEN 1
-                                WHEN EDADMESES='3' AND CUMPLECRED_RNHIS IS NOT NULL AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL THEN 1
-                                WHEN EDADMESES='4' AND CUMPLECRED_RNHIS IS NOT NULL AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL AND  [4CTRL] IS NOT NULL THEN 1
-                                WHEN EDADMESES='5' AND CUMPLECRED_RNHIS IS NOT NULL AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL AND  [4CTRL] IS NOT NULL AND  [5CTRL] IS NOT NULL THEN 1
-                                WHEN EDADMESES='6' AND CUMPLECRED_RNHIS IS NOT NULL AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL AND  [4CTRL] IS NOT NULL AND  [5CTRL] IS NOT NULL AND  [6CTRL] IS NOT NULL THEN 1
-                                WHEN EDADMESES='7' AND CUMPLECRED_RNHIS IS NOT NULL AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL AND  [4CTRL] IS NOT NULL AND  [5CTRL] IS NOT NULL AND  [6CTRL] IS NOT NULL AND  [7CTRL] IS NOT NULL THEN 1
-                                WHEN EDADMESES='8' AND CUMPLECRED_RNHIS IS NOT NULL AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL AND  [4CTRL] IS NOT NULL AND  [5CTRL] IS NOT NULL AND  [6CTRL] IS NOT NULL AND  [7CTRL] IS NOT NULL  AND  [8CTRL] IS NOT NULL THEN 1
-                                WHEN EDADMESES='9' AND CUMPLECRED_RNHIS IS NOT NULL AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL AND  [4CTRL] IS NOT NULL AND  [5CTRL] IS NOT NULL AND  [6CTRL] IS NOT NULL AND  [7CTRL] IS NOT NULL  AND  [8CTRL] IS NOT NULL  AND  [9CTRL] IS NOT NULL THEN 1
-                                WHEN EDADMESES='10' AND CUMPLECRED_RNHIS IS NOT NULL AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL AND  [4CTRL] IS NOT NULL AND  [5CTRL] IS NOT NULL AND  [6CTRL] IS NOT NULL AND  [7CTRL] IS NOT NULL  AND  [8CTRL] IS NOT NULL  AND  [9CTRL] IS NOT NULL AND  [10CTRL] IS NOT NULL THEN 1
-                                WHEN EDADMESES='11' AND CUMPLECRED_RNHIS IS NOT NULL AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL AND  [4CTRL] IS NOT NULL AND  [5CTRL] IS NOT NULL AND  [6CTRL] IS NOT NULL AND  [7CTRL] IS NOT NULL  AND  [8CTRL] IS NOT NULL  AND  [9CTRL] IS NOT NULL AND  [10CTRL] IS NOT NULL AND  [11CTRL] IS NOT NULL THEN 1
+                                WHEN EDADMESES='0' AND CUMPLECRED_RNHIS='CUMPLE'  THEN 1
+                                WHEN EDADMESES='1' AND CUMPLECRED_RNHIS='CUMPLE' AND  [1CTRL] IS NOT NULL THEN 1
+                                WHEN EDADMESES='2' AND CUMPLECRED_RNHIS='CUMPLE' AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL THEN 1
+                                WHEN EDADMESES='3' AND CUMPLECRED_RNHIS='CUMPLE' AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL THEN 1
+                                WHEN EDADMESES='4' AND CUMPLECRED_RNHIS='CUMPLE' AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL AND  [4CTRL] IS NOT NULL THEN 1
+                                WHEN EDADMESES='5' AND CUMPLECRED_RNHIS='CUMPLE' AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL AND  [4CTRL] IS NOT NULL AND  [5CTRL] IS NOT NULL THEN 1
+                                WHEN EDADMESES='6' AND CUMPLECRED_RNHIS='CUMPLE' AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL AND  [4CTRL] IS NOT NULL AND  [5CTRL] IS NOT NULL AND  [6CTRL] IS NOT NULL THEN 1
+                                WHEN EDADMESES='7' AND CUMPLECRED_RNHIS='CUMPLE' AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL AND  [4CTRL] IS NOT NULL AND  [5CTRL] IS NOT NULL AND  [6CTRL] IS NOT NULL AND  [7CTRL] IS NOT NULL THEN 1
+                                WHEN EDADMESES='8' AND CUMPLECRED_RNHIS='CUMPLE' AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL AND  [4CTRL] IS NOT NULL AND  [5CTRL] IS NOT NULL AND  [6CTRL] IS NOT NULL AND  [7CTRL] IS NOT NULL  AND  [8CTRL] IS NOT NULL THEN 1
+                                WHEN EDADMESES='9' AND CUMPLECRED_RNHIS='CUMPLE' AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL AND  [4CTRL] IS NOT NULL AND  [5CTRL] IS NOT NULL AND  [6CTRL] IS NOT NULL AND  [7CTRL] IS NOT NULL  AND  [8CTRL] IS NOT NULL  AND  [9CTRL] IS NOT NULL THEN 1
+                                WHEN EDADMESES='10' AND CUMPLECRED_RNHIS='CUMPLE' AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL AND  [4CTRL] IS NOT NULL AND  [5CTRL] IS NOT NULL AND  [6CTRL] IS NOT NULL AND  [7CTRL] IS NOT NULL  AND  [8CTRL] IS NOT NULL  AND  [9CTRL] IS NOT NULL AND  [10CTRL] IS NOT NULL THEN 1
+                                WHEN EDADMESES='11' AND CUMPLECRED_RNHIS='CUMPLE' AND  [1CTRL] IS NOT NULL AND  [2CTRL] IS NOT NULL AND  [3CTRL] IS NOT NULL AND  [4CTRL] IS NOT NULL AND  [5CTRL] IS NOT NULL AND  [6CTRL] IS NOT NULL AND  [7CTRL] IS NOT NULL  AND  [8CTRL] IS NOT NULL  AND  [9CTRL] IS NOT NULL AND  [10CTRL] IS NOT NULL AND  [11CTRL] IS NOT NULL THEN 1
                                 WHEN EDADMESES='12' AND [12CTRL] IS NOT NULL THEN 1
                                 WHEN EDADMESES='14' AND [12CTRL] IS NOT NULL AND [14CTRL] IS NOT NULL THEN 1
                                 WHEN EDADMESES='16' AND [12CTRL] IS NOT NULL AND [14CTRL] IS NOT NULL AND [16CTRL] IS NOT NULL THEN 1
@@ -970,5 +967,43 @@ class jKidsController extends Controller
         $a = $request->anioTmz18M;
         $t = $request->typeTmz18M;
         return Excel::download(new tmz18MExport($r, $d, $a, $t), 'DEIT_PASCO REPORTE DE TAMIZAJE EN NIÑOS DE 18 MESES.xlsx');
+    }
+
+    public function forGrafPack(Request $request)
+    {
+        $result = DB::table('dbo.PAQUETE_NINIO_OCTUBRE')
+                        ->select('PROVINCIA_RES',
+                        DB::raw("round((cast(SUM(CASE WHEN CUMPLE='CUMPLE' THEN 1 ELSE 0 END) as float) / cast(COUNT(*) as float) * 100), 1) 'AVANCE'"))
+                        ->groupBy('PROVINCIA_RES') ->orderBy('PROVINCIA_RES', 'ASC')
+                        ->get();
+
+        $query[] = json_decode($result, true);
+
+        $r = json_encode($query);
+        return response(($r), 200);
+    }
+
+    public function printPack(Request $request)
+    {
+        return Excel::download(new packExport(), 'DEIT_PASCO REPORTE PAQUETE NIÑO.xlsx');
+    }
+
+    public function printPackObs(Request $request)
+    {
+        return Excel::download(new packObservedExport(), 'DEIT_PASCO REPORTE PAQUETE NIÑO OBSERVADOS.xlsx');
+    }
+
+    public function forGrafPackMonth(Request $request)
+    {
+        $result = DB::table('dbo.PAQUETE_NINIO_OCTUBRE')
+                        ->select('FECHA_FIN',
+                        DB::raw("round((cast(SUM(CASE WHEN CUMPLE='CUMPLE' THEN 1 ELSE 0 END) as float) / cast(COUNT(*) as float) * 100), 1) 'AVANCE'"))
+                        ->groupBy('FECHA_FIN') ->orderBy('FECHA_FIN', 'ASC')
+                        ->get();
+
+        $query[] = json_decode($result, true);
+
+        $r = json_encode($query);
+        return response(($r), 200);
     }
 }

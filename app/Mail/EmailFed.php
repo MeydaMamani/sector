@@ -34,15 +34,17 @@ class EmailFed extends Mailable
      */
     public function build()
     {
-        // $anio = '2023'; $mes = '1'; $mes2 = '01';
-        // $nominal = DB::table('dbo.CONSOLIDADO_PREMATURO')
-        //             ->where('CORTE_PADRON', $anio.''.$mes2) ->where('PERIODO_MEDICION', $anio.'-'. $mes) ->where('BAJO_PESO_PREMATURO', 'SI')
-        //             ->where('SUPLEMENTADO', '=', 'NO')
-        //             ->orderBy('NOMBRE_PROV', 'ASC') ->orderBy('NOMBRE_DIST', 'ASC') ->orderBy('NOMBRE_EESS', 'ASC')
-        //             ->get();
+        $nominal = DB::table('dbo.PAQUETE_NINIO_OCTUBRE')
+                    ->select('PROVINCIA_RES', 'DISTRITO_RES', 'DNI_MO', 'FECHA_DE_NAC_MO', '1CTRL_RN AS CTRL1_RN', '2CTRL_RN AS CTRL2_RN',
+                    '3CTRL_RN AS CTRL3_RN', '4CTRL_RN AS CTRL4_RN', 'CUMPLE_RN', '1CTRL AS CTRL1', '2CTRL AS CTRL2', '3CTRL AS CTRL3', '4CTRL AS CTRL4',
+                    '5CTRL AS CTRL5', '6CTRL AS CTRL6', '7CTRL AS CTRL7', '8CTRL AS CTRL8', '9CTRL AS CTRL9', '10CTRL AS CTRL10', '11CTRL AS CTRL11',
+                    '1_NEUMO_2M AS NEUMO1_2M', '2_NEUMO_4M AS NEUMO2_4M', '3_NEUMO_6M AS NEUMO3_6M', '1_ROTA_2M as ROTA1_2M', '2_ROTA_4M AS ROTA2_4M',
+                    '1_PENTA_2M AS PENTA1_2M', '2_PENTA_4M AS PENTA2_4M', '3_PENTA_6M AS PENTA3_6M', 'EH_4M AS EH_4M',
+                    'EH_5M AS EH_5M', 'EH_6M AS EH_6M', 'EH_7M AS EH_7M', 'EH_8M AS EH_8M', 'EH_9M AS EH_9M', 'EH_10M AS EH_10M', 'EH_11M AS EH_11M', 'CUMPLE')
+                    ->where('CUMPLE', 'NO CUMPLE')
+                    ->orderBy('PROVINCIA_RES') ->orderBy('DISTRITO_RES') ->get();
 
-        // // Mail::to('meydamamani@gmail.com')->send(new EmailFed());
-        return $this->view('mail.prematuro');
+        return $this->view('mail.prematuro', ['nominal' => $nominal]);
     }
 
     public function index() {
@@ -51,24 +53,24 @@ class EmailFed extends Mailable
 
     public function fedKids(Request $request)
     {
-        $anio = '2023'; $mes = '1';
-        $dist = 'OXAPAMPA';
-        $anio = $request->anio;
-        // $mes = $request->mes;
-        if (strlen($mes) == 1){ $mes2 = '0'.$mes; }
-        else{ $mes2 = $mes; }
+        // $anio = '2023'; $mes = '1';
+        // $dist = 'OXAPAMPA';
+        // $anio = $request->anio;
+        // // $mes = $request->mes;
+        // if (strlen($mes) == 1){ $mes2 = '0'.$mes; }
+        // else{ $mes2 = $mes; }
 
-        $nominal = DB::table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
-                    ->where('PROVINCIA_RES', 'OXAPAMPA')
-                    ->where('DISTRITO_RES', 'VILLA RICA')
-                    ->get();
+        // $nominal = DB::table('dbo.CONSOLIDADO_NINO_PAQUETE_JUNTOS')
+        //             ->where('PROVINCIA_RES', 'OXAPAMPA')
+        //             ->where('DISTRITO_RES', 'VILLA RICA')
+        //             ->get();
 
-        return $this->view('mail.prematuro', ['nominal' => $nominal]);
+        // return $this->view('mail.prematuro', ['nominal' => $nominal]);
     }
 
     public function sendMail()
     {
-        Mail::to('meydamamani@gmail.com')->send(new EmailFed());
+        Mail::to('meydamamani@gmail.com')->to('mayit_025@hotmail.com')->send(new EmailFed());
         return 'Mensaje Enviado!!!';
     }
 }

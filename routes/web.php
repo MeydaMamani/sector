@@ -57,6 +57,12 @@ Route::get('/juntkids/printTmz6M', [jKidsController::class, 'printTmz6M']);
 Route::get('/juntkids/printTmz12M', [jKidsController::class, 'printTmz12M']);
 Route::get('/juntkids/printTmz18M', [jKidsController::class, 'printTmz18M']);
 
+Route::post('/juntkids/graPack', [jKidsController::class, 'forGrafPack']);
+Route::get('/juntkids/printPack', [jKidsController::class, 'printPack']);
+Route::get('/juntkids/printPackObs', [jKidsController::class, 'printPackObs']);
+
+Route::post('/juntkids/graPackMonth', [jKidsController::class, 'forGrafPackMonth']);
+
 
 Route::get('/juntpregnants', [jPregnantsController::class, 'indexPregnants']);
 Route::get('/juntpregnants/print', [jPregnantsController::class, 'printPregnants']);
@@ -103,7 +109,12 @@ Route::get('/met4kids/printDx611', [mKidsController::class, 'printDx611']);
 Route::get('/met4kids/printPack45', [mKidsController::class, 'printPack45']);
 
 Route::get('/cunaSaf', [SafController::class, 'indexSaf']);
+Route::post('/cunaSaf/list', [SafController::class, 'totalData']);
 Route::get('/cunaSaf/print', [SafController::class, 'printNominal']);
+
+Route::post('/cunaSaf/graPack', [SafController::class, 'forGrafPack']);
+Route::get('/cunaSaf/printPack', [SafController::class, 'printPack']);
+Route::get('/cunaSaf/printPackObs', [SafController::class, 'printPackObs']);
 
 Route::get('/cunaScd', [ScdController::class, 'indexScd']);
 Route::get('/cunaScd/print', [ScdController::class, 'printNominal']);
